@@ -1,0 +1,10 @@
+{
+  "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "row_count": 89467,
+  "embedding_dim": 384,
+  "batch_size": 128,
+  "files": {
+    "embeddings_npy": "data/processed/semantic_embeddings.npy",
+    "index_csv": "data/processed/semantic_embeddings_index.csv"
+  }
+}
