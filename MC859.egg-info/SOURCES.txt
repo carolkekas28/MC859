@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+MC859.egg-info/PKG-INFO
+MC859.egg-info/SOURCES.txt
+MC859.egg-info/dependency_links.txt
+MC859.egg-info/requires.txt
+MC859.egg-info/top_level.txt
