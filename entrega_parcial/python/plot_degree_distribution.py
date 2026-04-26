@@ -67,19 +67,19 @@ def main() -> None:
     parser.add_argument(
         "--graphml",
         type=Path,
-        default=Path("entrega_parcial/graph_structural.graphml"),
-        help="Input GraphML file",
+        default=Path("data/graphs/graph_structural.graphml"),
+        help="Input GraphML file (e.g. copy under entrega_parcial/ if you only keep that)",
     )
     parser.add_argument(
         "--out-csv",
         type=Path,
-        default=Path("entrega_parcial/degree_distribution.csv"),
+        default=Path("entrega_parcial/csvs/degree_distribution.csv"),
         help="Output CSV with degree distribution",
     )
     parser.add_argument(
         "--out-png",
         type=Path,
-        default=Path("entrega_parcial/degree_distribution.png"),
+        default=Path("entrega_parcial/plots/degree_distribution.png"),
         help="Output PNG chart",
     )
     args = parser.parse_args()

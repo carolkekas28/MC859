@@ -14,6 +14,7 @@ description = "Analyzing Chinese using graphs and LLMs."
 readme = "README.md"
 dependencies = [
     "kaleido>=1.2.0",
+    "networkx>=3.0",
     "numpy>=2.2.6",
     "pandas>=2.3.3",
     "plotly>=6.7.0",
