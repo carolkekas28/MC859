@@ -1,6 +1,6 @@
 # Correlação Estrutura-Semântica em Radicais de Caracteres Chineses
 
-Este projeto realiza uma investigação quantitativa sobre a **transparência semântica** de ideogramas chineses. Utilizamos uma abordagem híbrida que combina **Teoria de Redes Complexas** e **Modelos de Linguagem de Grande Escala (LLMs)** para mapear como os componentes estruturais (radicais) se relacionam com o significado moderno dos caracteres.
+Este projeto realiza uma investigação quantitativa sobre a **transparência semântica** de ideogramas chineses. Utilizamos uma abordagem híbrida que combina **Teoria de Redes Complexas** e **embeddings semânticos** para mapear como os componentes estruturais (radicais) se relacionam com o significado moderno dos caracteres.
 
 Projeto desenvolvido para a disciplina **MC859 - Projeto em Teoria da Computação**.
 
@@ -26,22 +26,48 @@ Quantificar a influência semântica dos radicais na construção do significado
 ### Específicos
 
 - Construir um grafo relacionando radicais e ideogramas (via base **Unihan**).
-- Computar *embeddings* semânticos utilizando o modelo `bert-base-chinese`.
+- Computar *embeddings* semânticos utilizando o modelo `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`.
 - Comparar métricas de centralidade (Degree, Betweenness, Closeness, Eigenvector e PageRank).
-- Validar a significância dos resultados contra modelos de grafos aleatórios (**Erdos-Rényi**).
 
 ## Metodologia
 
 A execução técnica divide-se em três fases:
 
-1. **Modelagem do Grafo:** Construção de um grafo $G = (U \cup W, E)$ onde o peso das arestas é definido pela similaridade de cosseno entre os vetores do radical e do caractere.
+1. **Modelagem do Grafo:** Construção de um grafo bipartido $G = (R \cup C, E)$ com decomposição recursiva via IDS até folhas Kangxi.
 2. **Análise de Centralidade:** Identificação da dominância semântica e posição topológica dos radicais, utilizando 5 métricas de centralidade distintas.
 3. **Baselines Estatísticos:** Comparação com grafos de pesos permutados e modelos aleatórios para garantir que as correlações encontradas não sejam fruto do acaso.
 
 ## Origem dos Dados
 
-- **Estrutura:** Unihan Database (`Unihan_IRGSources.txt`, `IDS.txt` e `Unihan_Readings.txt`).
-- **Semântica:** `bert-base-chinese` via Hugging Face.
+- **Estrutura:** Unihan Database (`Unihan_IRGSources.txt`, `ids.txt` e `Unihan_Readings.txt`).
+- **Semântica:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` via Hugging Face.
+
+## Estado Atual do Pipeline
+
+O pipeline atual está implementado em scripts reproduzíveis e configurado para o recorte Unicode `U+3400..U+9FFF` (Extensão A + bloco principal), incluindo:
+
+- seleção de uma decomposição IDS por caractere com precedência regional;
+- decomposição recursiva até radicais Kangxi com normalizações e fallback;
+- construção de arestas bipartidas `kangxi_radical -> character`;
+- geração de embeddings semânticos com entradas no formato:
+  - `character: X. definition: ...`
+  - `character: X.` (quando não há definição);
+- construção de arestas ponderadas por similaridade de cosseno (`weight_cosine` e `weight_norm_01`).
+
+Arquivos principais gerados:
+
+- `data/processed/characters.csv`
+- `data/processed/ids_selected.csv`
+- `data/processed/ids_recursive_kangxi.csv`
+- `data/processed/radical_character_edges.csv`
+- `data/processed/radical_character_edges_weighted.csv`
+
+Instâncias de grafo em GraphML:
+
+- `data/graphs/graph_structural.graphml`
+- `data/graphs/graph_semantic_weighted.graphml`
+- `data/graphs/graph_structural_bipartite_layout.graphml`
+- `data/graphs/graph_semantic_weighted_bipartite_layout.graphml`
 
 ## Cronograma e Planejamento
 
