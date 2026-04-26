@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MC859"
+version = "0.1.0"
+requires-python = ">=3.10"
+authors = [
+    {name = "Pedro Damasceno Vasconcellos", email = "pedro.d.vas@gmail.com"},
+    {name = "Ana Carolina de Almeida Cardoso", email = "a246914@dac.unicamp.br"}
+]
+description = "Analyzing Chinese using graphs and LLMs."
+readme = "README.md"
+dependencies = [
+    "numpy>=2.2.6",
+    "pandas>=2.3.3",
+    "pyarrow>=24.0.0",
+    "scikit-learn>=1.7.2",
+    "sentence-transformers>=5.4.1",
+]
+
+[tool.setuptools]
+py-modules = []

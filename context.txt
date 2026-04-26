@@ -1,0 +1,112 @@
+\documentclass[10pt, a4paper]{article}
+
+% --- PACOTES ---
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+
+\setCJKmainfont{FandolSong} 
+
+\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
+
+% --- 1. TÍTULO ---
+\title{\Large \textbf{Correlação Estrutura-Semântica em Radicais e Ideogramas Chineses}\\
+        \large MC859 - Projeto em Teoria da Computação}
+\author{ Ana Carolina de Almeida Cardoso, 246914 \\
+         Pedro Damasceno Vasconcellos, 260640}
+\date{}
+
+\begin{document}
+\maketitle
+
+% --- 2. DESCRIÇÃO BREVE ---
+\section{Descrição do Projeto}
+Este projeto propõe uma investigação quantitativa sobre a relação entre estrutura e semântica em caracteres chineses por meio da análise de grafos e representações vetoriais. O objetivo central é verificar em que medida os agrupamentos induzidos pela estrutura morfológica dos caracteres se alinham aos agrupamentos obtidos a partir de similaridade semântica.
+
+Para isso, construiremos uma representação bipartida entre radicais e ideogramas com base na base Unihan e, a partir dela, estudaremos duas classes de objetos: os radicais e os ideogramas. Em cada caso, serão produzidos dois agrupamentos distintos: um agrupamento estrutural, derivado do padrão de conexões no grafo, e um agrupamento semântico, derivado de embeddings gerados a partir das definições textuais. O interesse do projeto está em comparar essas duas visões e medir o grau de concordância entre elas.
+
+Como exemplo motivador, considere o caractere 网 (wǎng), cuja origem está associada a uma rede física, mas cujo uso contemporâneo também remete à noção de “Internet”. O projeto buscará investigar se a organização estrutural dos caracteres e de seus componentes ainda preserva sinais mensuráveis dessa herança semântica.
+
+% --- 3 e 4. OBJETIVOS ---
+\section{Objetivos}
+\subsection*{Objetivo Geral}
+Investigar o grau de alinhamento entre agrupamentos estruturais e semânticos de radicais e ideogramas chineses, utilizando grafos bipartidos e embeddings textuais.
+
+\subsection*{Objetivos Específicos}
+\begin{itemize}
+    \item Construir um grafo bipartido relacionando radicais e ideogramas com base na base Unihan.
+    \item Representar radicais e ideogramas em dois espaços distintos: um estrutural, baseado em conexões no grafo, e outro semântico, baseado em embeddings de definições textuais.
+    \item Agrupar os radicais em N conjuntos a partir de critérios estruturais e, separadamente, em M conjuntos a partir de critérios semânticos, comparando as partições obtidas.
+    \item Agrupar os ideogramas em N conjuntos a partir de suas conexões com radicais e, separadamente, em M conjuntos a partir de embeddings semânticos, comparando as partições obtidas.
+    \item Avaliar quantitativamente o grau de concordância entre os agrupamentos estruturais e semânticos, identificando casos de maior alinhamento e maior divergência.
+    \item Calcular as medidas de centralidade de Grau (Degree), Intermediação (Betweenness), Proximidade (Closeness), Autovetor (Eigenvector) e PageRank para identificar a importância topológica dos componentes na rede.
+\end{itemize}
+
+% --- 5. ORIGEM DOS DADOS ---
+\section{Origem dos Dados}
+Os dados estruturais serão extraídos dos arquivos Unihan\_IRGSources.txt e Unihan\_Readings.txt da base Unicode. Para a análise semântica, utilizaremos as definições em inglês contidas no campo kDefinition. As representações vetoriais serão geradas com o modelo paraphrase-multilingual-MiniLM-L12-v2, disponibilizado via Hugging Face, por sua adequação à tarefa de capturar similaridade semântica entre palavras e definições curtas.
+
+A partir desses dados, cada radical e cada ideograma poderá ser representado tanto por seu comportamento relacional no grafo quanto por sua descrição semântica, permitindo a comparação entre organização estrutural e organização semântica.
+
+% --- 6. METODOLOGIA ---
+\section{Metodologia}
+A execução do projeto será dividida nas seguintes etapas:
+
+\begin{enumerate}
+    \item \textbf{Construção do grafo bipartido:} será construído um grafo bipartido $G = (R \cup C, E)$, em que $R$ representa o conjunto de radicais, $C$ representa o conjunto de ideogramas e cada aresta indica a associação estrutural entre um radical e um ideograma.
+
+    \item \textbf{Representação estrutural dos radicais e ideogramas:} cada radical será representado por seu padrão de conexões com ideogramas, e cada ideograma por seu padrão de conexões com radicais. Essas representações formarão o espaço estrutural de análise.
+
+    \item \textbf{Representação semântica dos radicais e ideogramas:} os ideogramas serão representados pelos embeddings de suas definições textuais. Os radicais, por sua vez, serão representados semanticamente a partir de informações textuais disponíveis.
+
+    \item \textbf{Agrupamento em dois grupos:} para cada classe de objeto, serão produzidos dois agrupamentos distintos:
+    \begin{itemize}
+        \item \textbf{Radicais:}
+        \begin{itemize}
+            \item agrupamento estrutural, com base em suas conexões com ideogramas;
+            \item agrupamento semântico, com base em embeddings.
+        \end{itemize}
+        \item \textbf{Ideogramas:}
+        \begin{itemize}
+            \item agrupamento estrutural, com base em suas conexões com radicais;
+            \item agrupamento semântico, com base em embeddings.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Comparação entre partições:} os agrupamentos estruturais e semânticos serão comparados por métricas de similaridade entre partições, com o objetivo de medir o grau de alinhamento entre topologia e semântica para radicais e ideogramas.
+
+    \item \textbf{Análise interpretativa:} além da avaliação quantitativa, serão examinados exemplos representativos de convergência e divergência entre os agrupamentos, a fim de discutir em que casos a estrutura morfológica parece preservar informação semântica e em que casos essa relação se torna menos evidente.
+\end{enumerate}
+
+% --- 7. AVALIAÇÃO DE RESULTADOS ---
+\section{Avaliação de Resultados}
+O projeto será avaliado com base na capacidade de identificar e mensurar a correspondência entre organização estrutural e organização semântica. O objetivo será considerado atingido se os experimentos permitirem:
+
+\begin{enumerate}
+    \item \textbf{Obter agrupamentos consistentes:} gerar, para radicais e ideogramas, partições estruturalmente e semanticamente interpretáveis, com separação minimamente coerente entre os grupos formados.
+
+    \item \textbf{Mensurar o alinhamento entre estrutura e semântica:} verificar, por meio de métricas de comparação entre agrupamentos, se há concordância relevante entre a partição estrutural e a partição semântica, tanto no caso dos radicais quanto no dos ideogramas.
+
+    \item \textbf{Identificar padrões de convergência e divergência:} distinguir os elementos cujos agrupamentos coincidem nas duas perspectivas daqueles cuja posição estrutural não corresponde à proximidade semântica observada.
+
+    \item \textbf{Sustentar interpretação linguística dos resultados:} utilizar os casos observados para discutir se, e em que medida, a estrutura dos caracteres chineses ainda preserva traços semânticos detectáveis em seu uso contemporâneo.
+\end{enumerate}
+
+% --- 8. PLANEJAMENTO ---
+\section{Planejamento}
+\begin{center}
+\begin{tabular}{|p{8cm}|l|}
+\hline
+\textbf{Etapa} & \textbf{Prazo} \\ \hline
+Entrega da proposta de projeto & 20/03 \\ \hline
+Coleta, limpeza e extração de embeddings & 10/04 \\ \hline
+Construção do grafo e modelagem das representações & 24/04 \\ \hline
+Agrupamentos e comparação entre partições & 25/05 \\ \hline
+Entrega final do código e relatório & 08/06 \\ \hline
+\end{tabular}
+\end{center}
+
+\end{document}
