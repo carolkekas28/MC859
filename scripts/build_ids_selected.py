@@ -14,6 +14,13 @@ PRECEDENCE = {"G": 0, "T": 1, "J": 2, "K": 3, "V": 4, "X": 5}
 CIRCLED_NUMERAL_RE = re.compile(r"[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳]")
 
 
+def in_target_range(codepoint: str, min_cp: int, max_cp: int) -> bool:
+    if not codepoint.startswith("U+"):
+        return False
+    cp = int(codepoint[2:], 16)
+    return min_cp <= cp <= max_cp
+
+
 def clean_expr(expr: str) -> str:
     """Remove tag blocks like [G], [TJK], [X]."""
     return TAG_RE.sub("", expr).strip()
@@ -41,7 +48,7 @@ def best_tag(expr: str) -> tuple[int, str]:
     return ranked[0]
 
 
-def parse_ids_selected(ids_path: Path) -> list[dict[str, str]]:
+def parse_ids_selected(ids_path: Path, min_cp: int, max_cp: int) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     with ids_path.open("r", encoding="utf-8") as handle:
         for line in handle:
@@ -53,6 +60,8 @@ def parse_ids_selected(ids_path: Path) -> list[dict[str, str]]:
                 continue
 
             codepoint, char = parts[0], parts[1]
+            if not in_target_range(codepoint, min_cp, max_cp):
+                continue
             exprs = parts[2:]
 
             chosen_idx: int | None = None
@@ -126,9 +135,13 @@ def main() -> None:
         default=Path("data/processed/ids_selected.csv"),
         help="Output CSV path",
     )
+    parser.add_argument("--min-codepoint", type=str, default="U+3400", help="Minimum codepoint to include")
+    parser.add_argument("--max-codepoint", type=str, default="U+9FFF", help="Maximum codepoint to include")
     args = parser.parse_args()
 
-    rows = parse_ids_selected(args.ids)
+    min_cp = int(args.min_codepoint[2:], 16)
+    max_cp = int(args.max_codepoint[2:], 16)
+    rows = parse_ids_selected(args.ids, min_cp, max_cp)
     write_csv(rows, args.output)
 
     print(f"Wrote ids_selected table to: {args.output}")

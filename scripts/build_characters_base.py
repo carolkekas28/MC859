@@ -8,11 +8,18 @@ import csv
 from pathlib import Path
 
 
+def in_target_range(codepoint: str, min_cp: int, max_cp: int) -> bool:
+    if not codepoint.startswith("U+"):
+        return False
+    cp = int(codepoint[2:], 16)
+    return min_cp <= cp <= max_cp
+
+
 def codepoint_to_char(codepoint: str) -> str:
     return chr(int(codepoint[2:], 16))
 
 
-def parse_definitions(readings_path: Path) -> dict[str, str]:
+def parse_definitions(readings_path: Path, min_cp: int, max_cp: int) -> dict[str, str]:
     definitions: dict[str, str] = {}
     with readings_path.open("r", encoding="utf-8") as handle:
         for line in handle:
@@ -22,19 +29,21 @@ def parse_definitions(readings_path: Path) -> dict[str, str]:
             if len(parts) != 3:
                 continue
             codepoint, field, value = parts
+            if not in_target_range(codepoint, min_cp, max_cp):
+                continue
             if field == "kDefinition":
                 definitions[codepoint] = value.strip()
     return definitions
 
 
-def parse_ids_codepoints(ids_path: Path) -> set[str]:
+def parse_ids_codepoints(ids_path: Path, min_cp: int, max_cp: int) -> set[str]:
     codepoints: set[str] = set()
     with ids_path.open("r", encoding="utf-8") as handle:
         for line in handle:
             if not line or line.startswith("#"):
                 continue
             parts = line.rstrip("\n").split("\t")
-            if len(parts) >= 3 and parts[0].startswith("U+"):
+            if len(parts) >= 3 and in_target_range(parts[0], min_cp, max_cp):
                 codepoints.add(parts[0])
     return codepoints
 
@@ -86,10 +95,14 @@ def main() -> None:
         default=Path("data/processed/characters.csv"),
         help="Output CSV path",
     )
+    parser.add_argument("--min-codepoint", type=str, default="U+3400", help="Minimum codepoint to include")
+    parser.add_argument("--max-codepoint", type=str, default="U+9FFF", help="Maximum codepoint to include")
     args = parser.parse_args()
 
-    definitions = parse_definitions(args.readings)
-    ids_codepoints = parse_ids_codepoints(args.ids)
+    min_cp = int(args.min_codepoint[2:], 16)
+    max_cp = int(args.max_codepoint[2:], 16)
+    definitions = parse_definitions(args.readings, min_cp, max_cp)
+    ids_codepoints = parse_ids_codepoints(args.ids, min_cp, max_cp)
     write_characters_table(definitions, ids_codepoints, args.output)
 
     print(f"Wrote characters table to: {args.output}")

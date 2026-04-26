@@ -63,6 +63,13 @@ def codepoint_from_char(ch: str) -> str:
     return f"U+{ord(ch):04X}"
 
 
+def in_target_range(codepoint: str, min_cp: int, max_cp: int) -> bool:
+    if not codepoint.startswith("U+"):
+        return False
+    cp = int(codepoint[2:], 16)
+    return min_cp <= cp <= max_cp
+
+
 def terminal_components(expr: str) -> list[str]:
     return [ch for ch in expr if ch not in IDS_OPERATORS and not ch.isspace()]
 
@@ -384,6 +391,8 @@ def main() -> None:
         default=Path("Unihan/Unihan_IRGSources.txt"),
         help="Path to Unihan_IRGSources.txt for kRSUnicode fallback",
     )
+    parser.add_argument("--min-codepoint", type=str, default="U+3400", help="Minimum codepoint to include")
+    parser.add_argument("--max-codepoint", type=str, default="U+9FFF", help="Maximum codepoint to include")
     args = parser.parse_args()
 
     ids_rows = load_ids_selected(args.ids_selected)
@@ -399,9 +408,13 @@ def main() -> None:
     recursive_rows: list[dict[str, str]] = []
     edge_rows: list[dict[str, str]] = []
     seen_edges: set[tuple[str, str]] = set()
+    min_cp = int(args.min_codepoint[2:], 16)
+    max_cp = int(args.max_codepoint[2:], 16)
 
     for row in ids_rows:
         root_cp = row["codepoint"]
+        if not in_target_range(root_cp, min_cp, max_cp):
+            continue
         root_char = row["char"]
         root_expr = cp_to_expr.get(root_cp, "")
         selected_tag = cp_to_tag.get(root_cp, "NONE")
