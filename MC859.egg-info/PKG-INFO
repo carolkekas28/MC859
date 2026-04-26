@@ -5,25 +5,30 @@ Summary: Analyzing Chinese using graphs and LLMs.
 Author-email: Pedro Damasceno Vasconcellos <pedro.d.vas@gmail.com>, Ana Carolina de Almeida Cardoso <a246914@dac.unicamp.br>
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+Requires-Dist: kaleido>=1.2.0
 Requires-Dist: numpy>=2.2.6
 Requires-Dist: pandas>=2.3.3
+Requires-Dist: plotly>=6.7.0
 Requires-Dist: pyarrow>=24.0.0
 Requires-Dist: scikit-learn>=1.7.2
 Requires-Dist: sentence-transformers>=5.4.1
+Requires-Dist: tqdm>=4.67.3
 
 # Correlação Estrutura-Semântica em Radicais de Caracteres Chineses
 
-Este projeto realiza uma investigação quantitativa sobre a **transparência semântica** de ideogramas chineses. Utilizamos uma abordagem híbrida que combina **Teoria de Redes Complexas** e **Modelos de Linguagem de Grande Escala (LLMs)** para mapear como os componentes estruturais (radicais) se relacionam com o significado moderno dos caracteres.
+Este projeto realiza uma investigação quantitativa sobre a **transparência semântica** de ideogramas chineses. Utilizamos uma abordagem híbrida que combina **Teoria de Redes Complexas** e **embeddings semânticos** para mapear como os componentes estruturais (radicais) se relacionam com o significado moderno dos caracteres.
 
 Projeto desenvolvido para a disciplina **MC859 - Projeto em Teoria da Computação**.
 
 ## Autores
-* **Ana Carolina de Almeida Cardoso** (RA: 246914)
-* **Pedro Damasceno Vasconcellos** (RA: 260640)
+
+- **Ana Carolina de Almeida Cardoso** (RA: 246914)
+- **Pedro Damasceno Vasconcellos** (RA: 260640)
 
 ---
 
 ## Descrição do Projeto
+
 O objetivo central é quantificar o grau de preservação ou opacidade semântica resultante da evolução linguística. 
 
 Por exemplo, o caractere **网 (wǎng)** representava originalmente uma rede de pesca física, mas hoje expandiu-se para o conceito de "Internet". Buscamos medir se a estrutura morfológica original ainda exerce influência estatística na representação vetorial (*embeddings*) desses conceitos no chinês contemporâneo.
@@ -31,31 +36,64 @@ Por exemplo, o caractere **网 (wǎng)** representava originalmente uma rede de 
 ## Objetivos
 
 ### Geral
+
 Quantificar a influência semântica dos radicais na construção do significado dos ideogramas através de métricas de centralidade em um **grafo bipartido ponderado**.
 
 ### Específicos
-* Construir um grafo relacionando radicais e ideogramas (via base **Unihan**).
-* Computar *embeddings* semânticos utilizando o modelo `bert-base-chinese`.
-* Comparar métricas de centralidade (Degree, Betweenness, Closeness, Eigenvector e PageRank).
-* Validar a significância dos resultados contra modelos de grafos aleatórios (**Erdos-Rényi**).
+
+- Construir um grafo relacionando radicais e ideogramas (via base **Unihan**).
+- Computar *embeddings* semânticos utilizando o modelo `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`.
+- Comparar métricas de centralidade (Degree, Betweenness, Closeness, Eigenvector e PageRank).
 
 ## Metodologia
+
 A execução técnica divide-se em três fases:
 
-1.  **Modelagem do Grafo:** Construção de um grafo $G = (U \cup W, E)$ onde o peso das arestas é definido pela similaridade de cosseno entre os vetores do radical e do caractere.
-2.  **Análise de Centralidade:** Identificação da dominância semântica e posição topológica dos radicais.
-3.  **Baselines Estatísticos:** Comparação com grafos de pesos permutados e modelos aleatórios para garantir que as correlações encontradas não sejam fruto do acaso.
+1. **Modelagem do Grafo:** Construção de um grafo bipartido $G = (R \cup C, E)$ com decomposição recursiva via IDS até folhas Kangxi.
+2. **Análise de Centralidade:** Identificação da dominância semântica e posição topológica dos radicais, utilizando 5 métricas de centralidade distintas.
+3. **Baselines Estatísticos:** Comparação com grafos de pesos permutados e modelos aleatórios para garantir que as correlações encontradas não sejam fruto do acaso.
 
 ## Origem dos Dados
-* **Estrutura:** Unihan Database (`Unihan_IRGSources.txt` e `Unihan_Readings.txt`).
-* **Semântica:** `bert-base-chinese` via Hugging Face.
+
+- **Estrutura:** Unihan Database (`Unihan_IRGSources.txt`, `ids.txt` e `Unihan_Readings.txt`).
+- **Semântica:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` via Hugging Face.
+
+## Estado Atual do Pipeline
+
+O pipeline atual está implementado em scripts reproduzíveis e configurado para o recorte Unicode `U+3400..U+9FFF` (Extensão A + bloco principal), incluindo:
+
+- seleção de uma decomposição IDS por caractere com precedência regional;
+- decomposição recursiva até radicais Kangxi com normalizações e fallback;
+- construção de arestas bipartidas `kangxi_radical -> character`;
+- geração de embeddings semânticos com entradas no formato:
+  - `character: X. definition: ...`
+  - `character: X.` (quando não há definição);
+- construção de arestas ponderadas por similaridade de cosseno (`weight_cosine` e `weight_norm_01`).
+
+Arquivos principais gerados:
+
+- `data/processed/characters.csv`
+- `data/processed/ids_selected.csv`
+- `data/processed/ids_recursive_kangxi.csv`
+- `data/processed/radical_character_edges.csv`
+- `data/processed/radical_character_edges_weighted.csv`
+
+Instâncias de grafo em GraphML:
+
+- `data/graphs/graph_structural.graphml`
+- `data/graphs/graph_semantic_weighted.graphml`
+- `data/graphs/graph_structural_bipartite_layout.graphml`
+- `data/graphs/graph_semantic_weighted_bipartite_layout.graphml`
 
 ## Cronograma e Planejamento
 
-| Etapa | Prazo | Status |
-| :--- | :--- | :---: |
-| Proposta do Projeto | 20/03 | ✅ |
-| Coleta e Extração de Embeddings | 10/04 | ⏳ |
-| Construção do Grafo e Métricas | 24/04 | ⏳ |
-| Análise de Resultados | 25/05 | ⏳ |
-| Entrega Final (Código + Relatório) | 08/06 | ⏳ |
+
+| Etapa                              | Prazo | Status |
+| ---------------------------------- | ----- | ------ |
+| Proposta do Projeto                | 20/03 | ✅      |
+| Coleta e Extração de Embeddings    | 10/04 | ✅      |
+| Construção do Grafo                | 26/04 | ✅      |
+| Análise de Resultados              | 25/05 | ⏳      |
+| Entrega Final (Código + Relatório) | 08/06 | ⏳      |
+
+
