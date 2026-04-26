@@ -33,7 +33,7 @@ Quantificar a influência semântica dos radicais na construção do significado
 
 A execução técnica divide-se em três fases:
 
-1. **Modelagem do Grafo:** Construção de um grafo bipartido $G = (R \cup C, E)$ com decomposição recursiva via IDS até folhas Kangxi.
+1. **Modelagem do Grafo:** Construção de um grafo bipartido `G = (R ∪ C, E)`, em que `R` é o conjunto de radicais e `C` é o conjunto de caracteres, com decomposição recursiva via IDS até folhas Kangxi.
 2. **Análise de Centralidade:** Identificação da dominância semântica e posição topológica dos radicais, utilizando 5 métricas de centralidade distintas.
 3. **Baselines Estatísticos:** Comparação com grafos de pesos permutados e modelos aleatórios para garantir que as correlações encontradas não sejam fruto do acaso.
 
@@ -46,7 +46,7 @@ A execução técnica divide-se em três fases:
 ## O que já foi implementado
 
 1. **Recorte de caracteres:** filtro de faixa Unicode `U+3400..U+9FFF` (CJK Extension A + bloco principal), aplicado de forma consistente nos scripts de extração. Desta forma, apenas caracteres comuns cuja tokenização é coerente são usados.
-2. **Tabela de caracteres:** definições (`kDefinition` em `Unihan_Readings.txt`) e cobertura em `ids.txt` → `data/processed/characters.csv` (inclui coluna `semantic_text` após rodar o script de embeddings).
+2. **Tabela de caracteres:** definições (`kDefinition` em `Unihan_Readings.txt`) e possível decomposição do caractere em `ids.txt` → `data/processed/characters.csv` (tabela que mostra definição e se possui decomposição).
 3. **IDS:** uma única decomposição por caractere, com precedência regional `G > T > J > K > V > X` (cada letra representa uma região; ex: G = China continental), limpeza de tags regionais nas colunas de expressão, e remoção de numerais circulados (placeholders gráficos) na expressão usada para o grafo.
 4. **Decomposição recursiva:** parsing de operadores IDS, folhas mapeadas aos 214 radicais Kangxi (mapeamento de variantes, desambiguação contextual de `阝` e `月`, fallback via `kRSUnicode` em `Unihan_IRGSources.txt` quando necessário) → `ids_recursive_kangxi.csv` e `radical_character_edges.csv` (sem arestas duplicadas para o mesmo par radical–caractere).
 5. **Embeddings semânticos:** vetores L2-normalizados por caractere, texto `character: …. definition: …` ou `character: …` só; arquivos `semantic_embeddings.npy`, `semantic_embeddings_index.csv`, `semantic_embeddings_meta.json` (o `.npy` é grande e está listado no `.gitignore`).
