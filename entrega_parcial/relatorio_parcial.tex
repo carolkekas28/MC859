@@ -1,0 +1,184 @@
+\documentclass[10pt, a4paper]{extarticle}
+
+% --- PACOTES ---
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xurl}
+
+\setCJKmainfont{Noto Serif CJK SC}
+\captionsetup{font=footnotesize}
+
+\geometry{a4paper, left=10mm, right=10mm, top=20mm, bottom=20mm}
+
+% --- 1. TÍTULO ---
+\title{\Large \textbf{Correlação Estrutura-Semântica em Radicais e Ideogramas Chineses}\\
+        \large MC859 - Projeto em Teoria da Computação}
+\author{ Ana Carolina de Almeida Cardoso, 246914 \\
+         Pedro Damasceno Vasconcellos, 260640}
+\date{}
+
+\begin{document}
+\maketitle
+
+% --- 2. CONTEXTUALIZAÇÃO BREVE ---
+\section{Contextualização}
+
+Muitos caracteres chineses não são símbolos indivisíveis: eles podem ser vistos como combinações de partes menores. Algumas dessas partes aparecem recorrentemente em vários caracteres e são tradicionalmente conhecidas como radicais. Assim, mesmo para um leitor que não conhece a língua chinesa, é possível interpretar parte da escrita como um sistema composicional, no qual caracteres complexos são formados pela combinação de componentes gráficos menores.
+
+A partir dessa observação, este projeto modela a relação entre radicais e caracteres como um grafo bipartido. Em um dos lados do grafo estão os radicais Kangxi, utilizados como unidades estruturais básicas; no outro lado estão os caracteres chineses. Uma aresta entre um radical e um caractere indica que aquele radical participa da composição estrutural do caractere. Dessa forma, o problema linguístico é transformado em uma estrutura computacional que pode ser analisada por meio de métricas de grafos.
+
+O objetivo geral do projeto é investigar se a estrutura gráfica dos caracteres possui relação mensurável com sua semântica. Em outras palavras, busca-se analisar se radicais que participam da formação de um caractere também carregam alguma informação associada ao seu significado. Para isso, além do grafo estrutural, foi criada uma versão ponderada semanticamente, na qual as arestas recebem pesos derivados da similaridade de cosseno entre embeddings textuais dos radicais e dos caracteres.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{representação simplificada do grafo bipartido.jpg}
+    \caption{Exemplo simplificado de um subgrafo bipartido relacionando caracteres chineses e radicais/componentes estruturais. Os vértices superiores representam caracteres, os vértices inferiores representam radicais ou componentes, e as arestas indicam participação na composição estrutural do caractere.}
+    \label{fig:subgrafo-exemplo}
+\end{figure}
+
+A Figura~\ref{fig:subgrafo-exemplo} ilustra, de forma simplificada, como essa modelagem funciona na prática: caracteres são representados em um dos lados do grafo, enquanto seus radicais ou componentes estruturais aparecem no outro, ligados por arestas que indicam participação na composição do caractere.
+
+Nesta entrega parcial, o foco está na coleta e no processamento dos dados, na criação das instâncias de grafo em formato \texttt{GraphML} e na análise estrutural inicial dos grafos gerados.
+
+% --- 3. DADOS E METODOLOGIA ---
+\section{Dados e metodologia de construção}
+
+A construção das instâncias de grafo partiu de dados públicos sobre ideogramas Han, especialmente informações de decomposição estrutural e definições textuais dos caracteres. A principal fonte utilizada foi a base Unihan, mantida pelo Unicode Consortium, que reúne informações auxiliares sobre ideogramas Han codificados no padrão Unicode, incluindo propriedades como definições, leituras, radicais e outras informações úteis para o processamento computacional desses caracteres.
+
+Como o objetivo do projeto é relacionar a estrutura gráfica dos caracteres com sua semântica, foi necessário obter uma representação que indicasse quais componentes formam cada caractere. Para isso, foram utilizadas decomposições IDS, isto é, \textit{Ideographic Description Sequences}. Uma IDS descreve a estrutura visual de um caractere em termos de seus componentes e da forma como eles estão organizados espacialmente. Por exemplo, uma decomposição pode indicar que um caractere é formado por um componente à esquerda e outro à direita, ou por um componente superior e outro inferior. Dessa forma, a IDS permite tratar cada caractere não apenas como um símbolo isolado, mas como uma composição de partes menores.
+
+Foram considerados caracteres nos intervalos Unicode \texttt{U+3400..U+4DBF} e \texttt{U+4E00..U+9FFF}, correspondentes, respectivamente, à Extensão A e ao bloco principal de ideogramas CJK unificados. No padrão Unicode, cada caractere é identificado por um ponto de código, usualmente escrito no formato \texttt{U+XXXX}, em que \texttt{XXXX} é um valor hexadecimal. Por exemplo, o caractere \texttt{一} é identificado pelo ponto de código \texttt{U+4E00}. Assim, o recorte adotado define explicitamente quais faixas de caracteres seriam consideradas na construção do grafo. 
+
+Esse recorte foi escolhido para manter uma cobertura ampla de caracteres, incluindo o bloco principal de ideogramas CJK e a Extensão A, mas evitando extensões Unicode mais raras. Essa decisão reduz a presença de caracteres muito pouco frequentes, que poderiam introduzir ruído e dificultar a interpretação dos resultados iniciais.
+
+Como um mesmo caractere pode possuir mais de uma decomposição IDS associada a variantes regionais, foi definida uma regra determinística para selecionar uma única decomposição por caractere. Nas bases utilizadas, essas variantes podem aparecer indicadas por marcações como \texttt{[G]}, \texttt{[T]}, \texttt{[J]}, \texttt{[K]}, \texttt{[V]} e \texttt{[X]}, associadas a diferentes fontes ou convenções regionais de representação dos ideogramas. A ordem de precedência adotada foi \texttt{G > T > J > K > V > X}. Essa escolha evita que um mesmo caractere gere múltiplas representações concorrentes no grafo e torna o processo de construção das instâncias reprodutível.
+
+Após a seleção das decomposições, as expressões IDS foram limpas para remover marcações regionais e elementos gráficos auxiliares sem relevância para a modelagem, como numerais circulados usados como placeholders. Em seguida, as decomposições foram processadas recursivamente, com o objetivo de expandir componentes intermediários até alcançar radicais Kangxi. Esses radicais foram adotados como as unidades estruturais finais do grafo. Na Figura~\ref{fig:decomposicao_radical} abaixo, é possível ver a decomposição de um ideograma original em um ideograma secundário, que posteriormente é convertido em radicais. Para montar o grafo final, utilizamos apenas os ideogramas originais e os radicais folha Kangxi.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{decomposição de radicais.jpg}
+    \caption{Representação da decomposição recursiva de radicais utilizada neste trabalho.}
+    \label{fig:decomposicao_radical}
+\end{figure}
+
+Também foi realizada uma etapa de normalização de variantes gráficas. Alguns radicais podem aparecer em formas diferentes dependendo de sua posição no caractere ou de convenções de escrita. Por exemplo, componentes como \texttt{亻}, \texttt{氵} e \texttt{扌} foram mapeados para suas formas canônicas \texttt{人}, \texttt{水} e \texttt{手}, respectivamente. Essa normalização evita que o mesmo radical seja representado por múltiplos vértices distintos, o que fragmentaria artificialmente o grafo.
+
+Durante a decomposição recursiva, também foram tratados casos ambíguos ou incompletos. Para evitar expansões incorretas, foram utilizados mecanismos como detecção de ciclos, limite de profundidade e fallback com informações de radical principal quando a decomposição IDS não permitia avanço útil. Além disso, alguns componentes foram desambiguados de acordo com o contexto estrutural em que apareciam na IDS.
+
+A partir desse processamento, foram geradas arestas entre caracteres e radicais. Cada aresta indica que determinado radical aparece na decomposição estrutural de um caractere. Com isso, foi obtido um grafo bipartido não direcionado, no qual um conjunto de vértices representa radicais Kangxi e o outro conjunto representa caracteres chineses.
+
+Foram exportadas duas instâncias principais no formato GraphML. A primeira, \textit{graph\_structural}, representa apenas a estrutura radical-caractere, com pesos unitários nas arestas. A segunda, \textit{graph\_semantic\_weighted}, possui a mesma topologia, mas inclui pesos semânticos nas arestas.
+
+As instâncias geradas, bem como todos os códigos e datasets gerados estão disponíveis no repositório público do projeto: https://github.com/carolkekas28/MC859.
+
+\subsection{Datasets intermediários gerados}
+Além das instâncias finais em formato \texttt{GraphML}, o pipeline gerou datasets intermediários que documentam as principais etapas de construção do grafo. Esses arquivos permitem auditar o processamento realizado, desde a seleção dos caracteres até a criação das arestas estruturais e semanticamente ponderadas.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{
+p{5.2cm}
+p{10.0cm}
+}
+\toprule
+\textbf{Dataset} & \textbf{Finalidade} \\
+\midrule
+\path{characters.csv} &
+Reúne os caracteres considerados no recorte Unicode adotado, incluindo ponto de código, símbolo, definição textual quando disponível e informações auxiliares para a etapa semântica. \\[0.25em]
+
+\path{ids_selected.csv} &
+Registra a decomposição IDS selecionada para cada caractere, após aplicação da ordem de precedência entre variantes regionais. \\[0.25em]
+
+\path{ids_recursive_kangxi.csv} &
+Armazena o resultado da decomposição recursiva dos caracteres até radicais Kangxi, incluindo informações sobre profundidade e status da expansão. \\[0.25em]
+
+\path{radical_character_edges.csv} &
+Contém as arestas estruturais do grafo bipartido, relacionando cada caractere aos radicais identificados em sua decomposição. \\[0.25em]
+
+\path{radical_character_edges_weighted.csv} &
+Acrescenta pesos semânticos às arestas estruturais, calculados a partir da similaridade de cosseno entre embeddings textuais de radicais e caracteres. \\
+\bottomrule
+\end{tabular}
+\caption{Datasets intermediários gerados durante a construção das instâncias de grafo.}
+\label{tab:datasets}
+\end{table}
+
+% --- 5. ORIGEM DOS DADOS ---
+\section{Instâncias de grafo geradas}
+
+A partir do processamento descrito na seção anterior, foram geradas duas instâncias principais de grafo, ambas disponibilizadas no formato GraphML no repositório público do projeto.
+
+A primeira instância, \textit{graph\_structural.graphml}, corresponde ao grafo bipartido estrutural. Nesse grafo, os vértices são divididos em dois conjuntos: radicais Kangxi e caracteres chineses. Uma aresta entre um radical e um caractere indica que o radical aparece na decomposição estrutural daquele caractere. Como essa versão representa apenas a presença ou ausência da relação de composição, todas as arestas possuem peso unitário.
+
+A segunda instância, \textit{graph\_semantic\_weighted.graphml}, possui a mesma topologia do grafo estrutural, isto é, o mesmo conjunto de vértices e arestas. A diferença está nos atributos das arestas: nessa versão, cada aresta recebe um peso semântico calculado a partir da similaridade de cosseno entre embeddings textuais dos radicais e dos caracteres. Para os caracteres, o texto usado no embedding combina o próprio caractere com sua definição textual, quando disponível; para os radicais, foi utilizado o embedding do símbolo do próprio radical.
+
+Assim, a primeira instância permite analisar a estrutura da relação radical-caractere, enquanto a segunda permite incorporar uma medida inicial de proximidade semântica entre os componentes estruturais e os caracteres formados por eles. Nesta entrega parcial, a análise concentra-se principalmente nas propriedades estruturais dos grafos, uma vez que ambas as instâncias compartilham a mesma topologia.
+
+% --- 6. METODOLOGIA ---
+\section{Análise inicial dos grafos}
+Como as duas instâncias geradas possuem a mesma topologia, as métricas estruturais apresentadas nesta seção são válidas tanto para o grafo estrutural quanto para o grafo semanticamente ponderado. A diferença entre eles está nos atributos das arestas, especialmente nos pesos semânticos da segunda instância.
+
+\subsection{Tamanho do grafo}
+O grafo gerado possui 27.622 vértices e 81.505 arestas. Como se trata de um grafo não direcionado, o grau médio dos vértices foi calculado pela expressão \(2|E|/|V|\), resultando em aproximadamente 5,90.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lr}
+\hline
+Métrica & Valor \\
+\hline
+Número de vértices & 27.622 \\
+Número de arestas & 81.505 \\
+Grau médio & 5,90 \\
+Número de componentes conexas & 3 \\
+\hline
+\end{tabular}
+\caption{Métricas estruturais iniciais do grafo radical-caractere.}
+\end{table}
+
+O grau médio deve ser interpretado considerando a natureza bipartida do grafo. Os vértices que representam caracteres tendem a se conectar a poucos radicais, pois cada caractere é formado por um conjunto limitado de componentes. Por outro lado, alguns radicais aparecem em muitos caracteres diferentes, o que produz vértices de grau elevado.
+
+\subsection{Distribuição dos graus}
+No grafo construído, o grau de um vértice corresponde ao número de arestas incidentes a ele. Como o grafo é bipartido, essa medida possui interpretações distintas para os dois conjuntos de vértices: no caso dos caracteres, o grau representa a quantidade de radicais associados à sua decomposição; no caso dos radicais, representa a quantidade de caracteres nos quais aquele radical aparece.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{minipage}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{degree_distribution.png}
+        \caption*{(a) Distribuição dos graus}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{weight_norm_distribution.png}
+        \caption*{(b) Distribuição dos pesos normalizados}
+    \end{minipage}
+
+    \caption{Distribuições iniciais observadas nas instâncias geradas. À esquerda, a distribuição dos graus dos vértices do grafo; à direita, a distribuição dos pesos normalizados das arestas no grafo semanticamente ponderado.}
+    \label{fig:distribuicoes-grafo}
+\end{figure}
+
+A Figura~\ref{fig:distribuicoes-grafo} apresenta, à esquerda, a distribuição dos graus dos vértices. O comportamento observado é assimétrico: a maior parte dos vértices possui grau baixo, enquanto poucos vértices concentram muitas conexões. Isso é coerente com a natureza do problema, pois caracteres individuais tendem a ser compostos por poucos radicais, enquanto alguns radicais aparecem de forma recorrente em muitos caracteres.
+
+Pelo gráfico b) da Figura~\ref{fig:distribuicoes-grafo}, nota-se ainda que existe uma quantidade considerável de arestas com peso 1 nos grafos construídos (aproximadamente 3\% do total de arestas). Isso ocorreu pois, para caracteres pouco utilizados, a tokenização trata o caractere e o principal radical que o compõe como o mesmo token, o que faz com que o produto interno resulte em 1.
+
+Essa distribuição indica que a estrutura do grafo não é uniforme. Alguns radicais desempenham papel estrutural mais relevante na rede, funcionando como componentes recorrentes na formação de caracteres. Essa propriedade será importante nas próximas etapas do projeto, nas quais serão analisadas métricas de centralidade e sua relação com os pesos semânticos das arestas.
+
+Essa assimetria sugere que a rede possui radicais estruturalmente mais centrais, isto é, componentes que participam da formação de muitos caracteres. Nas próximas etapas do projeto, essa observação será explorada por meio de métricas de centralidade.
+
+\subsection{Componentes conexas}
+O grafo possui 3 componentes conexas. A maior componente contém 27.618 vértices, concentrando praticamente todo o grafo. As outras duas componentes possuem apenas 2 vértices cada, correspondendo aos pares formados por \textit{U+5338} e o radical 23 \textit{匸}, e por \textit{U+590A} e o radical 35 \textit{夊}. Esses dois radicais são pouco produtivos na classificação tradicional Kangxi: cada um aparece associado a menos de 50 caracteres, em um universo de mais de 49 mil caracteres do dicionário Kangxi. Isso ajuda a explicar sua baixa conectividade no grafo e a formação de componentes residuais.
+
+Como a distribuição das componentes é bastante concentrada, observa-se que o grafo é quase totalmente conectado. Esse resultado é positivo para as próximas etapas do projeto, pois permite aplicar métricas de centralidade e conectividade sobre uma componente gigante que representa praticamente toda a rede.
+
+\end{document}
