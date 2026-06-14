@@ -1,0 +1,20 @@
+{
+  "graph": "structural bipartite (unit weights)",
+  "nodes": 27622,
+  "edges": 81505,
+  "radicals": 214,
+  "characters": 27408,
+  "largest_component_nodes": 27618,
+  "metrics": [
+    "degree",
+    "degree_centrality",
+    "betweenness_centrality",
+    "closeness_centrality",
+    "eigenvector_centrality",
+    "pagerank"
+  ],
+  "notes": {
+    "betweenness_closeness_eigenvector": "computed on largest connected component",
+    "pagerank_degree": "computed on full graph"
+  }
+}

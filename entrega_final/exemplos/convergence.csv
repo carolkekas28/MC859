@@ -1,0 +1,68 @@
+object_class,pattern,struct_cluster,sem_cluster,overlap_count,struct_cluster_size,sem_cluster_size,overlap_fraction_smaller_cluster,example_rank,object_id,object_label,definition
+radicals,convergence,0,0,64,212,64,1.0,1,人,人,
+radicals,convergence,0,0,64,212,64,1.0,2,力,力,
+radicals,convergence,0,0,64,212,64,1.0,3,卜,卜,
+radicals,convergence,0,0,64,212,64,1.0,4,厶,厶,
+radicals,convergence,0,0,64,212,64,1.0,5,土,土,
+radicals,convergence,1,2,1,1,66,1.0,1,一,一,
+radicals,convergence,2,1,1,1,84,1.0,1,口,口,
+radicals,convergence,0,1,83,212,84,0.9881,1,丨,丨,
+radicals,convergence,0,1,83,212,84,0.9881,2,丶,丶,
+radicals,convergence,0,1,83,212,84,0.9881,3,丿,丿,
+radicals,convergence,0,1,83,212,84,0.9881,4,乙,乙,
+radicals,convergence,0,1,83,212,84,0.9881,5,亅,亅,
+radicals,convergence,0,2,65,212,66,0.9848,1,儿,儿,
+radicals,convergence,0,2,65,212,66,0.9848,2,几,几,
+radicals,convergence,0,2,65,212,66,0.9848,3,厂,厂,
+radicals,convergence,0,2,65,212,66,0.9848,4,尸,尸,
+radicals,convergence,0,2,65,212,66,0.9848,5,广,广,
+characters,convergence,33,40,98,496,155,0.6323,1,U+34D8,㓘,"(same as U+738A 玊) jade with some defects, a lapidary, to polish gems; a surname"
+characters,convergence,33,40,98,496,155,0.6323,2,U+3EA8,㺨,fine stone like jade
+characters,convergence,33,40,98,496,155,0.6323,3,U+3EA9,㺩,"jade articles, (same as 玌) a kind of jade"
+characters,convergence,33,40,98,496,155,0.6323,4,U+3EAA,㺪,(same as 璞) an uncarved of unpolished jade or gem
+characters,convergence,33,40,98,496,155,0.6323,5,U+3EAB,㺫,(same as 玌) a kind of jade
+characters,convergence,50,35,108,278,202,0.5347,1,U+4B74,䭴,an one-year-old horse
+characters,convergence,50,35,108,278,202,0.5347,2,U+4B75,䭵,(same as standard form 颿) a swift horse
+characters,convergence,50,35,108,278,202,0.5347,3,U+4B77,䭷,horse with long mane
+characters,convergence,50,35,108,278,202,0.5347,4,U+4B78,䭸,a stallion; a male horse
+characters,convergence,50,35,108,278,202,0.5347,5,U+4B79,䭹,"movement of a horse, a horse with enormous speed and staying power, a horse with white abdominal region"
+characters,convergence,23,37,108,324,221,0.4887,1,U+3C0F,㰏,(same as 篙) a bamboo pole; a pole for punting a boat
+characters,convergence,23,37,108,324,221,0.4887,2,U+41D8,䇘,"tool to collect rope; a spinning machine, spinning wheel; the tender shoots of the bamboo with a bitter flavour"
+characters,convergence,23,37,108,324,221,0.4887,3,U+41D9,䇙,name of a variety of bamboo
+characters,convergence,23,37,108,324,221,0.4887,4,U+41DB,䇛,name of a variety of bamboo
+characters,convergence,23,37,108,324,221,0.4887,5,U+41DC,䇜,"small bamboo, a kind of bamboo"
+characters,convergence,34,41,133,1411,278,0.4784,1,U+3A7D,㩽,"parasitic branches on a tree, branches growing horizontally, (variant 勑) imperial orders"
+characters,convergence,34,41,133,1411,278,0.4784,2,U+3B41,㭁,"a kind of tree, a kind of lumber used to stop a carriage"
+characters,convergence,34,41,133,1411,278,0.4784,3,U+3B44,㭄,a king of tree
+characters,convergence,34,41,133,1411,278,0.4784,4,U+3B47,㭇,"a kind of tree, (corrupted form of 杬) a kind of plant; (non-classical form 欖) the olive tree"
+characters,convergence,34,41,133,1411,278,0.4784,5,U+3B4E,㭎,"(simplified form of 棡) a tall tree; a large tree, (interchangeable 扛) to carry on the shoulders of two of more men"
+characters,convergence,42,39,97,690,206,0.4709,1,U+3DA1,㶡,"(ancient form of 火) bright lights and illuminations of the fire, fire sounds"
+characters,convergence,42,39,97,690,206,0.4709,2,U+3DA3,㶣,"to burn; to heat, to burn over a wider and wider area; to glow; to shine, light; brightness"
+characters,convergence,42,39,97,690,206,0.4709,3,U+3DA7,㶧,warm
+characters,convergence,42,39,97,690,206,0.4709,4,U+3DA8,㶨,(same as 炋) fire
+characters,convergence,42,39,97,690,206,0.4709,5,U+3DAF,㶯,fire
+characters,convergence,15,11,82,575,176,0.4659,1,U+42BB,䊻,"silky, very fine thread"
+characters,convergence,15,11,82,575,176,0.4659,2,U+42BC,䊼,measuring unit; end of spoilt silk
+characters,convergence,15,11,82,575,176,0.4659,3,U+42BD,䊽,"fine thread, linen thread, silk thread; yarn"
+characters,convergence,15,11,82,575,176,0.4659,4,U+42C3,䋃,stinging; hairy silk fabrics
+characters,convergence,15,11,82,575,176,0.4659,5,U+42D0,䋐,"fabric; textile with patterns used for hem decorations, decorations on carriage and horses, varicolored silk or fine cloth loose in texture"
+characters,convergence,55,25,165,371,356,0.4635,1,U+4069,䁩,"(same as 魚) fish, inferior horse with blind eyes"
+characters,convergence,55,25,165,371,356,0.4635,2,U+4433,䐳,(same as 魚) fish
+characters,convergence,55,25,165,371,356,0.4635,3,U+4C32,䰲,the sheatfish
+characters,convergence,55,25,165,371,356,0.4635,4,U+4C34,䰴,"a wafting fish, a fish, to cut a fish"
+characters,convergence,55,25,165,371,356,0.4635,5,U+4C35,䰵,blackfish or mullet; anchovy
+characters,convergence,27,30,68,3485,148,0.4595,1,U+4E28,丨,(same as U+3021 HANGZHOU NUMERAL ONE 〡) number one; line; Kangxi radical 2
+characters,convergence,27,30,68,3485,148,0.4595,2,U+4E85,亅,hook; Kangxi radical 6
+characters,convergence,27,30,68,3485,148,0.4595,3,U+5182,冂,wide; Kangxi radical 13
+characters,convergence,27,30,68,3485,148,0.4595,4,U+5196,冖,cover; Kangxi radical 14
+characters,convergence,27,30,68,3485,148,0.4595,5,U+51F5,凵,receptacle; Kangxi radical 17
+characters,convergence,22,44,141,329,321,0.4393,1,U+3D89,㶉,"Mandarin duck, Aix galericulata"
+characters,convergence,22,44,141,329,321,0.4393,2,U+4CA5,䲥,(same as 鳩) the pigeon; the turtle dove
+characters,convergence,22,44,141,329,321,0.4393,3,U+4CA6,䲦,a legendary bird
+characters,convergence,22,44,141,329,321,0.4393,4,U+4CA7,䲧,cuckoo; goatsucker or nightjar
+characters,convergence,22,44,141,329,321,0.4393,5,U+4CA8,䲨,"(same as 鴻) wild swan, a wild goose, vast; profound"
+characters,convergence,12,23,150,859,344,0.436,1,U+37EB,㟫,"(same as 泉) spring; fountain, money (archaic)"
+characters,convergence,12,23,150,859,344,0.436,2,U+3CB8,㲸,"dried up (of waterway; the channel of a river; a pond, etc.)"
+characters,convergence,12,23,150,859,344,0.436,3,U+3CBA,㲺,to wash; to rinse; to clean; to spurt; to blow out
+characters,convergence,12,23,150,859,344,0.436,4,U+3CBE,㲾,"(same as 雨) rain, to rain down; to pour down"
+characters,convergence,12,23,150,859,344,0.436,5,U+3CC1,㳁,water flow; water current; momentum of moving water
