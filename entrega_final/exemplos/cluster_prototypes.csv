@@ -1,0 +1,1243 @@
+object_class,space,cluster_id,cluster_size,prototype_rank,object_id,object_label,definition,cosine_to_centroid
+radicals,structural,0,212,1,瓦,瓦,TILE,0.660913
+radicals,structural,0,212,2,走,走,RUN,0.651634
+radicals,structural,0,212,3,舟,舟,BOAT,0.648777
+radicals,structural,0,212,4,革,革,LEATHER,0.611626
+radicals,structural,0,212,5,見,見,SEE,0.592662
+radicals,structural,0,212,6,食,食,EAT,0.588595
+radicals,structural,0,212,7,角,角,HORN,0.585907
+radicals,structural,0,212,8,黑,黑,BLACK,0.581288
+radicals,structural,0,212,9,風,風,WIND,0.573961
+radicals,structural,0,212,10,韋,韋,TANNED LEATHER,0.573071
+radicals,structural,1,1,1,一,一,ONE,1.0
+radicals,structural,2,1,1,口,口,MOUTH,1.0
+radicals,semantic,0,64,1,韭,韭,LEEK,0.890895
+radicals,semantic,0,64,2,己,己,ONESELF,0.874964
+radicals,semantic,0,64,3,玄,玄,PROFOUND,0.870195
+radicals,semantic,0,64,4,子,子,CHILD,0.850464
+radicals,semantic,0,64,5,殳,殳,WEAPON,0.850159
+radicals,semantic,0,64,6,鼎,鼎,TRIPOD,0.845074
+radicals,semantic,0,64,7,生,生,LIFE,0.838837
+radicals,semantic,0,64,8,攴,攴,RAP,0.838085
+radicals,semantic,0,64,9,鬥,鬥,FIGHT,0.831393
+radicals,semantic,0,64,10,身,身,BODY,0.831376
+radicals,semantic,1,84,1,又,又,AGAIN,0.889222
+radicals,semantic,1,84,2,丨,丨,LINE,0.881861
+radicals,semantic,1,84,3,彐,彐,SNOUT,0.876797
+radicals,semantic,1,84,4,彳,彳,STEP,0.870473
+radicals,semantic,1,84,5,曰,曰,SAY,0.870445
+radicals,semantic,1,84,6,而,而,AND,0.870421
+radicals,semantic,1,84,7,乙,乙,SECOND,0.86958
+radicals,semantic,1,84,8,彡,彡,BRISTLE,0.859053
+radicals,semantic,1,84,9,无,无,NOT,0.854064
+radicals,semantic,1,84,10,貝,貝,SHELL,0.851696
+radicals,semantic,2,66,1,牙,牙,FANG,0.864566
+radicals,semantic,2,66,2,文,文,SCRIPT,0.836342
+radicals,semantic,2,66,3,魚,魚,FISH,0.822004
+radicals,semantic,2,66,4,釆,釆,DISTINGUISH,0.813289
+radicals,semantic,2,66,5,禾,禾,GRAIN,0.81064
+radicals,semantic,2,66,6,戈,戈,HALBERD,0.810389
+radicals,semantic,2,66,7,肉,肉,MEAT,0.79356
+radicals,semantic,2,66,8,耒,耒,PLOW,0.787378
+radicals,semantic,2,66,9,舟,舟,BOAT,0.779068
+radicals,semantic,2,66,10,馬,馬,HORSE,0.778355
+characters,structural,0,163,1,U+8068,聨,"connect, join; associate, ally",0.903439
+characters,structural,0,163,2,U+8033,耳,"ear; merely, only; handle; Kangxi radical 128",0.903439
+characters,structural,0,163,3,U+8051,聑,character: 聑.,0.903439
+characters,structural,0,163,4,U+806E,聮,"connect, join; associate, ally",0.903439
+characters,structural,0,163,5,U+806F,聯,"connect, join; associate, ally",0.903439
+characters,structural,0,163,6,U+8076,聶,whisper; surname,0.903439
+characters,structural,0,163,7,U+43BB,䎻,"to hear, clear, bright, ears",0.903439
+characters,structural,0,163,8,U+53D6,取,"take, receive, obtain; select",0.881817
+characters,structural,0,163,9,U+8042,聂,whisper; surname,0.881817
+characters,structural,0,163,10,U+6700,最,"most, extremely, exceedingly",0.758401
+characters,structural,1,1306,1,U+55E9,嗩,flute-like musical instrument,0.962576
+characters,structural,1,1306,2,U+3581,㖁,"(non-classical form of 吝) stingy, sparing of; closefisted, to regret, to shame; to insult",0.962576
+characters,structural,1,1306,3,U+5405,吅,character: 吅.,0.962576
+characters,structural,1,1306,4,U+54CC,哌,used in translation,0.962576
+characters,structural,1,1306,5,U+540C,同,"same, similar; together with",0.962576
+characters,structural,1,1306,6,U+540E,后,"queen, empress, sovereign; (simp. for 後) behind, rear, after",0.962576
+characters,structural,1,1306,7,U+5415,吕,surname; a musical note,0.962576
+characters,structural,1,1306,8,U+54F6,哶,bleat,0.962576
+characters,structural,1,1306,9,U+544A,告,"tell, announce, inform; accuse",0.962576
+characters,structural,1,1306,10,U+545E,呞,character: 呞.,0.962576
+characters,structural,2,160,1,U+67FB,査,"investigate, examine, seek into",0.986415
+characters,structural,2,160,2,U+6756,杖,"cane, walking stick",0.986415
+characters,structural,2,160,3,U+6747,杇,loquat,0.986415
+characters,structural,2,160,4,U+673D,朽,"decayed, rotten; rot, decay",0.986415
+characters,structural,2,160,5,U+677B,杻,"Ligustrum sinense, tree",0.986415
+characters,structural,2,160,6,U+67BB,枻,"long oar, sweep",0.986415
+characters,structural,2,160,7,U+67BC,枼,"a table, flat pieces of wood, a slip, a leaf",0.986415
+characters,structural,2,160,8,U+8012,耒,handle of plow; plow; Kangxi radical 127,0.986415
+characters,structural,2,160,9,U+690F,椏,the forking branch of a tree,0.986415
+characters,structural,2,160,10,U+67E4,柤,hawthorn,0.986415
+characters,structural,3,637,1,U+3A57,㩗,"(non-classical form of 攜) to lead by the hand, to conduct to; to take with",0.98341
+characters,structural,3,637,2,U+63B1,掱,pickpocket,0.98341
+characters,structural,3,637,3,U+626C,扬,"scatter, spread; praise",0.98341
+characters,structural,3,637,4,U+3A2C,㨬,character: 㨬.,0.98341
+characters,structural,3,637,5,U+638C,掌,"palm of hand, sole of foot, paw",0.98341
+characters,structural,3,637,6,U+6491,撑,"prop up, support; brace",0.98341
+characters,structural,3,637,7,U+629B,抛,throw (away),0.98341
+characters,structural,3,637,8,U+6299,抙,character: 抙.,0.98341
+characters,structural,3,637,9,U+635C,捜,"search, seek; investigate",0.98341
+characters,structural,3,637,10,U+62A5,报,"report, tell, announce",0.98341
+characters,structural,4,125,1,U+591A,多,"much, many; more than, over",0.963078
+characters,structural,4,125,2,U+35EC,㗬,"thick lips, to talk slowly",0.963078
+characters,structural,4,125,3,U+368B,㚋,"much; many; numerous, great; big; vast",0.963078
+characters,structural,4,125,4,U+54C6,哆,"tremble, shiver, shudder, quiver",0.795407
+characters,structural,4,125,5,U+540D,名,"name, rank, title, position",0.795407
+characters,structural,4,125,6,U+7F57,罗,net for catching birds; gauze,0.735479
+characters,structural,4,125,7,U+5922,夢,dream; visionary; wishful,0.735479
+characters,structural,4,125,8,U+3434,㐴,"(non-classical of 攀) to drag down; to seize, to pull, to hold to",0.730031
+characters,structural,4,125,9,U+4F88,侈,"luxurious, extravagant",0.730031
+characters,structural,4,125,10,U+5953,奓,extravagant,0.724583
+characters,structural,5,555,1,U+8B76,譶,character: 譶.,0.977871
+characters,structural,5,555,2,U+8A00,言,"words, speech; speak, say; Kangxi radical 149",0.977871
+characters,structural,5,555,3,U+46D0,䛐,"(same as U+8A5E 詞) an expression, words; phrases; a part of speech, tales; stories, a form of poetry",0.977871
+characters,structural,5,555,4,U+8A9B,誛,character: 誛.,0.977871
+characters,structural,5,555,5,U+471D,䜝,uncertain,0.977871
+characters,structural,5,555,6,U+8AA9,誩,to quarrel; to wrangle,0.977871
+characters,structural,5,555,7,U+8ABF,調,"transfer, move, change; tune",0.977871
+characters,structural,5,555,8,U+8AEC,諬,to open to begin to explain to inform a letter,0.977871
+characters,structural,5,555,9,U+8B07,謇,stutter; speak out boldly,0.977871
+characters,structural,5,555,10,U+8B0D,謍,character: 謍.,0.977871
+characters,structural,6,148,1,U+6B21,次,"order, sequence; next",0.973962
+characters,structural,6,148,2,U+7FA1,羡,"envy, admire; praise; covet",0.973962
+characters,structural,6,148,3,U+6063,恣,"indulge oneself, unrestrained",0.82872
+characters,structural,6,148,4,U+54A8,咨,"inquire, consult, discuss; plan",0.824535
+characters,structural,6,148,5,U+8CC7,資,property; wealth; capital,0.820349
+characters,structural,6,148,6,U+8D44,资,property; wealth; capital,0.820349
+characters,structural,6,148,7,U+6AA8,檨,mango,0.816164
+characters,structural,6,148,8,U+6828,栨,character: 栨.,0.816164
+characters,structural,6,148,9,U+6825,栥,character: 栥.,0.816164
+characters,structural,6,148,10,U+79F6,秶,character: 秶.,0.811979
+characters,structural,7,39,1,U+9455,鑕,"chopping block, executioner's block",0.97353
+characters,structural,7,39,2,U+92C7,鋇,"barium (element 56, Ba)",0.875378
+characters,structural,7,39,3,U+9400,鐀,a cupboard; a press; a wardrobe shop-counter,0.875378
+characters,structural,7,39,4,U+944D,鑍,character: 鑍.,0.875378
+characters,structural,7,39,5,U+94A1,钡,"barium (element 56, Ba)",0.875378
+characters,structural,7,39,6,U+945C,鑜,character: 鑜.,0.875378
+characters,structural,7,39,7,U+8CEA,質,"matter, material, substance",0.784822
+characters,structural,7,39,8,U+9358,鍘,sickle for cutting grass or hay,0.751713
+characters,structural,7,39,9,U+94E1,铡,sickle for cutting grass or hay,0.751713
+characters,structural,7,39,10,U+9527,锧,"tungsten (element 74, W)",0.73939
+characters,structural,8,114,1,U+6E5C,湜,"transparent, clear",0.97575
+characters,structural,8,114,2,U+6DBE,涾,character: 涾.,0.97575
+characters,structural,8,114,3,U+6C93,沓,"connected, joined; repeated",0.97575
+characters,structural,8,114,4,U+6C68,汨,Mi(luo) river in Hunan province where Qu Yuan drowned himself; to sink; used (erroneously) for U+6C69 汩,0.97575
+characters,structural,8,114,5,U+6639,昹,character: 昹.,0.97575
+characters,structural,8,114,6,U+6636,昶,a long day. bright. extended. clear,0.97575
+characters,structural,8,114,7,U+6E77,湷,character: 湷.,0.97575
+characters,structural,8,114,8,U+6FD5,濕,"wet, moist, humid, damp; an illness",0.97575
+characters,structural,8,114,9,U+6DD0,淐,character: 淐.,0.97575
+characters,structural,8,114,10,U+6E7F,湿,"wet, moist, humid, damp; illness",0.863088
+characters,structural,9,756,1,U+5802,堂,hall; government office,0.965228
+characters,structural,9,756,2,U+5816,堖,"small, head shaped hill, used in place names",0.965228
+characters,structural,9,756,3,U+5796,垖,character: 垖.,0.965228
+characters,structural,9,756,4,U+5831,報,"report, tell, announce",0.965228
+characters,structural,9,756,5,U+579A,垚,"mound, roundish mass",0.965228
+characters,structural,9,756,6,U+57B0,垰,character: 垰.,0.965228
+characters,structural,9,756,7,U+363D,㘽,"to cultivate, plant; to care for plants",0.965228
+characters,structural,9,756,8,U+5844,塄,elevated bank in field,0.965228
+characters,structural,9,756,9,U+8D71,赱,"walk, go on foot; run; leave",0.965228
+characters,structural,9,756,10,U+57D0,埐,character: 埐.,0.965228
+characters,structural,10,707,1,U+4E3F,丿,line; Kangxi radical 4,0.934178
+characters,structural,10,707,2,U+5200,刀,knife; old coin; measure,0.934178
+characters,structural,10,707,3,U+39B2,㦲,"(non-classical form of 哉) a particle expressing surprise, admiration, or grief, an expletive",0.934178
+characters,structural,10,707,4,U+529B,力,"power, capability, influence; Kangxi radical 19",0.934178
+characters,structural,10,707,5,U+9579,镹,character: 镹.,0.934178
+characters,structural,10,707,6,U+7F91,羑,a guide to goodness,0.934178
+characters,structural,10,707,7,U+723B,爻,diagrams for divination,0.934178
+characters,structural,10,707,8,U+722B,爫,radical 87,0.934178
+characters,structural,10,707,9,U+5C6F,屯,"village, hamlet; camp; station; hexagram ䷂",0.934178
+characters,structural,10,707,10,U+4E46,乆,"long time (ago); time passage, grow late",0.934178
+characters,structural,11,488,1,U+5CC0,峀,"mountain peak; cave, cavern",0.967091
+characters,structural,11,488,2,U+5CAC,岬,"cape; promontory, headland",0.967091
+characters,structural,11,488,3,U+5CAB,岫,"mountain peak; cave, cavern",0.967091
+characters,structural,11,488,4,U+5D3D,崽,"a child, a servant; a diminutive",0.832266
+characters,structural,11,488,5,U+5D67,嵧,character: 嵧.,0.832266
+characters,structural,11,488,6,U+5D93,嶓,"Boshan, mountain in Shaanxi",0.825949
+characters,structural,11,488,7,U+5D30,崰,character: 崰.,0.805419
+characters,structural,11,488,8,U+3825,㠥,"rugged and uneven, high and lofty, to roll stones down hill, piles of stones",0.791206
+characters,structural,11,488,9,U+3820,㠠,name of a mountain,0.737176
+characters,structural,11,488,10,U+5D64,嵤,character: 嵤.,0.733073
+characters,structural,12,859,1,U+3CE8,㳨,to splash (of water),0.982504
+characters,structural,12,859,2,U+6EA6,溦,drizzle; (variant) valley; (variant) mold,0.982504
+characters,structural,12,859,3,U+6E99,溙,character: 溙.,0.982504
+characters,structural,12,859,4,U+6E92,溒,character: 溒.,0.982504
+characters,structural,12,859,5,U+3CFF,㳿,"(same as 渫) rolling billows, to get rid of; to scatter, muddy, to ooze",0.982504
+characters,structural,12,859,6,U+6F82,澂,clear and still water,0.982504
+characters,structural,12,859,7,U+6E91,溑,character: 溑.,0.982504
+characters,structural,12,859,8,U+6FF4,濴,character: 濴.,0.982504
+characters,structural,12,859,9,U+3D07,㴇,"(same as 涉) to wade, to experience, to involve; to implicate",0.982504
+characters,structural,12,859,10,U+3CF4,㳴,mud; quagmire,0.982504
+characters,structural,13,571,1,U+4F2A,伪,"false, counterfeit, bogus",0.878857
+characters,structural,13,571,2,U+4ECA,今,"now, today, modern era",0.878857
+characters,structural,13,571,3,U+4EBD,亽,kwukyel,0.878857
+characters,structural,13,571,4,U+4EF1,仱,character: 仱.,0.878857
+characters,structural,13,571,5,U+98E0,飠,"eat, food; radical number 184",0.878857
+characters,structural,13,571,6,U+672E,朮,"skill, art; method; trick, device",0.875082
+characters,structural,13,571,7,U+4E34,临,"draw near, approach; descend",0.875082
+characters,structural,13,571,8,U+4E4B,之,"marks preceding phrase as modifier of following phrase; it, him her, them; go to",0.875082
+characters,structural,13,571,9,U+4E36,丶,dot; Kangxi radical 3,0.875082
+characters,structural,13,571,10,U+5154,兔,"rabbit, hare",0.875082
+characters,structural,14,60,1,U+4AAF,䪯,"sound, whisper, to groan; to moan",0.908882
+characters,structural,14,60,2,U+4AAD,䪭,a kind of musical instrument,0.908882
+characters,structural,14,60,3,U+61B6,憶,"remember, reflect upon; memory",0.867614
+characters,structural,14,60,4,U+610F,意,"thought, idea, opinion; think",0.867614
+characters,structural,14,60,5,U+6114,愔,"comfortable, contented, peaceful",0.867614
+characters,structural,14,60,6,U+4AB0,䪰,"(same as 噫) (in grammar) interjection, to exclaim",0.867614
+characters,structural,14,60,7,U+7AF8,竸,"contend, vie, compete",0.792635
+characters,structural,14,60,8,U+7ADF,竟,"finally, after all, at last",0.792635
+characters,structural,14,60,9,U+9571,镱,"ytterbium (element 70, Yb)",0.743387
+characters,structural,14,60,10,U+943F,鐿,"ytterbium (element 70, Yb)",0.743387
+characters,structural,15,575,1,U+8426,萦,"entangle, entwine, coil",0.974129
+characters,structural,15,575,2,U+7E82,纂,"edit, compile; topknot, chignon",0.974129
+characters,structural,15,575,3,U+7DAE,綮,embroidered banner,0.974129
+characters,structural,15,575,4,U+7EF8,绸,"silk cloth, satin damask",0.974129
+characters,structural,15,575,5,U+7D85,綅,thread,0.974129
+characters,structural,15,575,6,U+7ECF,经,classic works; pass through,0.974129
+characters,structural,15,575,7,U+7D82,綂,"govern, command, control; unite",0.974129
+characters,structural,15,575,8,U+7D7B,絻,mourning,0.974129
+characters,structural,15,575,9,U+7D72,絲,silk; fine thread; wire; strings,0.974129
+characters,structural,15,575,10,U+7E9F,纟,silk; Kangxi radical 120,0.974129
+characters,structural,16,204,1,U+590B,夋,to dawdle; the emperor Yao's father,0.936606
+characters,structural,16,204,2,U+57C8,埈,"high, steep, towering; stern",0.879166
+characters,structural,16,204,3,U+68AD,梭,weaver's shuttle; go to and fro,0.848727
+characters,structural,16,204,4,U+516C,公,"fair, equitable; public; duke",0.8483
+characters,structural,16,204,5,U+609B,悛,"repent, reform",0.841564
+characters,structural,16,204,6,U+837E,荾,character: 荾.,0.837983
+characters,structural,16,204,7,U+756F,畯,rustic; crude,0.82724
+characters,structural,16,204,8,U+6D5A,浚,dredge,0.825449
+characters,structural,16,204,9,U+4FCA,俊,"talented, capable; handsome",0.825449
+characters,structural,16,204,10,U+5CFB,峻,"high, steep, towering; stern",0.823659
+characters,structural,17,225,1,U+8DB6,趶,character: 趶.,0.932319
+characters,structural,17,225,2,U+4801,䠁,(same as 躋) to go up; to rise; to ascend,0.848425
+characters,structural,17,225,3,U+8E32,踲,character: 踲.,0.766704
+characters,structural,17,225,4,U+482A,䠪,"footprints; track, to trample, to walk far and fast",0.766704
+characters,structural,17,225,5,U+8E96,躖,character: 躖.,0.766704
+characters,structural,17,225,6,U+4818,䠘,"one-legged, crippled; halt, a mate; to mate",0.766704
+characters,structural,17,225,7,U+8E00,踀,character: 踀.,0.766704
+characters,structural,17,225,8,U+47FD,䟽,(same as 疏) scattered or dispersed,0.766704
+characters,structural,17,225,9,U+8E02,踂,character: 踂.,0.766704
+characters,structural,17,225,10,U+8E47,蹇,"lame, crippled; unlucky; hexagram ䷦",0.766704
+characters,structural,18,139,1,U+563A,嘺,(Cant.) coincidental,0.946883
+characters,structural,18,139,2,U+55AC,喬,"tall, lofty; proud, stately",0.946883
+characters,structural,18,139,3,U+5662,噢,"moan; interjection for pain, sad",0.88071
+characters,structural,18,139,4,U+356D,㕭,"(same as 咬) to bark as a dog, obscene expressions, an interjection; implying surprise",0.872511
+characters,structural,18,139,5,U+5451,呑,swallow; absorb,0.872511
+characters,structural,18,139,6,U+5DA0,嶠,high pointed mountain,0.861702
+characters,structural,18,139,7,U+3810,㠐,"high and pointed mountain, mountain paths (same as 嶠) lofty",0.861702
+characters,structural,18,139,8,U+592D,夭,"young, fresh-looking; die young",0.861562
+characters,structural,18,139,9,U+957A,镺,character: 镺.,0.861562
+characters,structural,18,139,10,U+618D,憍,"be haughty, proud, arrogant",0.857478
+characters,structural,19,241,1,U+9834,頴,rice tassel; sharp point; clever,0.972249
+characters,structural,19,241,2,U+71B2,熲,bright,0.972249
+characters,structural,19,241,3,U+9872,顲,character: 顲.,0.972249
+characters,structural,19,241,4,U+9801,頁,"page, sheet, leaf; Kangxi radical 181",0.972249
+characters,structural,19,241,5,U+9875,页,"page, sheet, leaf; rad. no. 181",0.972249
+characters,structural,19,241,6,U+982F,頯,cheekbone,0.972249
+characters,structural,19,241,7,U+985E,類,"class, group, kind, category",0.972249
+characters,structural,19,241,8,U+9888,颈,"neck, throat",0.972249
+characters,structural,19,241,9,U+9890,颐,cheeks; jaw; chin; rear; to nourish,0.972249
+characters,structural,19,241,10,U+9827,頧,character: 頧.,0.972249
+characters,structural,20,295,1,U+79E7,秧,"rice seedlings, young rice plants",0.964714
+characters,structural,20,295,2,U+79F5,秵,character: 秵.,0.82668
+characters,structural,20,295,3,U+7A2C,稬,"glutinous, sticky",0.818881
+characters,structural,20,295,4,U+413A,䄺,"(same as U+7A3A 稚) young and tender; small; delicate; immature, (same as U+7A0A 稊) darnels; tares, grass",0.816281
+characters,structural,20,295,5,U+79D7,秗,character: 秗.,0.790285
+characters,structural,20,295,6,U+4170,䅰,a kind of grass,0.75645
+characters,structural,20,295,7,U+415F,䅟,"(simplified form of 穇) varieties of millet; panicled millet, ear of grain producing no fruit, short grains",0.754198
+characters,structural,20,295,8,U+4156,䅖,"(same as 馣) sweet-smelling, tasty; delicious, to farm; to cultivate the land, luxuriant or exuberant of growing rice, grains;; rice plants producing no fruit, to fertilize, the grains not growing; shriveled rice plants",0.711423
+characters,structural,20,295,9,U+5928,夨,character: 夨.,0.702418
+characters,structural,20,295,10,U+5970,奰,anger,0.702418
+characters,structural,21,405,1,U+43F8,䏸,"fish, eyes of the fishes",0.961395
+characters,structural,21,405,2,U+555E,啞,"dumb, mute; become hoarse",0.961395
+characters,structural,21,405,3,U+517D,兽,"beast, animal; bestial",0.961395
+characters,structural,21,405,4,U+5514,唔,"hold in mouth; bite; (Cant.) not, negation",0.961395
+characters,structural,21,405,5,U+54D1,哑,"dumb, mute; become hoarse",0.961395
+characters,structural,21,405,6,U+54C2,哂,"smile, laugh at, sneer at; (Cant.) a final particle indicating doing something to the full extent possible",0.961395
+characters,structural,21,405,7,U+53F7,号,"mark, sign; symbol; number",0.961395
+characters,structural,21,405,8,U+35FC,㗼,"eating or talking, moving of the mouth",0.961395
+characters,structural,21,405,9,U+540F,吏,"government official, magistrate",0.961395
+characters,structural,21,405,10,U+541C,吜,character: 吜.,0.961395
+characters,structural,22,329,1,U+83BA,莺,"oriole, green finch; Sylvia species (various)",0.983484
+characters,structural,22,329,2,U+4CD2,䳒,"a kind of bird, a hawk; sparrow hawk",0.983484
+characters,structural,22,329,3,U+4CD6,䳖,"flying birds, a kind of bird",0.983484
+characters,structural,22,329,4,U+9DFD,鷽,"oriental bullfinch, weaver bird; Pyrrhula species (various)",0.983484
+characters,structural,22,329,5,U+9DBE,鶾,character: 鶾.,0.983484
+characters,structural,22,329,6,U+9DB1,鶱,to soar,0.983484
+characters,structural,22,329,7,U+9DAF,鶯,"oriole, green finch; Sylvia species (various)",0.983484
+characters,structural,22,329,8,U+9D9E,鶞,character: 鶞.,0.983484
+characters,structural,22,329,9,U+9D07,鴇,bustard; procuress; Otis species (various),0.983484
+characters,structural,22,329,10,U+9D2D,鴭,character: 鴭.,0.983484
+characters,structural,23,324,1,U+7BE6,篦,fine-toothed comb; comb hair,0.979742
+characters,structural,23,324,2,U+4247,䉇,character: 䉇.,0.979742
+characters,structural,23,324,3,U+7B97,算,"count, calculate, figure; plan",0.979742
+characters,structural,23,324,4,U+41EB,䇫,"bamboo-splints; laths, to plait, (same as 篦) a comb; especially a fine-toothed one)",0.979742
+characters,structural,23,324,5,U+7BC4,範,"pattern, model, rule, law",0.979742
+characters,structural,23,324,6,U+4233,䈳,a window-leaf; something made of strips of bamboo to block sunlight,0.979742
+characters,structural,23,324,7,U+7C31,簱,character: 簱.,0.979742
+characters,structural,23,324,8,U+7C33,簳,character: 簳.,0.979742
+characters,structural,23,324,9,U+7C38,簸,winnower,0.979742
+characters,structural,23,324,10,U+7C06,簆,reed,0.979742
+characters,structural,24,960,1,U+6675,晵,character: 晵.,0.94862
+characters,structural,24,960,2,U+6625,春,spring; wanton,0.94862
+characters,structural,24,960,3,U+662F,是,"indeed, yes, right; to be; demonstrative pronoun, this, that",0.94862
+characters,structural,24,960,4,U+3B24,㬤,wet clothes not completely dry; to dry in the sun or use sand to dry up on the ground,0.94862
+characters,structural,24,960,5,U+7A25,稥,character: 稥.,0.94862
+characters,structural,24,960,6,U+665A,晚,"night, evening; late",0.94862
+characters,structural,24,960,7,U+6669,晩,night,0.94862
+characters,structural,24,960,8,U+661A,昚,to be cautious,0.94862
+characters,structural,24,960,9,U+666D,晭,character: 晭.,0.94862
+characters,structural,24,960,10,U+6676,晶,"crystal; clear, bright; radiant",0.94862
+characters,structural,25,592,1,U+517C,兼,"unite, combine; connect; and",0.979785
+characters,structural,25,592,2,U+4E26,並,"equal to; side by side; also, what is more; both",0.979785
+characters,structural,25,592,3,U+4491,䒑,(non-classical form of 艸) grass; straw; herbs; weeds,0.979785
+characters,structural,25,592,4,U+516E,兮,exclamatory particle,0.979785
+characters,structural,25,592,5,U+5179,兹,"now, here; this; time, year",0.979785
+characters,structural,25,592,6,U+5174,兴,"thrive, prosper, flourish",0.979785
+characters,structural,25,592,7,U+5177,具,"tool, implement; draw up, write",0.979785
+characters,structural,25,592,8,U+34B7,㒷,"(simple form of U+8208 興) to prosper, to begin, to increase; to rise; to raise, flourishing",0.979785
+characters,structural,25,592,9,U+5176,其,"his, her, its, their; that",0.979785
+characters,structural,25,592,10,U+5175,兵,"soldier, troops",0.979785
+characters,structural,26,559,1,U+4F13,伓,character: 伓.,0.937823
+characters,structural,26,559,2,U+5927,大,"big, great, vast, large, high",0.937823
+characters,structural,26,559,3,U+502B,倫,normal human relationships,0.937823
+characters,structural,26,559,4,U+4FF9,俹,character: 俹.,0.937823
+characters,structural,26,559,5,U+4FED,俭,"temperate, frugal, economical",0.937823
+characters,structural,26,559,6,U+4FCE,俎,chopping board or block; painted,0.937823
+characters,structural,26,559,7,U+4F96,侖,"logical reasons, logical order",0.937823
+characters,structural,26,559,8,U+6703,會,"to assemble, meet together; a meeting; an organization",0.937823
+characters,structural,26,559,9,U+4F65,佥,"all, together, unanimous",0.937823
+characters,structural,26,559,10,U+4F3E,伾,mighty,0.937823
+characters,structural,27,3485,1,U+6169,慩,character: 慩.,0.415769
+characters,structural,27,3485,2,U+3981,㦁,"to sob; to weep, to pay attention, to be careful; to take care; to exercise caution",0.415769
+characters,structural,27,3485,3,U+607D,恽,"devise, plan, deliberate; consult",0.39746
+characters,structural,27,3485,4,U+60F2,惲,"devise, plan, deliberate; consult",0.39746
+characters,structural,27,3485,5,U+5FDA,忚,character: 忚.,0.396156
+characters,structural,27,3485,6,U+5FD4,忔,character: 忔.,0.396156
+characters,structural,27,3485,7,U+5FC6,忆,"remember, reflect upon; memory",0.396156
+characters,structural,27,3485,8,U+5FEC,忬,character: 忬.,0.396156
+characters,structural,27,3485,9,U+5FF0,忰,"suffer, become emaciated, haggard",0.385254
+characters,structural,27,3485,10,U+61F5,懵,"stupid, ignorant, dull",0.381439
+characters,structural,28,229,1,U+664E,晎,character: 晎.,0.939065
+characters,structural,28,229,2,U+5171,共,"together with, all, total; to share",0.933895
+characters,structural,28,229,3,U+9FB7,龷,character: 龷.,0.916279
+characters,structural,28,229,4,U+6614,昔,formerly; ancient; in beginning,0.909532
+characters,structural,28,229,5,U+54C4,哄,"coax; beguile, cheat, deceive",0.875769
+characters,structural,28,229,6,U+66DD,曝,"sun, air in sun, expose or dry in the sun",0.873348
+characters,structural,28,229,7,U+66B4,暴,"violent, brutal, tyrannical",0.873348
+characters,structural,28,229,8,U+517E,兾,same as 冀 U+5180 to hope for; to wish,0.867468
+characters,structural,28,229,9,U+9EC4,黄,yellow; surname,0.867468
+characters,structural,28,229,10,U+7570,異,"different, unusual, strange",0.867468
+characters,structural,29,619,1,U+84E5,蓥,polish,0.983779
+characters,structural,29,619,2,U+9435,鐵,"iron (element 26, Fe); strong, solid, firm",0.983779
+characters,structural,29,619,3,U+4931,䤱,(ancient form of 誓) a solemn pledge; a vow; an oath,0.983779
+characters,structural,29,619,4,U+950E,锎,"caesium/cesium (element 55, Cs)",0.983779
+characters,structural,29,619,5,U+950D,锍,"matte, a crude mixture of sulfides formed in smelting sulfide ores",0.983779
+characters,structural,29,619,6,U+92F6,鋶,"matte, a crude mixture of sulfides formed in smelting sulfide ores",0.983779
+characters,structural,29,619,7,U+9441,鑁,character: 鑁.,0.983779
+characters,structural,29,619,8,U+9459,鑙,character: 鑙.,0.983779
+characters,structural,29,619,9,U+946B,鑫,used in names,0.983779
+characters,structural,29,619,10,U+92BD,銽,character: 銽.,0.983779
+characters,structural,30,428,1,U+8735,蜵,character: 蜵.,0.985161
+characters,structural,30,428,2,U+8745,蝅,character: 蝅.,0.985161
+characters,structural,30,428,3,U+45BF,䖿,(same as 蜊) a kind of clam with thick white shells,0.985161
+characters,structural,30,428,4,U+882B,蠫,character: 蠫.,0.985161
+characters,structural,30,428,5,U+45B5,䖵,insects,0.985161
+characters,structural,30,428,6,U+8827,蠧,moth; insects which eat into cloth,0.985161
+characters,structural,30,428,7,U+874B,蝋,"wax; candle; waxy, glazed",0.985161
+characters,structural,30,428,8,U+45B0,䖰,a kind of gnat; a small flying insect,0.985161
+characters,structural,30,428,9,U+45D9,䗙,earthworm,0.985161
+characters,structural,30,428,10,U+87FF,蟿,Acrida chinensis,0.985161
+characters,structural,31,691,1,U+59E6,姦,"adultery, debauchery; debauch",0.973761
+characters,structural,31,691,2,U+5AB2,媲,"marry off, pair, match; compare",0.973761
+characters,structural,31,691,3,U+5B0D,嬍,character: 嬍.,0.973761
+characters,structural,31,691,4,U+5AB4,媴,character: 媴.,0.973761
+characters,structural,31,691,5,U+36D1,㛑,"three women, beautiful things",0.973761
+characters,structural,31,691,6,U+59CA,姊,elder sister,0.973761
+characters,structural,31,691,7,U+5B3D,嬽,character: 嬽.,0.973761
+characters,structural,31,691,8,U+36B8,㚸,used in girl's name,0.973761
+characters,structural,31,691,9,U+59DC,姜,surname; ginger,0.973761
+characters,structural,31,691,10,U+5ABA,媺,beautiful,0.973761
+characters,structural,32,474,1,U+5BF6,寶,"treasure, jewel; precious, rare",0.963745
+characters,structural,32,474,2,U+477A,䝺,(non-classical form of 貫) to pierce through,0.963745
+characters,structural,32,474,3,U+8D51,赑,strong,0.963745
+characters,structural,32,474,4,U+8D4F,赏,"reward, grant, bestow; appreciate",0.963745
+characters,structural,32,474,5,U+8CA0,負,"load, burden; carry, bear",0.963745
+characters,structural,32,474,6,U+4786,䞆,"bone, grease and oil",0.963745
+characters,structural,32,474,7,U+478A,䞊,"to increase; to add to; to augment, in a higher degree; more, benefit; profit; advantage",0.963745
+characters,structural,32,474,8,U+8D5B,赛,"compete, contend; contest, race",0.963745
+characters,structural,32,474,9,U+8CEE,賮,farewell gift,0.963745
+characters,structural,32,474,10,U+8D35,贵,"expensive, costly, valuable",0.963745
+characters,structural,33,496,1,U+73EE,珮,jade ornament,0.978694
+characters,structural,33,496,2,U+3EBF,㺿,"a jade-like stone, a kind of jade",0.978694
+characters,structural,33,496,3,U+7410,琐,"trifling, petty; troublesome",0.978694
+characters,structural,33,496,4,U+3EB8,㺸,a kind of jade,0.978694
+characters,structural,33,496,5,U+7409,琉,"sparkling stone; glazed, opaque",0.978694
+characters,structural,33,496,6,U+7401,琁,beautiful jade; star,0.978694
+characters,structural,33,496,7,U+7469,瑩,"lustre of gems; bright, lustrous",0.978694
+characters,structural,33,496,8,U+7459,瑙,agate; cornelian,0.978694
+characters,structural,33,496,9,U+7431,琱,"engrave, inlay, carve; exhaust",0.978694
+characters,structural,33,496,10,U+8056,聖,"holy, sacred; sage",0.978694
+characters,structural,34,1411,1,U+6880,梀,character: 梀.,0.978873
+characters,structural,34,1411,2,U+67BE,枾,persimmon,0.978873
+characters,structural,34,1411,3,U+67CC,柌,character: 柌.,0.978873
+characters,structural,34,1411,4,U+67F9,柹,persimmon,0.978873
+characters,structural,34,1411,5,U+681C,栜,character: 栜.,0.978873
+characters,structural,34,1411,6,U+682A,株,numerary adjunct for trees; root,0.978873
+characters,structural,34,1411,7,U+3BAA,㮪,a small boat,0.978873
+characters,structural,34,1411,8,U+684A,桊,a small iron ring or wooden stick worn on the nose of a bull,0.978873
+characters,structural,34,1411,9,U+67BA,枺,character: 枺.,0.978873
+characters,structural,34,1411,10,U+6858,桘,character: 桘.,0.978873
+characters,structural,35,249,1,U+88EF,裯,coverlet; bedspread,0.984367
+characters,structural,35,249,2,U+8930,褰,underclothing; to pick up one's skirts,0.984367
+characters,structural,35,249,3,U+88C1,裁,cut out; decrease,0.984367
+characters,structural,35,249,4,U+891F,褟,inner shirt or singlet,0.984367
+characters,structural,35,249,5,U+4649,䙉,"clothes, the central suture; seams on the back (said of clothes)",0.984367
+characters,structural,35,249,6,U+88C3,裃,old ceremonial garb; samurai garb,0.984367
+characters,structural,35,249,7,U+4632,䘲,character: 䘲.,0.984367
+characters,structural,35,249,8,U+88D7,裗,character: 裗.,0.984367
+characters,structural,35,249,9,U+8924,褤,character: 褤.,0.984367
+characters,structural,35,249,10,U+88CA,裊,curling upwards; wavering gently,0.984367
+characters,structural,36,794,1,U+44D0,䓐,name of a variety of grass,0.974122
+characters,structural,36,794,2,U+4492,䒒,(same as 芀) name of a plant (much used for making brooms); a reed,0.974122
+characters,structural,36,794,3,U+8458,葘,character: 葘.,0.974122
+characters,structural,36,794,4,U+44AE,䒮,character: 䒮.,0.974122
+characters,structural,36,794,5,U+8363,荣,"glory, honor; flourish, prosper",0.974122
+characters,structural,36,794,6,U+8365,荥,a county in Henan; the rising and dashing of waves,0.974122
+characters,structural,36,794,7,U+44BB,䒻,a medical herb; acrid taste; poisonless; harmless,0.974122
+characters,structural,36,794,8,U+85AB,薫,a medicinal herb; to cauterize,0.974122
+characters,structural,36,794,9,U+85A7,薧,dried food,0.974122
+characters,structural,36,794,10,U+85A4,薤,"Allium bakeri; shallots, scallion",0.974122
+characters,structural,37,140,1,U+5351,卑,"humble, low, inferior; despise",0.963496
+characters,structural,37,140,2,U+5343,千,"thousand; many, numerous; very; (Cant.) a cheater, swindler",0.899735
+characters,structural,37,140,3,U+5564,啤,beer,0.856435
+characters,structural,37,140,4,U+7A17,稗,"darnels, weeds, tares small",0.849094
+characters,structural,37,140,5,U+6E12,渒,character: 渒.,0.846647
+characters,structural,37,140,6,U+6911,椑,oval,0.846647
+characters,structural,37,140,7,U+5EB3,庳,a low-built house,0.846647
+characters,structural,37,140,8,U+930D,錍,character: 錍.,0.846647
+characters,structural,37,140,9,U+4FFE,俾,"so that, in order that; to cause; (Cant.) to give (synonymous with Mandarin 給)",0.846647
+characters,structural,37,140,10,U+8406,萆,the castor-oil plant,0.846647
+characters,structural,38,255,1,U+5ECF,廏,stable; barnyard,0.94702
+characters,structural,38,255,2,U+3898,㢘,"(non-classical form) (a variant of 廉) pure, modest, incorrupt, not avaricious--thus: reasonable in price",0.94702
+characters,structural,38,255,3,U+5EB8,庸,"usual, common, ordinary, mediocre",0.94702
+characters,structural,38,255,4,U+5E7F,广,"wide, extensive, broad; rad. 53",0.94702
+characters,structural,38,255,5,U+3882,㢂,"(terrains) of highly strategic; precipitous (hill, etc. a big mound; (same as 㢈) a collapsed house, to hit, to catch something",0.94702
+characters,structural,38,255,6,U+5E82,庂,character: 庂.,0.756304
+characters,structural,38,255,7,U+50AD,傭,"hire, employ, charter; servant",0.756304
+characters,structural,38,255,8,U+5739,圹,"tomb, grave: prairie; open wilderness",0.737922
+characters,structural,38,255,9,U+5889,墉,wall; fortified wall; small wall,0.737922
+characters,structural,38,255,10,U+5E84,庄,"village, hamlet; villa, manor",0.737922
+characters,structural,39,79,1,U+355A,㕚,"(ancient form of 爪) claws of birds or animals, feet, to scratch, to claw, to grasp",0.98317
+characters,structural,39,79,2,U+7782,瞂,character: 瞂.,0.98317
+characters,structural,39,79,3,U+72AE,犮,to pull up,0.98317
+characters,structural,39,79,4,U+53C9,叉,"crotch; fork, prong",0.98317
+characters,structural,39,79,5,U+86A4,蚤,flea; louse,0.884046
+characters,structural,39,79,6,U+86C2,蛂,character: 蛂.,0.884046
+characters,structural,39,79,7,U+8307,茇,"grass, thatch",0.823078
+characters,structural,39,79,8,U+6CB7,沷,to remove evil; to cleanse; to wash away,0.823078
+characters,structural,39,79,9,U+6C4A,汊,a branching stream,0.823078
+characters,structural,39,79,10,U+62D4,拔,"uproot, pull out",0.823078
+characters,structural,40,322,1,U+8089,肉,flesh; meat; Kangxi radical 130,0.978583
+characters,structural,40,322,2,U+43E8,䏨,"to swell up greatly, to swell; a swelling; a boil",0.978583
+characters,structural,40,322,3,U+4405,䐅,"the buttocks; the bottom; the rump, to groan; to moan",0.978583
+characters,structural,40,322,4,U+8115,脕,character: 脕.,0.978583
+characters,structural,40,322,5,U+8193,膓,intestines; emotions; sausage,0.978583
+characters,structural,40,322,6,U+8117,脗,"coinciding, agreeing",0.978583
+characters,structural,40,322,7,U+6ED5,滕,an ancient state in Shandong province; water bursting forth,0.978583
+characters,structural,40,322,8,U+818D,膍,"(Cant.) 膍胵, gizzard and liver of domestic animals",0.978583
+characters,structural,40,322,9,U+80A0,肠,intestines; emotions; sausage,0.978583
+characters,structural,40,322,10,U+811C,脜,character: 脜.,0.978583
+characters,structural,41,152,1,U+3749,㝉,"(same as 宁) space between the throne and the retiring room behind it, to store up; to save up, peaceful, used as a term of comparison",0.946792
+characters,structural,41,152,2,U+374D,㝍,(simplified form of 寫) to write; to draw,0.946792
+characters,structural,41,152,3,U+375E,㝞,"pretend to be delicate and beautiful, to hang or be hanged, to be in suspension; unfounded",0.946792
+characters,structural,41,152,4,U+5B9C,宜,"suitable, right, fitting, proper",0.946792
+characters,structural,41,152,5,U+5BE7,寧,"repose, serenity, peace; peaceful",0.878703
+characters,structural,41,152,6,U+5B81,宁,"calm, peaceful, serene; healthy",0.878703
+characters,structural,41,152,7,U+5B8C,完,"complete, finish, settle; whole",0.860665
+characters,structural,41,152,8,U+8D2E,贮,"store, stockpile, hoard",0.84778
+characters,structural,41,152,9,U+8CD3,賓,"guest, visitor; surname; submit",0.84778
+characters,structural,41,152,10,U+5BA3,宣,"declare, announce, proclaim",0.829743
+characters,structural,42,690,1,U+71DA,燚,used in people's names,0.975095
+characters,structural,42,690,2,U+70D6,烖,"calamities from Heaven, as floods, famines, pestilence, etc.; misery",0.975095
+characters,structural,42,690,3,U+70CF,烏,"crow, rook, raven; black, dark",0.975095
+characters,structural,42,690,4,U+70C9,烉,"shining, brilliant, lustrous",0.975095
+characters,structural,42,690,5,U+70C3,烃,hydrocarbon,0.975095
+characters,structural,42,690,6,U+70BC,炼,"smelt, refine; distill, condense",0.975095
+characters,structural,42,690,7,U+7099,炙,"roast, broil; toast; cauterize",0.975095
+characters,structural,42,690,8,U+708F,炏,character: 炏.,0.975095
+characters,structural,42,690,9,U+3DFA,㷺,character: 㷺.,0.975095
+characters,structural,42,690,10,U+3DAB,㶫,"(corrupted form of 燎) to burn, to illuminate; a signal light; brilliant",0.975095
+characters,structural,43,248,1,U+4E30,丰,"abundant, lush, bountiful, plenty",0.95551
+characters,structural,43,248,2,U+807F,聿,"writing brush, pencil; thereupon; Kangxi radical 129",0.95551
+characters,structural,43,248,3,U+5906,夆,resist,0.895642
+characters,structural,43,248,4,U+43FA,䏺,to swell; swelling,0.895642
+characters,structural,43,248,5,U+34DE,㓞,"to engrave, (interchangeable with U+5951 契) a written contract or agreement",0.891992
+characters,structural,43,248,6,U+7F8A,羊,"sheep, goat; Kangxi radical 123",0.873738
+characters,structural,43,248,7,U+4E3E,举,"raise, lift up; recommend",0.873738
+characters,structural,43,248,8,U+5F57,彗,broomstick; comet,0.854268
+characters,structural,43,248,9,U+3DEF,㷯,smoke and dust everywhere; air pollution,0.853598
+characters,structural,43,248,10,U+8288,芈,bleat of sheep; surname,0.853598
+characters,structural,44,59,1,U+5B9B,宛,"seem, as if, crooked",0.977098
+characters,structural,44,59,2,U+5918,夘,fourth earthly branch,0.899428
+characters,structural,44,59,3,U+5917,夗,to turn over when asleep,0.899428
+characters,structural,44,59,4,U+5376,卶,character: 卶.,0.899428
+characters,structural,44,59,5,U+60CC,惌,to bear a grudge against,0.873141
+characters,structural,44,59,6,U+60CB,惋,"regret, be sorry; alarmed",0.873141
+characters,structural,44,59,7,U+9D77,鵷,"a legendary bird similar to the phoenix, firebird",0.873141
+characters,structural,44,59,8,U+9E53,鹓,co-worker,0.873141
+characters,structural,44,59,9,U+83C0,菀,luxuriance of growth,0.862361
+characters,structural,44,59,10,U+45D5,䗕,"(same as 蜿) bends; turns; curves; turns and twists, to circle; to hover around, a name for the earthworm",0.862361
+characters,structural,45,36,1,U+568B,嚋,character: 嚋.,0.997119
+characters,structural,45,36,2,U+58FD,壽,"old age, long life; lifespan",0.997119
+characters,structural,45,36,3,U+71FE,燾,"shine, illuminate; cover, envelope",0.935974
+characters,structural,45,36,4,U+71FD,燽,character: 燽.,0.935974
+characters,structural,45,36,5,U+399E,㦞,(same as 懤) grieved; pained; in deep grief; to lament deeply,0.9317
+characters,structural,45,36,6,U+74B9,璹,character: 璹.,0.9317
+characters,structural,45,36,7,U+61E4,懤,"grieved, pained",0.9317
+characters,structural,45,36,8,U+8E8A,躊,"hesitate, falter; smug, self-satisfied",0.927427
+characters,structural,45,36,9,U+91BB,醻,"to pledge, thank",0.927427
+characters,structural,45,36,10,U+8EC7,軇,character: 軇.,0.927427
+characters,structural,46,860,1,U+3829,㠩,"(same as 芒 荒) vast, to reach, dwell, to neglect; to leave completely unattended to",0.964499
+characters,structural,46,860,2,U+348F,㒏,character: 㒏.,0.964499
+characters,structural,46,860,3,U+4ECE,从,"from, by, since, whence, through",0.964499
+characters,structural,46,860,4,U+3453,㑓,character: 㑓.,0.964499
+characters,structural,46,860,5,U+50CC,僌,character: 僌.,0.964499
+characters,structural,46,860,6,U+501C,倜,raise high; unrestrained,0.964499
+characters,structural,46,860,7,U+3459,㑙,frivolous; flippant; capricious; playful,0.964499
+characters,structural,46,860,8,U+4F69,佩,"belt ornament, pendant; wear at waist, tie to the belt; respect",0.964499
+characters,structural,46,860,9,U+344E,㑎,last name,0.964499
+characters,structural,46,860,10,U+5071,偱,character: 偱.,0.964499
+characters,structural,47,212,1,U+518F,冏,"(archaic form of U+70AF 炯) light, bright",0.912529
+characters,structural,47,212,2,U+3563,㕣,"a marsh at the foot of the hills, (interchangeable 湢 沇) name of a river",0.911286
+characters,structural,47,212,3,U+3592,㖒,"(non-classical form of 啼) to cry; to mourn; to howl, to twitter; to crow, to sneeze; a running at the nose",0.911286
+characters,structural,47,212,4,U+553A,唺,character: 唺.,0.911286
+characters,structural,47,212,5,U+53EA,只,"only, just, simply",0.911286
+characters,structural,47,212,6,U+53ED,叭,trumpet,0.911286
+characters,structural,47,212,7,U+546E,呮,"to sit; (Cant.) only, merely; a final particle of intimacy",0.911286
+characters,structural,47,212,8,U+564C,噌,"scold, shout at",0.911286
+characters,structural,47,212,9,U+5546,商,"commerce, business, trade",0.870821
+characters,structural,47,212,10,U+889E,袞,ceremonial dress worn by the emperor,0.83707
+characters,structural,48,118,1,U+930F,錏,soft steel; ammonium,0.970298
+characters,structural,48,118,2,U+91EB,釫,character: 釫.,0.970298
+characters,structural,48,118,3,U+9223,鈣,calcium (Ca),0.970298
+characters,structural,48,118,4,U+94D4,铔,soft steel; ammonium,0.970298
+characters,structural,48,118,5,U+924F,鉏,"hoe; eradicate, eliminate",0.970298
+characters,structural,48,118,6,U+925F,鉟,character: 鉟.,0.970298
+characters,structural,48,118,7,U+926A,鉪,character: 鉪.,0.970298
+characters,structural,48,118,8,U+9215,鈕,"button, knob; surname",0.970298
+characters,structural,48,118,9,U+93CE,鏎,character: 鏎.,0.970298
+characters,structural,48,118,10,U+9499,钙,"calcium (element 20, Ca)",0.970298
+characters,structural,49,313,1,U+9FB9,龹,character: 龹.,0.934364
+characters,structural,49,313,2,U+5939,夹,be wedged or inserted between,0.934364
+characters,structural,49,313,3,U+4FA0,侠,chivalrous person; knight-errant,0.934364
+characters,structural,49,313,4,U+592B,夫,"man, male adult, husband; those",0.931558
+characters,structural,49,313,5,U+4F15,伕,common laborer,0.931558
+characters,structural,49,313,6,U+4EC1,仁,"humaneness, benevolence, kindness",0.931558
+characters,structural,49,313,7,U+3698,㚘,"(interchangeable 伴) a partner; a companion, (same as 赫) bright; luminous, glorious (same as 扶) to support; to prop up; to help",0.931558
+characters,structural,49,313,8,U+3435,㐵,Confucianism; scholar,0.931558
+characters,structural,49,313,9,U+83D0,菐,a thicket,0.843907
+characters,structural,49,313,10,U+50D5,僕,"slave, servant, I",0.843907
+characters,structural,50,278,1,U+9A33,騳,"run, race",0.981383
+characters,structural,50,278,2,U+9A6B,驫,horses,0.981383
+characters,structural,50,278,3,U+4B89,䮉,horses kept at a courier station in former times,0.981383
+characters,structural,50,278,4,U+9A12,騒,"harass, bother, annoy, disturb",0.981383
+characters,structural,50,278,5,U+99F8,駸,galloping; speeding,0.981383
+characters,structural,50,278,6,U+9A2B,騫,"raise, hold high; fly, soar",0.981383
+characters,structural,50,278,7,U+9A06,騆,character: 騆.,0.981383
+characters,structural,50,278,8,U+9A7F,驿,relay station,0.981383
+characters,structural,50,278,9,U+99C2,駂,character: 駂.,0.981383
+characters,structural,50,278,10,U+4BB8,䮸,"to move slowly and then swiftly (said of a horse), a swift horse, to neigh",0.981383
+characters,structural,51,305,1,U+96D9,雙,"set of two, pair, couple; both",0.963146
+characters,structural,51,305,2,U+96BB,隻,"single, one of pair, lone; measure word",0.963146
+characters,structural,51,305,3,U+4A07,䨇,"(same as 雙) a pair; a couple; a brace, two; both",0.963146
+characters,structural,51,305,4,U+96BE,难,"difficult, arduous, hard; unable",0.963146
+characters,structural,51,305,5,U+84A6,蒦,to measure; to calculate,0.85922
+characters,structural,51,305,6,U+77CD,矍,look about in fright or alarm,0.855059
+characters,structural,51,305,7,U+4084,䂄,to startle; to surprise; to amaze; to look at in surprise,0.855059
+characters,structural,51,305,8,U+612F,愯,character: 愯.,0.815531
+characters,structural,51,305,9,U+762B,瘫,"paralysis, palsy, numbness",0.81137
+characters,structural,51,305,10,U+4A25,䨥,"a pouring rain; to rain hard; to rain cats and dogs, a pair; a couple, two; both, to rain",0.807209
+characters,structural,52,270,1,U+53EF,可,"may, can, -able; possibly",0.956681
+characters,structural,52,270,2,U+53EE,叮,exhort or enjoin repeatedly,0.956681
+characters,structural,52,270,3,U+5475,呵,scold; laughing sound; yawn,0.956681
+characters,structural,52,270,4,U+54E5,哥,elder brother,0.956681
+characters,structural,52,270,5,U+4E01,丁,"male adult; robust, vigorous; 4th heavenly stem",0.9013
+characters,structural,52,270,6,U+4E89,争,"dispute, fight, contend, strive",0.9013
+characters,structural,52,270,7,U+4E8D,亍,to take small steps; Korean place name,0.9013
+characters,structural,52,270,8,U+36A1,㚡,standing without a straight back,0.898143
+characters,structural,52,270,9,U+4400,䐀,to dismember body of the livestock,0.898143
+characters,structural,52,270,10,U+5947,奇,"strange, unusual, uncanny, occult",0.898143
+characters,structural,53,309,1,U+3858,㡘,"screens; cloth partition; door curtain; door flap, (same as 縑) a kind of fine silk, downy, feathery; featheriness",0.852636
+characters,structural,53,309,2,U+9EF9,黹,"embroidery, needlework; Kangxi radical 204",0.852636
+characters,structural,53,309,3,U+5E3A,帺,character: 帺.,0.852636
+characters,structural,53,309,4,U+3862,㡢,"(a variant of 幔) a curtain, a screen",0.843501
+characters,structural,53,309,5,U+3859,㡙,curtain for carriage,0.843501
+characters,structural,53,309,6,U+5E03,布,"cotton cloth, textiles, linen",0.843501
+characters,structural,53,309,7,U+386A,㡪,"the varnish on the floor, to erase; to obliterate, to scribble",0.843501
+characters,structural,53,309,8,U+5DFE,巾,kerchief; towel; turban; Kangxi radical 50,0.843501
+characters,structural,53,309,9,U+3852,㡒,"a calico sack for grain, etc.",0.843501
+characters,structural,53,309,10,U+3848,㡈,"the ropes attached to the bier and held by mourners, mourning garments, a ceremonial cap for high ministers in old China",0.843501
+characters,structural,54,119,1,U+3614,㘔,"eat, to bite, to gnaw, (a dialect) usually at the end of a sentence; tone (of one's speech)",0.934172
+characters,structural,54,119,2,U+5633,嘳,character: 嘳.,0.934172
+characters,structural,54,119,3,U+5457,呗,final particle of assertion,0.934172
+characters,structural,54,119,4,U+8CF3,賳,character: 賳.,0.934172
+characters,structural,54,119,5,U+5458,员,"member; personnel, staff member",0.934172
+characters,structural,54,119,6,U+5504,唄,final particle of assertion,0.934172
+characters,structural,54,119,7,U+54E1,員,"member; personnel, staff member",0.934172
+characters,structural,54,119,8,U+7BD4,篔,tall bamboo,0.919111
+characters,structural,54,119,9,U+7B7C,筼,tall bamboo,0.919111
+characters,structural,54,119,10,U+52CB,勋,meritorious deed; merits; rank,0.793258
+characters,structural,55,371,1,U+9BCD,鯍,character: 鯍.,0.977301
+characters,structural,55,371,2,U+9C2E,鰮,sardine,0.977301
+characters,structural,55,371,3,U+9BDB,鯛,"Pagrosomus major, porgy",0.977301
+characters,structural,55,371,4,U+9BEC,鯬,character: 鯬.,0.977301
+characters,structural,55,371,5,U+9CB7,鲷,"Pagrosomus major, porgy",0.977301
+characters,structural,55,371,6,U+9C4C,鱌,character: 鱌.,0.977301
+characters,structural,55,371,7,U+9BBF,鮿,dried fish,0.977301
+characters,structural,55,371,8,U+9C28,鰨,sole,0.977301
+characters,structural,55,371,9,U+9BBC,鮼,character: 鮼.,0.977301
+characters,structural,55,371,10,U+9BB8,鮸,Sciaena albiflora; Otolithoides miiuy,0.977301
+characters,structural,56,982,1,U+4E8F,亏,"lose, fail; damage; deficient",0.943555
+characters,structural,56,982,2,U+4E94,五,five; surname,0.943555
+characters,structural,56,982,3,U+4E90,亐,character: 亐.,0.943555
+characters,structural,56,982,4,U+4E9E,亞,Asia; second; used as a prefix to names,0.943555
+characters,structural,56,982,5,U+8C55,豕,"a pig, boar; Kangxi radical 152",0.943555
+characters,structural,56,982,6,U+43E3,䏣,(same as non-classical form 蛆) maggot,0.943555
+characters,structural,56,982,7,U+4E8C,二,two; twice,0.943555
+characters,structural,56,982,8,U+897F,西,"west(ern); westward, occident; Kangxi radical 146",0.943555
+characters,structural,56,982,9,U+4E4C,乌,"crow, rook, raven; black, dark",0.943555
+characters,structural,56,982,10,U+4E35,丵,thick (grass),0.943555
+characters,structural,57,168,1,U+752B,甫,"begin; man, father; great; a distance of ten li",0.948243
+characters,structural,57,168,2,U+55B8,喸,place name,0.91306
+characters,structural,57,168,3,U+54FA,哺,chew food; feed,0.91306
+characters,structural,57,168,4,U+535A,博,"gamble, play games; wide, broad",0.905712
+characters,structural,57,168,5,U+5C03,尃,"to state to, to announce",0.905712
+characters,structural,57,168,6,U+35D8,㗘,to bite the hard and solid food,0.892253
+characters,structural,57,168,7,U+8386,莆,a kind of legendary tree,0.854271
+characters,structural,57,168,8,U+6D66,浦,"bank of river, shore; surname",0.846923
+characters,structural,57,168,9,U+84AA,蒪,character: 蒪.,0.83967
+characters,structural,57,168,10,U+94FA,铺,"shop, store; place sleep, bed",0.834063
+characters,structural,58,447,1,U+66FE,曾,already; sign of past,0.900454
+characters,structural,58,447,2,U+4E37,丷,"“ears-out” component used in some Chinese characters (e.g. U+5151 兑); archaic form of U+516B 八; kwukyel, an archaic hanja-based writing system used in Korea before the invention of hangul",0.900454
+characters,structural,58,447,3,U+777F,睿,"shrewd, astute, clever, keen",0.900454
+characters,structural,58,447,4,U+5F1F,弟,"young brother; junior; I, me",0.900454
+characters,structural,58,447,5,U+516B,八,"eight; all around, all sides",0.900454
+characters,structural,58,447,6,U+440C,䐌,"(ancient form of 腆) luxuriant; abundant; rich; plentiful of food, brazen-faced; shameless, good; virtuous, protruding, as belly, etc., to go to excess",0.900454
+characters,structural,58,447,7,U+4987,䦇,(ancient form of 髻) dressed hair of a Chinese woman; a coiffure with a topknot,0.900454
+characters,structural,58,447,8,U+5178,典,"law, canon; documentation; classic, scripture",0.900454
+characters,structural,58,447,9,U+342E,㐮,"(same as 襄) to help; to assist, to achieve, to rise; to raise",0.796253
+characters,structural,58,447,10,U+516D,六,number six,0.796253
+characters,structural,59,263,1,U+7534,甴,(Cant.) cockroach,0.970004
+characters,structural,59,263,2,U+9B32,鬲,type of caldron with three hollow legs; name of a state; Kangxi radical 193,0.970004
+characters,structural,59,263,3,U+8980,覀,variant of Kangxi radical 146,0.970004
+characters,structural,59,263,4,U+7968,票,slip of paper or bamboo; ticket,0.904402
+characters,structural,59,263,5,U+560C,嘌,"fast, speedy",0.904402
+characters,structural,59,263,6,U+35DA,㗚,vexingly verbose or wordy; prosy; complicated; annoying,0.877971
+characters,structural,59,263,7,U+6817,栗,"chestnut tree, chestnuts; surname",0.877971
+characters,structural,59,263,8,U+4675,䙵,"rustic; low; mean, to despise, family name",0.875672
+characters,structural,59,263,9,U+5819,堙,"bury; dam, block up",0.875672
+characters,structural,59,263,10,U+35B6,㖶,"(same as 捗) to swallow; to gulp, to be choked with food, (same as 諲) respectful; venerable",0.875672
+characters,semantic,0,6914,1,U+3403,㐃,character: 㐃.,1.0
+characters,semantic,0,6914,2,U+833D,茽,character: 茽.,1.0
+characters,semantic,0,6914,3,U+833B,茻,character: 茻.,1.0
+characters,semantic,0,6914,4,U+8330,茰,character: 茰.,1.0
+characters,semantic,0,6914,5,U+832E,茮,character: 茮.,1.0
+characters,semantic,0,6914,6,U+832A,茪,character: 茪.,1.0
+characters,semantic,0,6914,7,U+8325,茥,character: 茥.,1.0
+characters,semantic,0,6914,8,U+8324,茤,character: 茤.,1.0
+characters,semantic,0,6914,9,U+8321,茡,character: 茡.,1.0
+characters,semantic,0,6914,10,U+831F,茟,character: 茟.,1.0
+characters,semantic,1,239,1,U+3A0B,㨋,to beat; to strike; to attach,0.953207
+characters,semantic,1,239,2,U+3A83,㪃,to thump; to beat; to strike; to attack,0.945244
+characters,semantic,1,239,3,U+3AAE,㪮,to beat; to attack; to strike,0.940648
+characters,semantic,1,239,4,U+64DC,擜,to beat; to strike; to attack,0.94004
+characters,semantic,1,239,5,U+3A0F,㨏,to beat; to strike; to attack,0.94004
+characters,semantic,1,239,6,U+3AA7,㪧,to beat; to strike; to attack,0.94004
+characters,semantic,1,239,7,U+3A02,㨂,to beat; to strike; to attack,0.94004
+characters,semantic,1,239,8,U+3A6C,㩬,to beat; to strike; to attack,0.94004
+characters,semantic,1,239,9,U+3A75,㩵,to beat; to strike; to attack,0.94004
+characters,semantic,1,239,10,U+3A4B,㩋,"to beat; to strike; to attack, sound of beating or hitting, a handle; a hold; to hold; to take, to guard; to watch over",0.937322
+characters,semantic,2,372,1,U+3501,㔁,a kind of tool; a hook; a barb; a sickle,0.892552
+characters,semantic,2,372,2,U+9482,钂,an ancient weapon resembling a pitchfork,0.886334
+characters,semantic,2,372,3,U+3B6D,㭭,"a kind of tree, a harrow; a drag, a written contract or agreement; a bond; a deed, handles of spears or lances used in ancient times",0.884301
+characters,semantic,2,372,4,U+945A,鑚,"drill, bore; pierce; diamond",0.881127
+characters,semantic,2,372,5,U+3B4F,㭏,"(simplified form of 椲) a kind of wood (used as a kind of material to make basin and bowl, etc.); (same as 楎) a peg for hanging things on, a clothes-horse",0.880474
+characters,semantic,2,372,6,U+6932,椲,"(simplified form of 椲) a kind of wood (used as a kind of material to make basin and bowl, etc.); (same as 楎) a peg for hanging things on, a clothes-horse",0.880474
+characters,semantic,2,372,7,U+93E6,鏦,a short spear,0.878909
+characters,semantic,2,372,8,U+9364,鍤,"spade, shovel; marking pin",0.878552
+characters,semantic,2,372,9,U+9538,锸,"spade, shovel; marking pin",0.878552
+characters,semantic,2,372,10,U+3B97,㮗,(same as 矜) the handle of a spear,0.877823
+characters,semantic,3,390,1,U+44D8,䓘,"a kind of plant, name of a variety of grass",0.958445
+characters,semantic,3,390,2,U+449C,䒜,"name of a variety of grass, a kind of herb",0.944813
+characters,semantic,3,390,3,U+839B,莛,"stalks of grasses, etc.",0.935383
+characters,semantic,3,390,4,U+6959,楙,name of plant; lush,0.934049
+characters,semantic,3,390,5,U+44F6,䓶,(same as 藾) a kind of plant; a kind of herb,0.932098
+characters,semantic,3,390,6,U+4530,䔰,(variant of 葍) name of a variety of grass; perennial; creeping plants,0.929515
+characters,semantic,3,390,7,U+4573,䕳,name of a variety of grass,0.926149
+characters,semantic,3,390,8,U+44E3,䓣,name of a variety of grass,0.926149
+characters,semantic,3,390,9,U+44E2,䓢,name of a variety of grass,0.926149
+characters,semantic,3,390,10,U+4576,䕶,name of a variety of grass,0.926149
+characters,semantic,4,252,1,U+3C9F,㲟,hair,0.912409
+characters,semantic,4,252,2,U+4BF9,䯹,hair,0.912409
+characters,semantic,4,252,3,U+4BFB,䯻,dressed hair,0.908696
+characters,semantic,4,252,4,U+36F2,㛲,"(same as 髮) the hair on the human head, hairbreadth; hair's-breadth",0.90462
+characters,semantic,4,252,5,U+9AF4,髴,disheveled hair; similar to,0.904381
+characters,semantic,4,252,6,U+6BDB,毛,"hair, fur, feathers; coarse",0.901163
+characters,semantic,4,252,7,U+4BF2,䯲,"a coiffure with a topknot, dishevelled hair",0.896904
+characters,semantic,4,252,8,U+9AFD,髽,to dress the hair,0.896662
+characters,semantic,4,252,9,U+9AEA,髪,hair,0.896278
+characters,semantic,4,252,10,U+4BFF,䯿,"a coiffure with a topknot, hairy, dishevelled hair",0.895827
+characters,semantic,5,414,1,U+3A0A,㨊,"to discard; to reject; to abandon, to feel; to stroke, to sort out the divining stalks, to drop; to lose; to fall off, to weigh; to measure weight",0.886638
+characters,semantic,5,414,2,U+5C05,尅,"subdue, destroy, overcome",0.885487
+characters,semantic,5,414,3,U+6222,戢,to put away; to cease; store up,0.885325
+characters,semantic,5,414,4,U+63EE,揮,direct; wipe away; squander,0.882308
+characters,semantic,5,414,5,U+52E6,勦,"destroy, exterminate, annihilate",0.879298
+characters,semantic,5,414,6,U+752A,甪,"to loose, take off, get rid of",0.878988
+characters,semantic,5,414,7,U+6BB1,殱,"annihilate, wipe out, kill off",0.876851
+characters,semantic,5,414,8,U+3C70,㱰,"to destroy; to ruin, to put off",0.875055
+characters,semantic,5,414,9,U+6B7C,歼,"annihilate, wipe out, kill off",0.874834
+characters,semantic,5,414,10,U+470F,䜏,"to withdraw; to decline, clever",0.873004
+characters,semantic,6,302,1,U+4932,䤲,chemical element; (鍶) old translation; Sr,0.852745
+characters,semantic,6,302,2,U+40A3,䂣,a kind of mineral,0.831836
+characters,semantic,6,302,3,U+948C,钌,"ruthenium (element 44, Ru)",0.829292
+characters,semantic,6,302,4,U+91D5,釕,"ruthenium (element 44, Ru)",0.829292
+characters,semantic,6,302,5,U+94B7,钷,"promethium (element 61, Pm)",0.81662
+characters,semantic,6,302,6,U+9255,鉕,"promethium (element 145, Pm)",0.815231
+characters,semantic,6,302,7,U+791E,礞,mineral,0.81075
+characters,semantic,6,302,8,U+92F1,鋱,"terbium (element 65, Tb)",0.807253
+characters,semantic,6,302,9,U+94FD,铽,"terbium (element 65, Tb)",0.807253
+characters,semantic,6,302,10,U+94FC,铼,"rhenium (element 75, Re)",0.805956
+characters,semantic,7,293,1,U+777C,睼,to gaze at,0.955735
+characters,semantic,7,293,2,U+7744,睄,(Cant.) to glance,0.954207
+characters,semantic,7,293,3,U+6010,怐,(Cant.) 怐豆 to stare,0.95188
+characters,semantic,7,293,4,U+77D6,矖,to stare at,0.948786
+characters,semantic,7,293,5,U+77B5,瞵,to stare at,0.948786
+characters,semantic,7,293,6,U+5062,偢,to stare at,0.948786
+characters,semantic,7,293,7,U+4038,䀸,"(interchangeable 䀿) to have a casual and short glance; to catch a glimpse of, pretty eyes, insight; vision, bright eyes",0.938214
+characters,semantic,7,293,8,U+403F,䀿,"(same as 䀸) to have a casual and short glance; to catch a glimpse of, pretty eyes, insight; vision, bright eyes",0.936822
+characters,semantic,7,293,9,U+404E,䁎,"to make a close inspection, secretion of the eye, (same as 瞠) to look straight at; to stare at",0.936464
+characters,semantic,7,293,10,U+406F,䁯,"to look at; to see; to inspect; (same as U+77B8 瞸) gazing into distance, having one eye smaller than the other, to look askance at; (Cant.) to close the eyes",0.935377
+characters,semantic,8,427,1,U+5505,唅,"a sound; to put in the mouth; (Cant.) to grunt, grumble",0.946279
+characters,semantic,8,427,2,U+4AAF,䪯,"sound, whisper, to groan; to moan",0.940067
+characters,semantic,8,427,3,U+3567,㕧,used to represent sound; to hum; to groan,0.935361
+characters,semantic,8,427,4,U+56B1,嚱,a shrill noise; alas!,0.929865
+characters,semantic,8,427,5,U+54BE,咾,a noise; a sound,0.917222
+characters,semantic,8,427,6,U+5686,嚆,"give forth sound, make noise",0.914722
+characters,semantic,8,427,7,U+55C1,嗁,"give forth sound, make noise",0.914722
+characters,semantic,8,427,8,U+35AA,㖪,"sound of surprising, to laugh loudly, to flow off, loquacious, sound; voice; tone",0.912652
+characters,semantic,8,427,9,U+3600,㘀,"to sound, a sound, the cry of a bird or animal",0.912094
+characters,semantic,8,427,10,U+46C1,䛁,"(interchangeable 喃 諵) to murmur; in a low voice, to chatter; to gabble",0.911879
+characters,semantic,9,402,1,U+3885,㢅,"a shield; a screen, a tall building; an edifice, (same as 弄) an alley; a lane",0.882433
+characters,semantic,9,402,2,U+95D1,闑,the doorsill,0.871894
+characters,semantic,9,402,3,U+95C8,闈,"gate, door; living quarters",0.865244
+characters,semantic,9,402,4,U+95F1,闱,"gate, door; living quarters",0.865244
+characters,semantic,9,402,5,U+95FC,闼,door; gate,0.862895
+characters,semantic,9,402,6,U+95E5,闥,door; gate,0.862895
+characters,semantic,9,402,7,U+49CB,䧋,"name of a place, boundary; a line",0.862176
+characters,semantic,9,402,8,U+55A5,喥,(Cant.) a place,0.8616
+characters,semantic,9,402,9,U+958C,閌,door,0.861588
+characters,semantic,9,402,10,U+95F6,闶,door,0.861588
+characters,semantic,10,273,1,U+3CEA,㳪,a river,0.94641
+characters,semantic,10,273,2,U+3CE6,㳦,a river,0.94641
+characters,semantic,10,273,3,U+6F0D,漍,a river,0.94641
+characters,semantic,10,273,4,U+3CF8,㳸,name of a river,0.942621
+characters,semantic,10,273,5,U+3CF5,㳵,name of a river,0.942621
+characters,semantic,10,273,6,U+3CD6,㳖,name of a river,0.942621
+characters,semantic,10,273,7,U+3D2A,㴪,name of a river,0.942621
+characters,semantic,10,273,8,U+3D51,㵑,name of a river,0.942621
+characters,semantic,10,273,9,U+6C98,沘,name of a river,0.942621
+characters,semantic,10,273,10,U+3D42,㵂,name of a river,0.942621
+characters,semantic,11,176,1,U+7D90,綐,a kind of fine silk fabric,0.967227
+characters,semantic,11,176,2,U+433C,䌼,a kind of fine silk fabric,0.967227
+characters,semantic,11,176,3,U+42F7,䋷,"a kind of thick, loosely-woven raw silk fabric",0.962756
+characters,semantic,11,176,4,U+4306,䌆,silk fabrics,0.954484
+characters,semantic,11,176,5,U+42E6,䋦,ravelled silk,0.954354
+characters,semantic,11,176,6,U+7D83,綃,raw silk fabric,0.94823
+characters,semantic,11,176,7,U+7D3D,紽,a strand of silk,0.942897
+characters,semantic,11,176,8,U+7F0D,缍,a kind of thin silk,0.939062
+characters,semantic,11,176,9,U+7D9E,綞,a kind of thin silk,0.939062
+characters,semantic,11,176,10,U+7F23,缣,fine silk,0.937725
+characters,semantic,12,395,1,U+5C2D,尭,a legendary ancient emperor-sage,0.884524
+characters,semantic,12,395,2,U+582F,堯,a legendary ancient emperor-sage,0.879933
+characters,semantic,12,395,3,U+6C13,氓,people; subjects; vassals,0.877335
+characters,semantic,12,395,4,U+4190,䆐,(ancient form of 國) a country; a nation; a kingdom; a state,0.870204
+characters,semantic,12,395,5,U+4122,䄢,"(same as 齋) pious; respectful; chaste; pure, to abstain from meat, wine, etc., to fast, (same as 齊) equal; uniform, name of an ancient feudal state",0.867873
+characters,semantic,12,395,6,U+4451,䑑,"(ancient form of 僕) a servant, a modest term referring to oneself",0.863356
+characters,semantic,12,395,7,U+355C,㕜,(ancient form of 史) history; chronicles; annals,0.861847
+characters,semantic,12,395,8,U+49D9,䧙,"(ancient form of 陵) a high mound, tomb of an emperor, to usurp; to abuse",0.857097
+characters,semantic,12,395,9,U+794F,祏,shrine,0.85704
+characters,semantic,12,395,10,U+59FA,姺,name of an ancient state,0.855996
+characters,semantic,13,404,1,U+3A2E,㨮,"to lift up; to take in the hand, to control, to open; (Cant.) to seize, grasp",0.922377
+characters,semantic,13,404,2,U+3ABC,㪼,to pull; to drag; to hinder; to snatch away,0.917351
+characters,semantic,13,404,3,U+6475,摵,"(Cant.) to pull, lift up",0.911305
+characters,semantic,13,404,4,U+6366,捦,to seize; to clutch; to arrest; to capture; (Cant.) to climb,0.909572
+characters,semantic,13,404,5,U+3A73,㩳,"to hold; to grasp, to detain, to uphold, to push, to stand upright; expel, to shirk, to raise up",0.907825
+characters,semantic,13,404,6,U+650B,攋,"to clutch; to grab at; to rub or scrape; to tear; (Cant.) to leave behind, omit",0.90694
+characters,semantic,13,404,7,U+637D,捽,"clutch, grasp; pull up; contradict",0.90617
+characters,semantic,13,404,8,U+6385,掅,"(Cant.) to lift up; to seize, grab",0.905944
+characters,semantic,13,404,9,U+648D,撍,"to hold in the hand, to grasp; to wring; (Cant.) to pull out",0.900005
+characters,semantic,13,404,10,U+59A0,妠,"(Cant.) to collect, seize, grab",0.897951
+characters,semantic,14,381,1,U+78E5,磥,a heap of stones; boulders,0.911601
+characters,semantic,14,381,2,U+3FE8,㿨,"(same as 皪) small stones, gravel, shingle",0.893135
+characters,semantic,14,381,3,U+40BC,䂼,(a kind of) rocks; stones,0.882658
+characters,semantic,14,381,4,U+40BD,䂽,(a kind of) rocks; stones,0.882658
+characters,semantic,14,381,5,U+40EF,䃯,(abbreviated form of 礫) small stones; pebble; gravel; shingle,0.879965
+characters,semantic,14,381,6,U+40AA,䂪,"(same as 磽) hard barren land, a kind of stone (interchangeable 銚) a small pot with a handle",0.878605
+characters,semantic,14,381,7,U+3882,㢂,"(terrains) of highly strategic; precipitous (hill, etc. a big mound; (same as 㢈) a collapsed house, to hit, to catch something",0.878311
+characters,semantic,14,381,8,U+39C2,㧂,(same as 屇) a cave a hold in the ground; a hole,0.878188
+characters,semantic,14,381,9,U+575C,坜,"a hole, pit",0.874473
+characters,semantic,14,381,10,U+495F,䥟,(non-classical form 楬) a metal marking- stake; a guidepost; a pile,0.871961
+characters,semantic,15,328,1,U+6158,慘,"sad, pitiful, wretched; cruel",0.93996
+characters,semantic,15,328,2,U+54C0,哀,"sad, mournful, pitiful; pity",0.939493
+characters,semantic,15,328,3,U+60C6,惆,"distressed, regretful, sad",0.934394
+characters,semantic,15,328,4,U+3FCA,㿊,very painful; agonizing (same as 憯) sad; sorrowful; grieved,0.932043
+characters,semantic,15,328,5,U+6092,悒,"sorrowful, depressed, unhappy",0.928709
+characters,semantic,15,328,6,U+342B,㐫,"(same as 凶) cruel, unfortunate, sad",0.924048
+characters,semantic,15,328,7,U+35E4,㗤,"ashamed, restless; fidgeting; (a dialect) bashful, grievous; mournful; sad",0.923939
+characters,semantic,15,328,8,U+601B,怛,"grieved, saddened; worried",0.923389
+characters,semantic,15,328,9,U+60FB,惻,"feel anguish, feel compassion",0.923036
+characters,semantic,15,328,10,U+3707,㜇,"unhappy, girlish",0.92165
+characters,semantic,16,247,1,U+98D5,飕,sound of wind; blow chilly,0.913328
+characters,semantic,16,247,2,U+98BE,颾,blowing of the wind,0.909274
+characters,semantic,16,247,3,U+4B1B,䬛,"the roaring of the wind, cold wind",0.90647
+characters,semantic,16,247,4,U+4B1E,䬞,"wind; storm, sound of the wind",0.905314
+characters,semantic,16,247,5,U+4B03,䬃,"(same as 颯) the sound of wind, a gust; suddenly",0.90164
+characters,semantic,16,247,6,U+4B0F,䬏,wind; light breezes,0.899087
+characters,semantic,16,247,7,U+4B00,䬀,sound of the wind,0.897283
+characters,semantic,16,247,8,U+98D7,飗,soughing of wind; noise,0.892453
+characters,semantic,16,247,9,U+98C0,飀,soughing of wind; noise,0.892453
+characters,semantic,16,247,10,U+98CC,飌,wind,0.889217
+characters,semantic,17,257,1,U+359E,㖞,(simplified form of 喎) a wry mouth,0.926625
+characters,semantic,17,257,2,U+5646,噆,to hold in the mouth; to bite,0.920243
+characters,semantic,17,257,3,U+3C49,㱉,moving of the mouth,0.917404
+characters,semantic,17,257,4,U+3CC4,㳄,"(a variant of 涎) spittle, saliva",0.916554
+characters,semantic,17,257,5,U+5649,噉,"bite, chew; (Cant.) like this, in this way",0.907472
+characters,semantic,17,257,6,U+9F5A,齚,to chew,0.905948
+characters,semantic,17,257,7,U+9F69,齩,to chew; to bite,0.903111
+characters,semantic,17,257,8,U+4DA0,䶠,"(same as 䶢) to gnaw; to bite, to hold in the mouth",0.902284
+characters,semantic,17,257,9,U+4DA1,䶡,"sound of biting, (same as 齰) to chew; to gnaw",0.901297
+characters,semantic,17,257,10,U+9ABE,骾,any object that sticks in throat; bony,0.901256
+characters,semantic,18,399,1,U+5F09,弉,"large, powerful, stout, thick",0.942647
+characters,semantic,18,399,2,U+705D,灝,"vast, large, grand, expansive",0.908713
+characters,semantic,18,399,3,U+3545,㕅,big; extremely; great; vast; extensive; tall,0.908109
+characters,semantic,18,399,4,U+3468,㑨,"great; big; tall; vast, noble; high in rank, very; much",0.9073
+characters,semantic,18,399,5,U+5B8F,宏,"wide, spacious, great, vast",0.906134
+characters,semantic,18,399,6,U+6FCA,濊,"vast, expansive, deep; dirty",0.905073
+characters,semantic,18,399,7,U+5D73,嵳,"high, towering; irregular, rugged",0.903678
+characters,semantic,18,399,8,U+5927,大,"big, great, vast, large, high",0.903153
+characters,semantic,18,399,9,U+5049,偉,"great, robust; extraordinary",0.901772
+characters,semantic,18,399,10,U+5D6F,嵯,"high, towering; irregular, rugged",0.898951
+characters,semantic,19,383,1,U+3E98,㺘,a kind of animal,0.953114
+characters,semantic,19,383,2,U+4763,䝣,a kind of animal,0.953114
+characters,semantic,19,383,3,U+3E7C,㹼,a kind of animal,0.953114
+characters,semantic,19,383,4,U+4BA0,䮠,a kind of animal,0.953114
+characters,semantic,19,383,5,U+4D23,䴣,a kind of animal,0.953114
+characters,semantic,19,383,6,U+72BA,犺,animal,0.951939
+characters,semantic,19,383,7,U+4E83,亃,name of a kind of animal,0.948514
+characters,semantic,19,383,8,U+72CC,狌,livestock,0.93043
+characters,semantic,19,383,9,U+3E33,㸳,a kind of cattle,0.924138
+characters,semantic,19,383,10,U+72E2,狢,animal name,0.920547
+characters,semantic,20,733,1,U+39EB,㧫,"to hold; to grasp, to maintain; to keep, a post, to lead on, (same as 擩) to rub, to crumble by hand, to massage; mixed-up; confused",0.928543
+characters,semantic,20,733,2,U+39D0,㧐,"(simplified form of 㩳) to hold; to grasp, to detain, to uphold, to push, to stand upright",0.920653
+characters,semantic,20,733,3,U+498D,䦍,"to include; to embrace, to search for, intransigent; stubborn; obstinate",0.91458
+characters,semantic,20,733,4,U+3A8B,㪋,"(same as 扞, 捍) to resist; to oppose; to obstruct, to defend; to guard; to ward off, (same as 㪃) to thump; to beat; to strike; to attack",0.909077
+characters,semantic,20,733,5,U+3A49,㩉,"(same as 搨) to take a rubbing of an inscription on stone, etc., (same as 拉) to pull; to drag; to hold, to beat; to strike; to attack, (same as 拹) to break; to destroy; to smash",0.908752
+characters,semantic,20,733,6,U+39C3,㧃,"(ancient form of 收) to receive what is due; to gather together, to harvest, to collect; to put away, to close, to bind, to restrain, to bring to the end, (same as 摎) entwined -- as branches of a tree; to tangle; to involve, to collaborate; to band together",0.90685
+characters,semantic,20,733,7,U+46F7,䛷,"(same as 婉) to obey; obedient; to comply, to console; to comfort; to soothe",0.90685
+characters,semantic,20,733,8,U+476F,䝯,"(same as 貤) to change hands; to shift, a series, steps; grades, to promote; to reward; ennobled; to bestow, to extend; to prolong",0.90546
+characters,semantic,20,733,9,U+39BB,㦻,"(ancient form of 襲) to put on; to wear, repeated; double; to inherit; to attack or take by surprise, to accord with; to unite",0.905335
+characters,semantic,20,733,10,U+35D6,㗖,"(non-classical form of 啗) to eat; to chew; to bite. to entice; to lure, to contain; to, comprise",0.904452
+characters,semantic,21,155,1,U+7A5C,穜,rice,0.956537
+characters,semantic,21,155,2,U+7A4B,穋,rice,0.956537
+characters,semantic,21,155,3,U+7A11,稑,rice,0.956537
+characters,semantic,21,155,4,U+414B,䅋,a kind of grain; sweet and round rice,0.948364
+characters,semantic,21,155,5,U+413F,䄿,a kind of rice plant,0.940477
+characters,semantic,21,155,6,U+42AB,䊫,"coarse rice, red rice",0.939781
+characters,semantic,21,155,7,U+4284,䊄,polished rice,0.937784
+characters,semantic,21,155,8,U+4298,䊘,"a grain (of rice, etc.)",0.932622
+characters,semantic,21,155,9,U+7CC1,糁,a grain of rice; rice gruel mixed with meat,0.928594
+characters,semantic,21,155,10,U+4294,䊔,polished rice; refined rice,0.926992
+characters,semantic,22,222,1,U+3811,㠑,"high, rugged mountain",0.957611
+characters,semantic,22,222,2,U+37C6,㟆,name of a mountain,0.953359
+characters,semantic,22,222,3,U+3813,㠓,name of a mountain,0.953359
+characters,semantic,22,222,4,U+37E6,㟦,name of a mountain,0.953359
+characters,semantic,22,222,5,U+37CA,㟊,name of a mountain,0.953359
+characters,semantic,22,222,6,U+37C8,㟈,name of a mountain,0.953359
+characters,semantic,22,222,7,U+3826,㠦,name of a mountain,0.953359
+characters,semantic,22,222,8,U+37C4,㟄,name of a mountain,0.953359
+characters,semantic,22,222,9,U+37C0,㟀,name of a mountain,0.953359
+characters,semantic,22,222,10,U+37BB,㞻,name of a mountain,0.953359
+characters,semantic,23,344,1,U+3D71,㵱,flowing water,0.940239
+characters,semantic,23,344,2,U+6D0A,洊,flowing water,0.940239
+characters,semantic,23,344,3,U+6EBB,溻,wet,0.937881
+characters,semantic,23,344,4,U+3CDC,㳜,the flowing water,0.926958
+characters,semantic,23,344,5,U+3AE0,㫠,a kind of water,0.926905
+characters,semantic,23,344,6,U+3D0B,㴋,"(simplified form of 潚) deep and clear (said of water) (same as 溲) to urinate, to immerse; to soak; to drench, to wash rice (same as 瀟) rushing rain and wind; roar of gust",0.926074
+characters,semantic,23,344,7,U+3CDA,㳚,flowing of the water,0.924919
+characters,semantic,23,344,8,U+6E8C,溌,"pour, splash, water, sprinkle",0.918934
+characters,semantic,23,344,9,U+3CE8,㳨,to splash (of water),0.918187
+characters,semantic,23,344,10,U+6E9A,溚,(Cant.) to get wet by rain; to drip,0.917321
+characters,semantic,24,144,1,U+48E5,䣥,a kind of wine,0.943625
+characters,semantic,24,144,2,U+91BD,醽,kind of wine,0.940624
+characters,semantic,24,144,3,U+91BE,醾,a kind of liquor,0.940279
+characters,semantic,24,144,4,U+91BF,醿,a kind of liquor,0.940279
+characters,semantic,24,144,5,U+4911,䤑,wine,0.928097
+characters,semantic,24,144,6,U+9196,醖,liquor,0.924873
+characters,semantic,24,144,7,U+4B68,䭨,"(same as 䬽) wine poured in a libation, to have a little drink or a few drinks",0.916637
+characters,semantic,24,144,8,U+3FFF,㿿,wine cups,0.913974
+characters,semantic,24,144,9,U+3429,㐩,wine cups,0.913974
+characters,semantic,24,144,10,U+4916,䤖,"a kind of wine, a kind of wine that brew for one night",0.906751
+characters,semantic,25,356,1,U+4C5E,䱞,a kind of fish,0.968157
+characters,semantic,25,356,2,U+4C90,䲐,a kind of fish,0.968157
+characters,semantic,25,356,3,U+4C82,䲂,a kind of fish,0.968157
+characters,semantic,25,356,4,U+9C14,鰔,a kind of fish,0.968157
+characters,semantic,25,356,5,U+4C80,䲀,a kind of fish,0.968157
+characters,semantic,25,356,6,U+4C7F,䱿,a kind of fish,0.968157
+characters,semantic,25,356,7,U+4C72,䱲,a kind of fish,0.968157
+characters,semantic,25,356,8,U+4C6C,䱬,a kind of fish,0.968157
+characters,semantic,25,356,9,U+4C8F,䲏,a kind of fish,0.968157
+characters,semantic,25,356,10,U+4C5A,䱚,a kind of fish,0.968157
+characters,semantic,26,220,1,U+3F35,㼵,a small basin; a bowl. a cup; a pot; a jar,0.92584
+characters,semantic,26,220,2,U+3F1D,㼝,(same as 盌) (a variant of 碗) a bowl; a basin; a cup; a dish,0.886511
+characters,semantic,26,220,3,U+3F48,㽈,a large earthenware jar with a small mouth and two or four ears; a big pot; bottle; pitcher; jug; vase,0.883279
+characters,semantic,26,220,4,U+3F34,㼴,an earthen vessel; a basin; a pot; a jar,0.88194
+characters,semantic,26,220,5,U+4257,䉗,"a receptacle or container, as a cup, ladle, spoon, etc.",0.877984
+characters,semantic,26,220,6,U+434C,䍌,(same as 瓿) a jar; a pot,0.877118
+characters,semantic,26,220,7,U+7F49,罉,(Cant.) a pot,0.873784
+characters,semantic,26,220,8,U+3FFC,㿼,"(a non-classical form) a bowl, a small shallow container; a small cup",0.872508
+characters,semantic,26,220,9,U+3F21,㼡,"a small jar with a small mouth, a bottle; pitcher; jug etc.",0.870585
+characters,semantic,26,220,10,U+7F46,罆,"jar, jug, pitcher, pot",0.867215
+characters,semantic,27,379,1,U+4647,䙇,"clothes of coarse fabric, seams; a fold; pleat of a garment, shirt; jacket",0.922095
+characters,semantic,27,379,2,U+896D,襭,tuck up hem of garment and wrap,0.912839
+characters,semantic,27,379,3,U+4835,䠵,to wear clothes,0.911838
+characters,semantic,27,379,4,U+42BF,䊿,"(same as 衭) the lapel or collar of a garment or robe, drawers, (dialect) trousers or pants",0.911445
+characters,semantic,27,379,5,U+4669,䙩,clothes,0.910036
+characters,semantic,27,379,6,U+88BD,袽,clothes,0.910036
+characters,semantic,27,379,7,U+4659,䙙,clothes,0.910036
+characters,semantic,27,379,8,U+4663,䙣,ragged garments or clothing,0.909117
+characters,semantic,27,379,9,U+3838,㠸,"(same as 衭) the lapel or collar of a garment or robe, (Cant., same as 褲) drawers, trousers or pants",0.909002
+characters,semantic,27,379,10,U+88CC,裌,lined garment,0.900708
+characters,semantic,28,592,1,U+6DD1,淑,"good, pure, virtuous, charming",0.936238
+characters,semantic,28,592,2,U+6109,愉,"pleasant, delightful; please",0.925232
+characters,semantic,28,592,3,U+3DE9,㷩,"(a variant of 熙) bright, splendid. Intelligent, prosperous",0.921233
+characters,semantic,28,592,4,U+7995,禕,"excellent, rare; beautiful, fine",0.920707
+characters,semantic,28,592,5,U+6054,恔,"cheerful; bright, sagacious",0.919794
+characters,semantic,28,592,6,U+4617,䘗,"beautiful, exquisite; fine",0.919503
+characters,semantic,28,592,7,U+8C53,豓,"beautiful, captivating, plump, voluptuous",0.919131
+characters,semantic,28,592,8,U+5A2C,娬,lovely; attractive,0.918295
+characters,semantic,28,592,9,U+70C9,烉,"shining, brilliant, lustrous",0.91578
+characters,semantic,28,592,10,U+9E97,麗,"beautiful, magnificent, elegant",0.915548
+characters,semantic,29,330,1,U+4788,䞈,"(ancient form of 貨) money; wealth, natural endowment or gifts, to aid or help, to gamble; to bet, to compete",0.898425
+characters,semantic,29,330,2,U+3B38,㬸,a kind of services or ceremonies of offering sacrifices,0.89328
+characters,semantic,29,330,3,U+34B2,㒲,"(a variant of 財) wealth; property; valuables, bribes",0.888085
+characters,semantic,29,330,4,U+476D,䝭,"wages; salary, to redeem; to ransom",0.877644
+characters,semantic,29,330,5,U+4769,䝩,"(same as 賑) to relieve or give aid to the distressed; to support, rich; wealthy",0.8758
+characters,semantic,29,330,6,U+4775,䝵,to thank with money or gifts,0.874048
+characters,semantic,29,330,7,U+4783,䞃,"to relieve or give aid to the distressed; to support, shells; precious; valuable",0.873988
+characters,semantic,29,330,8,U+8EF7,軷,sacrifice,0.871226
+characters,semantic,29,330,9,U+6713,朓,sacrifice,0.871226
+characters,semantic,29,330,10,U+793F,礿,sacrifice,0.871226
+characters,semantic,30,148,1,U+8980,覀,variant of Kangxi radical 146,0.943623
+characters,semantic,30,148,2,U+66F0,曰,say; Kangxi radical 73,0.940524
+characters,semantic,30,148,3,U+8BA0,讠,simplified Kangxi radical 149,0.934262
+characters,semantic,30,148,4,U+897E,襾,cover; Kangxi radical 146,0.93196
+characters,semantic,30,148,5,U+7384,玄,"deep, profound, abstruse; Kangxi radical 95",0.921824
+characters,semantic,30,148,6,U+5182,冂,wide; Kangxi radical 13,0.920034
+characters,semantic,30,148,7,U+5196,冖,cover; Kangxi radical 14,0.918752
+characters,semantic,30,148,8,U+5F50,彐,snout; Kangxi radical 58,0.91745
+characters,semantic,30,148,9,U+97ED,韭,"scallion, leek; Kangxi radical 179",0.9145
+characters,semantic,30,148,10,U+91C6,釆,distinguish; Kangxi radical 165,0.913738
+characters,semantic,31,388,1,U+47AF,䞯,"to walk, to move quickly; to run; to hurry, to reach the time-limit; to mature",0.922318
+characters,semantic,31,388,2,U+8DDE,跞,"walk, move",0.918522
+characters,semantic,31,388,3,U+8E92,躒,"walk, move",0.918522
+characters,semantic,31,388,4,U+47DB,䟛,"walking rapidly; in a hurry, to stride over; to step across",0.915573
+characters,semantic,31,388,5,U+8D96,趖,"to walk, go",0.91392
+characters,semantic,31,388,6,U+4808,䠈,"hard to move forward, to trample; to tread upon",0.912684
+characters,semantic,31,388,7,U+4820,䠠,"to go, to walk in one leg; leap; crippled, (ancient form of 逝) to pass; to be gone; to depart, (interchangeable 滯) in a standstill; stagnant; impeded; blocked",0.912032
+characters,semantic,31,388,8,U+488C,䢌,"to walk, rapid marching or running",0.912017
+characters,semantic,31,388,9,U+38DE,㣞,to walk; to go,0.91191
+characters,semantic,31,388,10,U+38DC,㣜,to walk; to go,0.91191
+characters,semantic,32,268,1,U+8EE4,軤,surname,0.965293
+characters,semantic,32,268,2,U+6496,撖,surname,0.965293
+characters,semantic,32,268,3,U+79A2,禢,surname,0.965293
+characters,semantic,32,268,4,U+4FB4,侴,surname,0.965293
+characters,semantic,32,268,5,U+7BEF,篯,surname,0.965293
+characters,semantic,32,268,6,U+5BEA,寪,surname,0.965293
+characters,semantic,32,268,7,U+5AD8,嫘,surname,0.965293
+characters,semantic,32,268,8,U+50BC,傼,surname,0.965293
+characters,semantic,32,268,9,U+51CA,凊,surname,0.965293
+characters,semantic,32,268,10,U+7C5B,籛,surname,0.965293
+characters,semantic,33,693,1,U+8A5E,詞,"words; phrase, expression",0.884699
+characters,semantic,33,693,2,U+8B58,識,"recognize, understand, know",0.877214
+characters,semantic,33,693,3,U+8BCD,词,"words; phrase, expression",0.876622
+characters,semantic,33,693,4,U+5565,啥,what?,0.871479
+characters,semantic,33,693,5,U+53D9,叙,"express, state, relate, narrate",0.863465
+characters,semantic,33,693,6,U+8A9E,語,"language, words; saying, expression",0.860286
+characters,semantic,33,693,7,U+8FAD,辭,"words, speech, expression, phrase",0.858308
+characters,semantic,33,693,8,U+5C82,岂,how? what?,0.8533
+characters,semantic,33,693,9,U+8058,聘,"engage, employ; betroth",0.850776
+characters,semantic,33,693,10,U+8A6E,詮,"explain, expound, comment on",0.849699
+characters,semantic,34,330,1,U+609C,悜,obscure,0.898725
+characters,semantic,34,330,2,U+79D8,秘,"secret, mysterious, abstruse",0.897992
+characters,semantic,34,330,3,U+9088,邈,"far, distant, remote; slight",0.897435
+characters,semantic,34,330,4,U+3977,㥷,"(same as 瘱) quiet; calm; still peaceful, gracefully quiet, clear and evident; obvious, deep and far; profound and abstruse, to conceal; to hide",0.897121
+characters,semantic,34,330,5,U+5E7D,幽,"quiet, secluded, tranquil; dark",0.895556
+characters,semantic,34,330,6,U+66A7,暧,"obscure, dim, ambiguous, vague",0.892575
+characters,semantic,34,330,7,U+5965,奥,"mysterious, obscure, profound",0.892387
+characters,semantic,34,330,8,U+489B,䢛,(non-classical form of 迥) far; distant; different from; separated,0.891048
+characters,semantic,34,330,9,U+903A,逺,"distant, remote, far; profound",0.890509
+characters,semantic,34,330,10,U+4A3E,䨾,"hidden; concealed; secret, narrow and small, ugly, low; mean, inferior",0.889611
+characters,semantic,35,202,1,U+9A66,驦,horse,0.981588
+characters,semantic,35,202,2,U+9AA6,骦,horse,0.981588
+characters,semantic,35,202,3,U+9A3B,騻,horse,0.981588
+characters,semantic,35,202,4,U+9A6B,驫,horses,0.970436
+characters,semantic,35,202,5,U+4B8A,䮊,name of a horse,0.964594
+characters,semantic,35,202,6,U+4B96,䮖,name of a horse,0.964594
+characters,semantic,35,202,7,U+4B8F,䮏,name of a horse,0.964594
+characters,semantic,35,202,8,U+4B92,䮒,name of a horse,0.964594
+characters,semantic,35,202,9,U+9A20,騠,"a horse, mule",0.951392
+characters,semantic,35,202,10,U+4B99,䮙,"name of a horse, a traveling horse",0.938753
+characters,semantic,36,346,1,U+61DB,懛,"alarmed, scared; stupid",0.933741
+characters,semantic,36,346,2,U+61C6,懆,"anxious, apprehensive",0.912907
+characters,semantic,36,346,3,U+60B8,悸,"fearful, apprehensive, perturbed",0.907038
+characters,semantic,36,346,4,U+398D,㦍,"(same as 愕) to be startled, alarmed, to speak out; to speak up, frank statement, an obstacle or hindrance; to obstruct; to impede; unwilling; disagreeable",0.905584
+characters,semantic,36,346,5,U+39A6,㦦,"apprehensive; fearful; afraid, ashamed, uneasy in mind; not feeling at peace; disturbed",0.90524
+characters,semantic,36,346,6,U+60DD,惝,"alarmed, agitated",0.901931
+characters,semantic,36,346,7,U+8AF0,諰,apprehensive,0.899061
+characters,semantic,36,346,8,U+6081,悁,"irritable, nervous, impatient",0.896724
+characters,semantic,36,346,9,U+5162,兢,"fearful, cautious, wary",0.896404
+characters,semantic,36,346,10,U+3938,㤸,uneasy; disturbed; not feeling at peace,0.896311
+characters,semantic,37,221,1,U+4202,䈂,a kind of bamboo,0.976951
+characters,semantic,37,221,2,U+7C1C,簜,bamboo,0.964569
+characters,semantic,37,221,3,U+4223,䈣,name of a variety of bamboo,0.959777
+characters,semantic,37,221,4,U+424F,䉏,name of a variety of bamboo,0.959777
+characters,semantic,37,221,5,U+41EA,䇪,name of a variety of bamboo,0.959777
+characters,semantic,37,221,6,U+4246,䉆,name of a variety of bamboo,0.959777
+characters,semantic,37,221,7,U+4244,䉄,name of a variety of bamboo,0.959777
+characters,semantic,37,221,8,U+4218,䈘,name of a variety of bamboo,0.959777
+characters,semantic,37,221,9,U+420D,䈍,name of a variety of bamboo,0.959777
+characters,semantic,37,221,10,U+41D9,䇙,name of a variety of bamboo,0.959777
+characters,semantic,38,302,1,U+8629,蘩,Artemisia stelleriana,0.83549
+characters,semantic,38,302,2,U+848C,蒌,Artemisia stelleriana,0.83549
+characters,semantic,38,302,3,U+851E,蔞,Artemisia stelleriana,0.83549
+characters,semantic,38,302,4,U+8555,蕕,Caryopteris divaricata,0.826455
+characters,semantic,38,302,5,U+83B8,莸,Caryopteris divaricata,0.826455
+characters,semantic,38,302,6,U+82A9,芩,Phragmites japonicus,0.823639
+characters,semantic,38,302,7,U+44C8,䓈,a kind of plant; chicken-head; Euryale ferox,0.821285
+characters,semantic,38,302,8,U+9D59,鵙,shrike; Lanius species (various),0.820714
+characters,semantic,38,302,9,U+45B2,䖲,a kind of insect (looks like cicada),0.808438
+characters,semantic,38,302,10,U+9DCF,鷏,Caprimulgus indicus,0.807545
+characters,semantic,39,206,1,U+3E0E,㸎,"warm, fire; flame",0.964577
+characters,semantic,39,206,2,U+3DC4,㷄,fire; flames,0.956414
+characters,semantic,39,206,3,U+3DB9,㶹,fire; flames,0.956414
+characters,semantic,39,206,4,U+3DF0,㷰,flames,0.952987
+characters,semantic,39,206,5,U+7114,焔,"flame, blaze; glowing, blazing",0.951366
+characters,semantic,39,206,6,U+3DEC,㷬,fire,0.943528
+characters,semantic,39,206,7,U+715A,煚,fire,0.943528
+characters,semantic,39,206,8,U+3DAF,㶯,fire,0.943528
+characters,semantic,39,206,9,U+7216,爖,fire,0.943528
+characters,semantic,39,206,10,U+721F,爟,fire,0.943528
+characters,semantic,40,155,1,U+3EFF,㻿,a kind of jade,0.979865
+characters,semantic,40,155,2,U+739A,玚,a kind of jade,0.979865
+characters,semantic,40,155,3,U+3ED1,㻑,a kind of jade,0.979865
+characters,semantic,40,155,4,U+3EB8,㺸,a kind of jade,0.979865
+characters,semantic,40,155,5,U+3ED4,㻔,a kind of jade,0.979865
+characters,semantic,40,155,6,U+3ED5,㻕,a kind of jade,0.979865
+characters,semantic,40,155,7,U+73E6,珦,a kind of jade,0.979865
+characters,semantic,40,155,8,U+3EB1,㺱,a kind of jade,0.979865
+characters,semantic,40,155,9,U+3ED6,㻖,a kind of jade,0.979865
+characters,semantic,40,155,10,U+3EAD,㺭,a kind of jade,0.979865
+characters,semantic,41,278,1,U+3C00,㰀,a kind of tree,0.961538
+characters,semantic,41,278,2,U+3B51,㭑,a kind of tree,0.961538
+characters,semantic,41,278,3,U+3B54,㭔,a kind of tree,0.961538
+characters,semantic,41,278,4,U+3B85,㮅,a kind of tree,0.961538
+characters,semantic,41,278,5,U+3BD7,㯗,a kind of tree,0.961538
+characters,semantic,41,278,6,U+3BB9,㮹,a tree,0.951205
+characters,semantic,41,278,7,U+3BBF,㮿,a tree,0.951205
+characters,semantic,41,278,8,U+3BA9,㮩,a tree,0.951205
+characters,semantic,41,278,9,U+6802,栂,a kind of evergreen tree,0.948679
+characters,semantic,41,278,10,U+675D,杝,tree,0.947109
+characters,semantic,42,571,1,U+46EE,䛮,"to destroy, to slander; to abuse; to defame, (non-classical form of 咎) a fault; a defect, an error, to blame; to censure",0.929098
+characters,semantic,42,571,2,U+46E9,䛩,"to slander; to defame, (same as 惡) to abominate; to detest, (same as 啞) to laugh; to grin",0.923673
+characters,semantic,42,571,3,U+3952,㥒,"corrupt; wicked, to hate; to dislike, (same as 猜) to be jealous and suspicious, cunning; crafty",0.923511
+characters,semantic,42,571,4,U+8D78,赸,"abuse, slander; vilify; ridicule",0.92204
+characters,semantic,42,571,5,U+9EF7,黷,"to dishonor, defile, corrupt; soiled",0.921638
+characters,semantic,42,571,6,U+9EE9,黩,"to dishonor, defile, corrupt; soiled",0.921638
+characters,semantic,42,571,7,U+46F2,䛲,"(same as 謾) to deceive, to scorn; to disdain",0.9209
+characters,semantic,42,571,8,U+8C07,谇,"speak ill of, vilify; berate",0.920257
+characters,semantic,42,571,9,U+3975,㥵,"(a variant of 慁) to dishonour; to disgrace; to distress, grief; shame; to disobey, to be anxious; to be apprehensive; to worry, to disturb or to agitate; to harass, confused and disorderly",0.911163
+characters,semantic,42,571,10,U+3901,㤁,"(standard form of 忝) to disgrace; to insult, to condescend",0.911019
+characters,semantic,43,425,1,U+8D11,贑,Jiangxi province,0.929851
+characters,semantic,43,425,2,U+3BBE,㮾,a place in today's Hunan Province,0.929204
+characters,semantic,43,425,3,U+830C,茌,name of a district in Shandong,0.926623
+characters,semantic,43,425,4,U+910D,鄍,a town in Shandong province,0.92124
+characters,semantic,43,425,5,U+48C4,䣄,name of a place in today's Shandong Province,0.9212
+characters,semantic,43,425,6,U+90E0,郠,place in Shandong province,0.920813
+characters,semantic,43,425,7,U+90C8,郈,place in Shandong province,0.920813
+characters,semantic,43,425,8,U+8D1B,贛,Jiangxi province; places therein,0.920122
+characters,semantic,43,425,9,U+5D00,崀,place name in Hunan province,0.91981
+characters,semantic,43,425,10,U+7B7B,筻,place name in Hunan province,0.91981
+characters,semantic,44,321,1,U+9E4E,鹎,bird,0.971022
+characters,semantic,44,321,2,U+49F7,䧷,a kind of bird,0.969647
+characters,semantic,44,321,3,U+4CAA,䲪,a kind of bird,0.969647
+characters,semantic,44,321,4,U+9DC8,鷈,a kind of bird,0.969647
+characters,semantic,44,321,5,U+4CAE,䲮,a kind of bird,0.969647
+characters,semantic,44,321,6,U+4CB8,䲸,a kind of bird,0.969647
+characters,semantic,44,321,7,U+4CFF,䳿,a kind of bird,0.969647
+characters,semantic,44,321,8,U+4D04,䴄,a kind of bird,0.969647
+characters,semantic,44,321,9,U+49FE,䧾,a kind of bird; like wild duck,0.950458
+characters,semantic,44,321,10,U+4CCD,䳍,a kind of pheasant-like bird,0.950146
+characters,semantic,45,420,1,U+8C2B,谫,shallow; stupid,0.923445
+characters,semantic,45,420,2,U+8B7E,譾,shallow; stupid,0.923445
+characters,semantic,45,420,3,U+8B2D,謭,shallow; stupid,0.923445
+characters,semantic,45,420,4,U+4090,䂐,short (ancient form of 拙) stupid; crude; poor; slow and clumsy,0.918618
+characters,semantic,45,420,5,U+3C63,㱣,"uneven, weak; feeble",0.917073
+characters,semantic,45,420,6,U+8926,褦,"stupid, dull, ignorant, doltish; (Cant.) to tie up, bind",0.912613
+characters,semantic,45,420,7,U+47BF,䞿,"(interchangeable 蹇) lame; crippled, slow, weak; feeble, difficult; hard",0.908457
+characters,semantic,45,420,8,U+8DD9,跙,"weak, lame",0.905546
+characters,semantic,45,420,9,U+4A8F,䪏,"weak; feeble; tender; delicate; soft, (dialect) to hang down the head and sleepy",0.9049
+characters,semantic,45,420,10,U+639E,掞,"easy, smooth; quiet; suave",0.904083
+characters,semantic,46,430,1,U+7D4F,絏,"rope, cable; reins; to tie up, bind",0.924452
+characters,semantic,46,430,2,U+4301,䌁,"a pleat; fold, a piece of string; ribbon used to tie clothes, a rope; a line; a cord",0.915529
+characters,semantic,46,430,3,U+7E06,縆,a rope,0.91303
+characters,semantic,46,430,4,U+7DEA,緪,a rope,0.91303
+characters,semantic,46,430,5,U+7D5A,絚,a rope,0.91303
+characters,semantic,46,430,6,U+4E7C,乼,rope,0.90502
+characters,semantic,46,430,7,U+7D8D,綍,rope,0.90502
+characters,semantic,46,430,8,U+7E58,繘,rope,0.90502
+characters,semantic,46,430,9,U+7E68,繨,a knot (of a rope),0.902203
+characters,semantic,46,430,10,U+7E92,纒,"wrap, wind around; tie, bind",0.895044
+characters,semantic,47,846,1,U+5622,嘢,(Cant.) thing,0.951645
+characters,semantic,47,846,2,U+89BC,覼,to explain in detail,0.950292
+characters,semantic,47,846,3,U+8B4D,譍,answer,0.949768
+characters,semantic,47,846,4,U+8999,覙,explain in detail,0.945239
+characters,semantic,47,846,5,U+69EA,槪,generally,0.944336
+characters,semantic,47,846,6,U+9819,頙,correct,0.939617
+characters,semantic,47,846,7,U+6322,挢,correct,0.939617
+characters,semantic,47,846,8,U+667B,晻,unclear,0.926154
+characters,semantic,47,846,9,U+46D6,䛖,(same as 詍) loquacious,0.922215
+characters,semantic,47,846,10,U+557D,啽,(Cant.) to speak,0.922052
+characters,semantic,48,235,1,U+4131,䄱,a kind of grain,0.934561
+characters,semantic,48,235,2,U+4127,䄧,a kind of grain,0.934561
+characters,semantic,48,235,3,U+42AE,䊮,name of a variety of grain,0.920422
+characters,semantic,48,235,4,U+49A4,䦤,seed of grains,0.898866
+characters,semantic,48,235,5,U+417C,䅼,"a kind of grains, to plant; to sow; to cultivate",0.897403
+characters,semantic,48,235,6,U+7A6D,穭,wild grain,0.893384
+characters,semantic,48,235,7,U+7A06,稆,wild grain,0.893384
+characters,semantic,48,235,8,U+79D6,秖,grain that has started to ripen,0.889278
+characters,semantic,48,235,9,U+43AA,䎪,"the stalk of grain; straw, a hammer used to pound grains and corns, etc.",0.888749
+characters,semantic,48,235,10,U+4D46,䵆,"(same as 䴿) grains from the distillery, crumbs of barley, crumbs of rice",0.888636
+characters,semantic,49,313,1,U+57A2,垢,"dirt, filth, stains; dirty",0.87816
+characters,semantic,49,313,2,U+7038,瀸,"moisten, soak",0.868657
+characters,semantic,49,313,3,U+82FE,苾,"smell, fragrance, aroma",0.854587
+characters,semantic,49,313,4,U+6EBD,溽,"moist, humid, muggy",0.852346
+characters,semantic,49,313,5,U+7C78,籸,powdery substance,0.852196
+characters,semantic,49,313,6,U+81A9,膩,"greasy, oily, dirty; smooth",0.851365
+characters,semantic,49,313,7,U+9460,鑠,"melt, smelt; shine",0.850055
+characters,semantic,49,313,8,U+847E,葾,(Cant.) a bad smell,0.849808
+characters,semantic,49,313,9,U+35DC,㗜,"(same as 嗅) to smell, to scent",0.847742
+characters,semantic,49,313,10,U+9AAF,骯,dirty,0.84751
+characters,semantic,50,379,1,U+3B33,㬳,"light; bright, clear",0.926617
+characters,semantic,50,379,2,U+3B1A,㬚,"light; bright, clear",0.926617
+characters,semantic,50,379,3,U+3AF9,㫹,"light; bright, warm, genial",0.925935
+characters,semantic,50,379,4,U+3AF6,㫶,light; bright,0.922061
+characters,semantic,50,379,5,U+3ADB,㫛,"light; bright; brilliant, clear, intelligent; day dawn",0.911067
+characters,semantic,50,379,6,U+3ADC,㫜,"light; bright; brilliant, clear, intelligent; day dawn",0.911067
+characters,semantic,50,379,7,U+3FE9,㿩,"light; bright, white color",0.908888
+characters,semantic,50,379,8,U+665B,晛,sunlight,0.903517
+characters,semantic,50,379,9,U+3AFB,㫻,sunlight,0.903517
+characters,semantic,50,379,10,U+41AA,䆪,color of the light; brilliance or gleaming,0.903126
+characters,semantic,51,395,1,U+889A,袚,greave; knee-pads; buskins,0.91234
+characters,semantic,51,395,2,U+758B,疋,"roll, bolt of cloth; foot",0.893655
+characters,semantic,51,395,3,U+441F,䐟,"fat; plump, bent; curved feet",0.88202
+characters,semantic,51,395,4,U+3786,㞆,"(same as 踦) one-legged, crippled; halt, a defect, tired, the shin",0.881303
+characters,semantic,51,395,5,U+8E2D,踭,"(Cant.) heel, elbow",0.88116
+characters,semantic,51,395,6,U+4A63,䩣,shoe-cushions,0.879542
+characters,semantic,51,395,7,U+4A77,䩷,(same as 幫) the sides of a shoe,0.878359
+characters,semantic,51,395,8,U+8E0E,踎,(Cant.) to squat,0.875566
+characters,semantic,51,395,9,U+4438,䐸,"(non-classical form of 膕) the back of the knee, crooked feet",0.874769
+characters,semantic,51,395,10,U+6489,撉,"to squat, crouch",0.868906
+characters,semantic,52,398,1,U+34F8,㓸,"(same as 斲) to cut to pieces; to hack; to chop or hew, to carve for ornaments",0.914864
+characters,semantic,52,398,2,U+525F,剟,"to prick; to cut blocks, to engrave",0.912024
+characters,semantic,52,398,3,U+65B5,斵,to cut to pieces; to hack; to chop or hew; to carve for ornaments,0.911985
+characters,semantic,52,398,4,U+3506,㔆,"to cut; to hack; to reap; to trim or clip, to stab; to pierce; to brand",0.910891
+characters,semantic,52,398,5,U+5221,刡,to scrape; to pare,0.907907
+characters,semantic,52,398,6,U+6BDF,毟,"to pluck, pick, tear",0.905614
+characters,semantic,52,398,7,U+48E6,䣦,to cut; to mince; to slice; to carve,0.901169
+characters,semantic,52,398,8,U+350D,㔍,"a hinged shear or long knife for cutting fodder; sheet-iron; etc., to cut up; to mince",0.898374
+characters,semantic,52,398,9,U+34DF,㓟,"to peel, to pare, to trim, to split, (non-classical form) to open; to unroll; to spread out",0.897275
+characters,semantic,52,398,10,U+39DF,㧟,"(simplified form of 擓) to wipe; to scrub; to rub, to dust; to clean, (a dialect) to scratch with fingers lightly, (a dialect) to carry on the arm",0.895873
+characters,semantic,53,703,1,U+6C84,沄,billows,0.932158
+characters,semantic,53,703,2,U+6554,敔,gavel,0.924579
+characters,semantic,53,703,3,U+7B99,箙,quiver,0.918626
+characters,semantic,53,703,4,U+853E,蔾,kind of bramble,0.915017
+characters,semantic,53,703,5,U+4A74,䩴,a quiver,0.908068
+characters,semantic,53,703,6,U+4A6E,䩮,a quiver,0.908068
+characters,semantic,53,703,7,U+857B,蕻,budding,0.904127
+characters,semantic,53,703,8,U+69B1,榱,rafter,0.901799
+characters,semantic,53,703,9,U+9A23,騣,mane,0.901057
+characters,semantic,53,703,10,U+4C15,䰕,mane,0.901057
+characters,semantic,54,368,1,U+9907,餇,food,0.918923
+characters,semantic,54,368,2,U+6E4C,湌,to eat,0.902687
+characters,semantic,54,368,3,U+9927,餧,steamed bread; to feed,0.895898
+characters,semantic,54,368,4,U+9378,鍸,"food, gruel",0.893383
+characters,semantic,54,368,5,U+38BD,㢽,"(same as 餌) a bait, cakes, food, to eat",0.891156
+characters,semantic,54,368,6,U+4436,䐶,"to cook; to boil; to decoct, diseases of the lips; hare-lip, pieces of meat",0.889676
+characters,semantic,54,368,7,U+44F9,䓹,"(same as 饐) to stuff full and to gulp down, cooked food which has become mouldy, sour",0.886907
+characters,semantic,54,368,8,U+4B38,䬸,"(corrupted form of 餐) a meal, to eat, food",0.885632
+characters,semantic,54,368,9,U+7C51,籑,"to feed, to provide for delicacies, dainties",0.88432
+characters,semantic,54,368,10,U+4B64,䭤,"to chew; to eat, to roll round with the hand, cakes; biscuits",0.884055
+characters,semantic,55,154,1,U+8254,艔,(Cant.) boat,0.962869
+characters,semantic,55,154,2,U+8221,舡,"boat, ship",0.955036
+characters,semantic,55,154,3,U+4466,䑦,a boat; a ship; vessel,0.954933
+characters,semantic,55,154,4,U+446F,䑯,a boat; a ship; vessel,0.954933
+characters,semantic,55,154,5,U+4471,䑱,a boat; a ship; vessel,0.954933
+characters,semantic,55,154,6,U+4474,䑴,a boat; a ship; vessel,0.954933
+characters,semantic,55,154,7,U+4464,䑤,a boat; a ship; vessel,0.954933
+characters,semantic,55,154,8,U+8229,舩,"boat, ship, vessel",0.953093
+characters,semantic,55,154,9,U+4463,䑣,a sailing boat,0.944521
+characters,semantic,55,154,10,U+4486,䒆,"name of a ship, a sailing boat",0.941938
+characters,semantic,56,306,1,U+75E1,痡,a disease; an ailment,0.932336
+characters,semantic,56,306,2,U+344A,㑊,a kind of disease,0.922079
+characters,semantic,56,306,3,U+3FD1,㿑,illness; disease; ailment,0.917152
+characters,semantic,56,306,4,U+3F87,㾇,illness; disease; ailment,0.917152
+characters,semantic,56,306,5,U+3F74,㽴,illness; disease,0.913621
+characters,semantic,56,306,6,U+3F73,㽳,illness; disease,0.913621
+characters,semantic,56,306,7,U+75C7,症,"disease, illness, ailment",0.909266
+characters,semantic,56,306,8,U+3F7B,㽻,diseases; illness,0.906379
+characters,semantic,56,306,9,U+75C5,病,"illness, sickness, disease",0.902187
+characters,semantic,56,306,10,U+3FDA,㿚,sickness; ailment; disease,0.900385
+characters,semantic,57,369,1,U+36B6,㚶,"(same as 姒) wife of one's husband's elder brother; (in ancient China) the elder of twins; a Chinese family name, (same as 姬) a handsome girl; a charming girl; a concubine; a Chinese family name",0.874313
+characters,semantic,57,369,2,U+89AA,親,"relatives, parents; intimate",0.869093
+characters,semantic,57,369,3,U+5B65,孥,one's children,0.868983
+characters,semantic,57,369,4,U+5A18,娘,mother; young girl; woman; wife,0.86575
+characters,semantic,57,369,5,U+59B8,妸,person,0.860883
+characters,semantic,57,369,6,U+5A7C,婼,person,0.860883
+characters,semantic,57,369,7,U+373C,㜼,"(same as 姪) children of one's brother -- nephews or nieces, I; me (when speaking to a family friend of father's generation)",0.850892
+characters,semantic,57,369,8,U+4F22,伢,child,0.849179
+characters,semantic,57,369,9,U+5D3D,崽,"a child, a servant; a diminutive",0.847377
+characters,semantic,57,369,10,U+3711,㜑,"(same as 婆) an older woman, mother of one's husband, one's grandmother",0.846716
+characters,semantic,58,343,1,U+460B,䘋,a kind of insect,0.939357
+characters,semantic,58,343,2,U+45B7,䖷,a kind of insect,0.939357
+characters,semantic,58,343,3,U+43BC,䎼,a kind of insect,0.939357
+characters,semantic,58,343,4,U+45FC,䗼,a kind of insect,0.939357
+characters,semantic,58,343,5,U+45DF,䗟,a kind of insect,0.939357
+characters,semantic,58,343,6,U+45EE,䗮,a kind of insect,0.939357
+characters,semantic,58,343,7,U+45CE,䗎,a kind of insect,0.939357
+characters,semantic,58,343,8,U+45DB,䗛,a kind of insect,0.939357
+characters,semantic,58,343,9,U+87DC,蟜,insect,0.923054
+characters,semantic,58,343,10,U+665C,晜,insect,0.923054
+characters,semantic,59,172,1,U+4873,䡳,"cart, carriage etc.",0.932846
+characters,semantic,59,172,2,U+4849,䡉,a kind of cart,0.912401
+characters,semantic,59,172,3,U+8EDA,軚,(Cant.) a steering wheel,0.896155
+characters,semantic,59,172,4,U+485C,䡜,"car (of a train); compartment; the inside of a cart, axis; pivot; axle; an axletree",0.889577
+characters,semantic,59,172,5,U+485F,䡟,a ring of the horizontal front bar on a carriage; to control the wheel,0.888253
+characters,semantic,59,172,6,U+4846,䡆,a moving cart,0.886797
+characters,semantic,59,172,7,U+92D7,鋗,a small basin; rings on a cart of carriage,0.879911
+characters,semantic,59,172,8,U+485D,䡝,"a rear covering of a big carriage, an armed carriage; a military cart; cart used by the soldiers, name of a carriage",0.87851
+characters,semantic,59,172,9,U+6A1A,樚,"a pulley, a windlass, a wheel, a block",0.876794
+characters,semantic,59,172,10,U+487F,䡿,"(same as 軨) frames on the sides and front of a carriage, wheels of a carriage",0.876305
