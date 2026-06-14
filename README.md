@@ -196,6 +196,60 @@ cp data/graphs/graph_semantic_weighted.graphml entrega_parcial/
 
 **Notas:** na primeira vez, o `uv sync` baixa as dependências do `pyproject.toml` (incluindo `sentence-transformers` e o renderizador de imagem estática do Plotly, `kaleido`). A primeira execução do *sentence-transformers* também baixa os pesos do modelo no Hugging Face.
 
+## Análise final (etapas 4–6)
+
+**Pré-requisito:** passos 1–7 do tutorial acima (grafo + embeddings de caracteres).
+
+**8. Features estruturais**
+
+```bash
+uv run python scripts/build_structural_features.py
+```
+
+- **Entradas:** `radical_character_edges.csv`
+- **Saídas:** `struct_features_characters.npz`, `struct_features_radicals.npy`, `struct_index_*.csv`
+- **Propósito:** vetores de conectividade para agrupamento estrutural (sem matrizes O(N²)).
+
+**9. Embeddings dos radicais**
+
+```bash
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 uv run python -u scripts/build_radical_embeddings.py
+```
+
+- **Entradas:** `radical_character_edges.csv`, `kangxi_radicals.csv`
+- **Saídas:** `radical_embeddings.npy`, `radical_embeddings_index.csv`
+- **Propósito:** espaço semântico dos 214 radicais (símbolo + significado em inglês).
+
+**10. Agrupamentos (etapa 4)**
+
+```bash
+uv run python -u scripts/cluster_partitions.py
+```
+
+- **Entradas:** features estruturais + embeddings (caracteres e radicais)
+- **Saídas:** `data/processed/partitions/` (4 CSVs de rótulos, `kmeans_sweep.csv`, `clustering_meta.json`)
+- **Propósito:** quatro partições (radicais/caracteres × estrutural/semântico) com o mesmo K por classe.
+
+**11. Comparação entre partições (etapa 5)**
+
+```bash
+uv run python -u scripts/compare_partitions.py
+```
+
+- **Entradas:** partições da etapa 4 + features (para varredura em K)
+- **Saídas:** `entrega_final/comparacao/` (`metrics_summary.csv`, `contingency_*.csv`, gráficos PNG se Kaleido disponível)
+- **Propósito:** ARI, AMI, NMI, V-measure, Fowlkes–Mallows entre estrutural e semântico.
+
+**12. Análise interpretativa (etapa 6)**
+
+```bash
+uv run python -u scripts/interpret_examples.py
+```
+
+- **Entradas:** partições, métricas, `characters.csv`, `radical_character_edges_weighted.csv`
+- **Saídas:** `entrega_final/exemplos/` (`convergence.csv`, `divergence.csv`, `digest.md`)
+- **Propósito:** exemplos de convergência e divergência entre agrupamentos estrutural e semântico.
+
 ## Cronograma e Planejamento
 
 
@@ -204,7 +258,7 @@ cp data/graphs/graph_semantic_weighted.graphml entrega_parcial/
 | Proposta do Projeto                | 20/03 | ✅      |
 | Coleta e Extração de Embeddings    | 10/04 | ✅      |
 | Construção do Grafo                | 26/04 | ✅      |
-| Análise de Resultados              | 25/05 | ⏳      |
+| Análise de Resultados              | 25/05 | ✅      |
 | Entrega Final (Código + Relatório) | 08/06 | ⏳      |
 
 
