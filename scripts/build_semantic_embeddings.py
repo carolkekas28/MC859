@@ -37,6 +37,14 @@ def overwrite_characters_with_semantic_text(characters_csv: Path) -> tuple[list[
     return rows, fieldnames
 
 
+def prepare_output_path(path: Path) -> None:
+    """Remove a broken symlink or stale file so np.save can write."""
+    if path.is_symlink() and not path.exists():
+        path.unlink()
+    elif path.exists() and path.is_file():
+        path.unlink()
+
+
 def generate_embeddings(
     rows: list[dict[str, str]],
     model_name: str,
@@ -62,6 +70,7 @@ def generate_embeddings(
         normalize_embeddings=True,
     )
     output_npy.parent.mkdir(parents=True, exist_ok=True)
+    prepare_output_path(output_npy)
     np.save(output_npy, embeddings)
 
     output_meta_csv.parent.mkdir(parents=True, exist_ok=True)
