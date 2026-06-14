@@ -1,0 +1,30 @@
+{
+  "radicals_k_grid": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "characters_k_grid": [
+    5,
+    10,
+    15,
+    20,
+    30,
+    40,
+    60
+  ],
+  "character_subsample": 5000,
+  "random_state": 42,
+  "radicals_primary_k": 3,
+  "characters_primary_k": 60
+}
