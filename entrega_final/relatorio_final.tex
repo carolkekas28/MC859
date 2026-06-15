@@ -1,0 +1,904 @@
+\documentclass[10pt, a4paper, titlepage]{extarticle}
+
+% --- PACOTES ---
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{xurl}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\setCJKmainfont{Noto Serif CJK SC}
+\captionsetup{font=footnotesize}
+
+\geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
+
+% --- 1. TÍTULO ---
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    % --- Logos no topo ---
+    % --- Logos no topo ---
+    \vspace*{5cm}
+    \begin{center}
+        \includegraphics[height=2.2cm]{UNICAMP_logo.png}
+        \hspace{0.em}  % diminua para 0.4em ou aumente se quiser mais espaço
+        \includegraphics[height=2.2cm]{logo_instituto_de_computacao.png}
+    \end{center}
+    
+    \vspace{2cm}
+    % --- Título ---
+    {\Large \textbf{Correlação Estrutura-Semântica em Radicais e Ideogramas Chineses}\\[0.8em]}
+    {\large MC859 -- Projeto em Teoria da Computação\\[2.5em]}
+    
+    % --- Autores ---
+    {\normalsize
+        Ana Carolina de Almeida Cardoso, 246914\\
+        Pedro Damasceno Vasconcellos, 260640\\[2em]
+    }
+    % --- Instituição ---
+    {\normalsize
+        Instituto de Computação\\
+            Universidade Estadual de Campinas -- Unicamp \\[2em]
+    }
+    {\small Repositório: \url{https://github.com/carolkekas28/MC859}}
+    \vfill
+    {\small Campinas, SP \\ Junho de 2026}
+\end{titlepage}
+
+% --- 2. CONTEXTUALIZAÇÃO BREVE ---
+\begin{abstract}
+Este trabalho investiga em que medida a organização estrutural de radicais e ideogramas chineses se alinha à organização semântica derivada de definições textuais. A partir da base Unihan, construímos um grafo bipartido com 214 radicais Kangxi, 27.408 caracteres e 81.505 arestas de composição morfológica. Cada objeto foi representado em dois espaços: um estrutural, baseado em padrões de conectividade no grafo, e outro semântico, obtido por embeddings do modelo \texttt{paraphrase-multilingual-MiniLM-L12-v2}.
+
+Para radicais e caracteres, geramos partições por \emph{K-means} em cada espaço, com o mesmo número de grupos K em ambos os lados de cada classe. A escolha de K foi feita por coeficiente de silhueta, resultando em K = 3 radicais e K = 60 para caracteres. A concordância entre partições foi medida por índices de sobreposição entre agrupamentos, complementada por matrizes de contingência e análise de exemplos de convergência e divergência.
+
+Os resultados indicam baixo alinhamento global entre estrutura e semântica: tanto para radicais quanto para caracteres, os índices de concordância entre os dois agrupamentos ficaram próximos de zero, indicando que os grupos formados pela estrutura gráfica raramente coincidem com os grupos formados pelo significado. Entretanto, observam-se convergências locais em famílias morfologicamente transparentes, como peixes (\textit{魚}) e aves (\textit{鳥}). Em paralelo, a análise de centralidade identificou radicais estruturalmente dominantes (em especial \textit{一}, \textit{口} e \textit{人}), cuja importância topológica não se traduz em correspondência direta com os agrupamentos semânticos.
+
+Conclui-se que a estrutura gráfica dos caracteres preserva traços semânticos detectáveis, mas de forma parcial e temática, e não como um mapeamento global entre topologia e significado. O pipeline implementado, os grafos, as métricas e os exemplos interpretativos estão disponíveis no repositório público do projeto em https://github.com/carolkekas28/MC859.
+\end{abstract}
+
+% --- 3. INTRODUÇÃO ---
+\section{Introdução}
+\subsection{Motivação}
+Os ideogramas chineses não são, em geral, símbolos atômicos: muitos deles resultam da combinação de componentes gráficos menores, entre os quais se destacam os radicais Kangxi. Essa organização composicional sugere que parte da forma visual de um caractere pode estar associada ao seu significado. Em alguns casos, essa relação permanece relativamente transparente; em outros, a evolução histórica e o uso contemporâneo afastam a leitura literal do componente estrutural.
+
+Um exemplo clássico é o caractere 网 (\textit{wǎng}), cuja forma remete originalmente a uma rede física, mas cujo emprego moderno também evoca conceitos abstratos, como ``Internet''. Casos desse tipo motivam a pergunta central deste trabalho: \emph{até que ponto a estrutura morfológica dos caracteres ainda preserva informação semântica mensurável?}
+
+Para responder a essa pergunta de forma quantitativa, adotamos uma abordagem baseada em grafos e em representações vetoriais de texto. Modelamos a relação entre radicais e caracteres como um grafo bipartido derivado da base Unihan e comparamos duas visões sobre os mesmos objetos: uma estrutural, derivada das conexões no grafo, e outra semântica, derivada de embeddings das definições textuais dos caracteres e dos radicais. O interesse não está apenas em construir o grafo, mas em verificar se os agrupamentos induzidos por essas duas visões convergem ou divergem.
+
+\subsection{Objetivos}
+O objetivo central deste trabalho é investigar o grau de alinhamento entre agrupamentos estruturais e semânticos de radicais e ideogramas chineses, utilizando um grafo bipartido e embeddings textuais, por meio de:
+
+\begin{enumerate}
+    \item Construção de um grafo bipartido relacionando radicais Kangxi e ideogramas com base na base Unihan, por meio de decomposições IDS expandidas recursivamente até folhas estruturais.
+    \item Representação de radicais e ideogramas em dois espaços distintos: um estrutural, baseado em padrões de conectividade no grafo, e outro semântico, baseado em embeddings gerados a partir de definições textuais e descrições dos radicais.
+    \item Agrupamento dos radicais em partições estruturais e semânticas e comparar essas duas organizações, utilizando o mesmo número de clusters em ambos os espaços.
+    \item Agrupamento dos ideogramas em partições estruturais e semânticas e comparar essas duas organizações sob a mesma perspectiva metodológica aplicada aos radicais.
+    \item Avaliação quantitativa do grau de concordância entre os agrupamentos estruturais e semânticos por meio de métricas de comparação entre partições, identificando casos representativos de convergência e divergência.
+    \item Cálculo de medidas de centralidade --- Grau (Degree), Intermediação (Betweenness), Proximidade (Closeness), Autovetor (Eigenvector) e PageRank --- para caracterizar a importância topológica dos radicais na rede.
+
+\end{enumerate}
+
+% --- 4. DADOS  ---
+\section{Dados e construção do grafo}
+\subsection{Fontes de dados}
+A construção do grafo partiu de fontes públicas sobre ideogramas Han, organizadas principalmente na base \textbf{Unihan}, mantida pelo Unicode Consortium. Utilizamos os seguintes arquivos:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{p{4.8cm} p{7.8cm}}
+\toprule
+\textbf{Fonte} & \textbf{Papel no projeto} \\
+\midrule
+\texttt{Unihan/ids.txt} & Decomposição estrutural dos caracteres \\
+\texttt{Unihan/Unihan\_IRGSources.txt} & Fallback estrutural via \texttt{kRSUnicode} \\
+\texttt{Unihan/Unihan\_Readings.txt} & Definições textuais dos caracteres \\
+\texttt{kangxi\_radicals.csv} & Catálogo e rótulos dos 214 radicais \\
+\bottomrule
+\end{tabular}
+\caption{Principais fontes de dados utilizadas na construção do grafo.}
+\label{tab:fontes-dados}
+\end{table}
+
+O universo de caracteres foi recortado no intervalo Unicode \texttt{U+3400..U+9FFF}, cobrindo a Extensão A CJK e o bloco principal de ideogramas CJK unificados. Quando um caractere possui mais de uma variante IDS, adotamos precedência regional determinística \texttt{G > T > J > K > V > X}. Variantes gráficas de um mesmo radical --- como \texttt{亻} $\rightarrow$ \texttt{人}, \texttt{氵} $\rightarrow$ \texttt{水} e \texttt{扌} $\rightarrow$ \texttt{手} --- foram normalizadas para formas canônicas Kangxi, evitando a fragmentação artificial do grafo.
+
+\subsection{Pipeline de processamento}
+O pipeline transforma os arquivos Unihan em um grafo bipartido não direcionado $G = (R \cup C, E)$, em que $R$ é o conjunto de radicais Kangxi, $C$ o conjunto de caracteres no recorte adotado e cada aresta $(r, c) \in E$ indica que o radical $r$ participa da decomposição estrutural de $c$. O procedimento central está resumido no Algoritmo~\ref{alg:grafo-bipartido}; os demais passos do pipeline são descritos em seguida.
+
+O processamento foi dividido em seis etapas principais:
+
+\begin{enumerate}
+    \item \textbf{Base de caracteres} (\texttt{build\_characters\_base.py}): extração de definições e cobertura IDS para o recorte Unicode.
+    \item \textbf{Seleção de IDS} (\texttt{build\_ids\_selected.py}): escolha de uma decomposição canônica por caractere e limpeza da expressão IDS.
+    \item \textbf{Expansão recursiva} (\texttt{build\_recursive\_kangxi.py}): parsing da IDS até folhas Kangxi.
+    \item \textbf{Embeddings semânticos} (\texttt{build\_semantic\_embeddings.py}): codificação das definições textuais dos caracteres com o modelo MiniLM.
+    \item \textbf{Arestas ponderadas} (\texttt{build\_weighted\_edges\_from\_embeddings.py}): cálculo de similaridade de cosseno entre embeddings de radical e caractere para cada aresta estrutural.
+    \item \textbf{Exportação GraphML} (\texttt{export\_graphml.py}): instâncias de pesos unitários e pesos semânticos.
+\end{enumerate}
+
+As etapas 4 e 5 não alteram a topologia do grafo; elas acrescentam atributos semânticos às arestas já definidas estruturalmente. As representações vetoriais e os agrupamentos derivados desses dados são tratados nas Seções~4 e~5.
+
+\begin{algorithm}[H]
+\caption{Construção do grafo bipartido estrutural}
+\label{alg:grafo-bipartido}
+\begin{algorithmic}[1]
+\Require Conjunto de caracteres $C$ no recorte \texttt{U+3400..U+9FFF}
+\Require Arquivo IDS, catálogo Kangxi $K$, mapa de variantes $V$, fallback \texttt{kRSUnicode}
+\Ensure Conjunto de arestas $E \subseteq K \times C$
+\State $E \gets \emptyset$
+\For{cada caractere $c \in C$}
+    \State $\textit{ids} \gets \textsc{SelecionarIDS}(c)$ \Comment{precedência \texttt{G > T > J > K > V > X}}
+    \If{$\textit{ids} = \bot$}
+        \State \textbf{continue}
+    \EndIf
+    \State $\textit{expr} \gets \textsc{LimparIDS}(\textit{ids})$
+    \State $L \gets \textsc{ExpandirRecursivamente}(\textit{expr}, K, V)$
+    \Comment{Algoritmo recursivo auxiliar}
+    \For{cada folha $\ell \in L$}
+        \State $\ell \gets V(\ell)$ \Comment{normalização de variantes gráficas}
+        \If{$\ell \in K$}
+            \State $E \gets E \cup \{(\ell, c)\}$
+        \EndIf
+    \EndFor
+\EndFor
+\State remover duplicatas de $E$
+\State \Return $E$
+\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[H]
+\caption{Expansão recursiva de componentes IDS (\textsc{ExpandirRecursivamente})}
+\label{alg:expandir-ids}
+\begin{algorithmic}[1]
+\Require Componente $x$, profundidade $d$, limite $d_{\max}$, conjunto visitado $H$
+\Ensure Conjunto de radicais folha $L$
+\If{$x$ já é radical Kangxi}
+    \State \Return $\{x\}$
+\EndIf
+\If{$d \geq d_{\max}$ \textbf{ou} $x \in H$ \textbf{ou} IDS de $x$ ausente}
+    \State tentar fallback \texttt{kRSUnicode}$(x)$
+    \State \Return $\emptyset$ ou $\{\text{radical fallback}\}$
+\EndIf
+\State $H \gets H \cup \{x\}$
+\State parsear $\textit{ids}(x)$ em subcomponentes $\{x_1, \ldots, x_m\}$ conforme operadores IDS
+\State $L \gets \emptyset$
+\For{$i = 1$ \textbf{to} $m$}
+    \State $L \gets L \cup \textsc{ExpandirRecursivamente}(x_i, d+1, d_{\max}, H)$
+\EndFor
+\State \Return $L$
+\end{algorithmic}
+\end{algorithm}
+
+A Figura~\ref{fig:decomposicao_radical} ilustra, de forma esquemática, a ideia da expansão recursiva: um caractere é decomposto em componentes intermediários até atingir radicais folha Kangxi, que se tornam os vértices do lado $R$ do grafo bipartido
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{decomposição de radicais.jpg}
+    \caption{Representação esquemática da decomposição recursiva até radicais Kangxi.}
+    \label{fig:decomposicao_radical}
+\end{figure}
+
+Após a geração das arestas estruturais, os embeddings semânticos permitem atribuir a cada aresta $(r,c)$ um peso
+\[
+w_{r,c} = \cos(\mathbf{e}_r, \mathbf{e}_c),
+\]
+em que $\mathbf{e}_r$ e $\mathbf{e}_c$ são embeddings L2-normalizados do radical e do caractere, respectivamente. Define-se ainda a versão normalizada $w^{\mathrm{norm}}_{r,c} = (w_{r,c}+1)/2$ para análise descritiva.
+
+\subsection{Estatísticas do grafo bipartido}
+O grafo estrutural final contém \textbf{27.622 vértices} (214 radicais e 27.408 caracteres) e \textbf{81.505 arestas}. Como o grafo é não direcionado, o grau médio dos vértices é
+\[
+\bar{k} = \frac{2|E|}{|V|} \approx 5{,}90.
+\]
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lr}
+\toprule
+\textbf{Métrica} & \textbf{Valor} \\
+\midrule
+Radicais ($|R|$) & 214 \\
+Caracteres ($|C|$) & 27.408 \\
+Vértices ($|V| = |R| + |C|$) & 27.622 \\
+Arestas ($|E|$) & 81.505 \\
+Grau médio ($\bar{k}$) & 5,90 \\
+Componentes conexas & 3 \\
+\bottomrule
+\end{tabular}
+\caption{Estatísticas do grafo bipartido estrutural.}
+\label{tab:estatisticas-grafo}
+\end{table}
+
+O grau médio deve ser interpretado à luz da natureza bipartida da rede. Caracteres individuais conectam-se tipicamente a poucos radicais --- correspondendo ao número de componentes estruturais distintos em sua decomposição ---, enquanto radicais frequentes, como \textit{一}, \textit{口} e \textit{人}, concentram milhares de conexões.
+
+\subsection{Análise estrutural inicial}
+Como as instâncias \texttt{graph\_structural} e \texttt{graph\_semantic\_weighted} compartilham a mesma topologia, as propriedades estruturais abaixo valem para ambas; a diferença entre elas reside nos atributos de peso das arestas.
+
+\subsubsection{Distribuição dos graus}
+No grafo bipartido, o grau de um vértice corresponde ao número de arestas incidentes. Para caracteres, o grau indica quantos radicais distintos compõem sua estrutura; para radicais, indica em quantos caracteres aquele componente aparece.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{degree_distribution.png}
+        \caption*{(a) Distribuição dos graus}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{weight_norm_distribution.png}
+        \caption*{(b) Distribuição dos pesos normalizados}
+    \end{minipage}
+    \caption{Distribuições iniciais do grafo. (a) graus dos vértices; (b) pesos normalizados $w^{\mathrm{norm}}$ das arestas no grafo semanticamente ponderado.}
+    \label{fig:distribuicoes-grafo}
+\end{figure}
+
+A Figura~\ref{fig:distribuicoes-grafo}(a) revela comportamento assimétrico: a maioria dos vértices possui grau baixo, enquanto poucos radicais concentram muitas conexões. Esse padrão é compatível com a organização composicional dos ideogramas e antecipa a concentração de centralidade observada na Seção~8.
+
+\subsubsection{Distribuição dos pesos semânticos nas arestas}
+A Figura~\ref{fig:distribuicoes-grafo}(b) mostra a distribuição dos pesos normalizados nas arestas do grafo semanticamente ponderado. A massa da distribuição situa-se entre valores intermediários de similaridade, indicando que a ligação estrutural entre radical e caractere não implica, por si só, alta proximidade semântica uniforme --- hipótese investigada quantitativamente nas Seções~5 e~6.
+
+\subsubsection{Componentes conexas}
+O grafo possui três componentes conexas. A componente principal contém 27.618 vértices, concentrando praticamente toda a rede. As demais são componentes residuais de dois vértices cada, correspondendo aos pares \texttt{U+5338}--\textit{匸} e \texttt{U+590A}--\textit{夊}. Esses radicais são pouco produtivos no recorte analisado, o que explica sua baixa conectividade.
+
+Esse resultado é favorável às análises posteriores: métricas de centralidade e agrupamentos podem ser computados sobre uma componente gigante que representa quase todo o grafo, sem perda relevante de cobertura.
+
+
+% --- 5. REPRESENTAÇÕES ---
+\section{Representações estrutural e semântica}
+A construção do grafo bipartido (Seção~3) define quais radicais e caracteres estão relacionados estruturalmente. Para comparar organização estrutural e semântica, cada objeto, radical ou caractere, precisa ser descrito numericamente em dois espaços distintos. O espaço estrutural captura padrões de conectividade no grafo; o espaço semântico captura proximidade entre descrições textuais codificadas por um modelo de embeddings.
+
+Essas representações alimentam diretamente a etapa de agrupamento (Seção~5). Importante: os agrupamentos semânticos utilizam os vetores descritos abaixo; o grafo semanticamente ponderado da Seção~3, embora derive dos mesmos embeddings, serve principalmente à análise descritiva das arestas e não é a matriz de adjacência usada no \emph{clustering}.
+
+\subsection{Representação estrutural}
+A representação estrutural materializa o grafo bipartido como uma \textbf{matriz de incidência esparsa} $B \in \{0,1\}^{|R|\times|C|}$, em que $B_{r,c} = 1$ se o radical $r$ aparece na decomposição do caractere $c$, e $B_{r,c} = 0$ caso contrário. No conjunto de dados final, $B$ possui dimensão $214 \times 27.408$, com 81.505 entradas não nulas, correspondendo às arestas únicas do grafo.
+
+\subsubsection{Radicais}
+Descrever cada radical apenas por sua linha em $B$ produziria um vetor de dimensão 27.408, custoso e redundante. Em vez disso, aplicamos \textbf{TruncatedSVD} sobre $B$ com $d = 50$ componentes, obtendo
+\[
+\mathbf{x}^{\mathrm{struct}}_r \in \mathbb{R}^{50}
+\]
+para cada radical $r$. Intuitivamente, cada coordenada resume um padrão de co-ocorrência entre radicais e grupos de caracteres: radicais com perfis de conectividade semelhantes tendem a ficar próximos nesse espaço.
+
+\subsubsection{Caracteres}
+Para caracteres, a representação estrutural é mais direta: cada caractere $c$ é descrito pela \textbf{coluna correspondente} de $B$, ou equivalentemente pela linha de $B^{\mathsf{T}}$,
+\[
+\mathbf{x}^{\mathrm{struct}}_c \in \{0,1\}^{214},
+\]
+um vetor binário esparso indicando presença ou ausência de cada um dos 214 radicais Kangxi na decomposição. Em média, cada caractere possui cerca de $2{,}97$ radicais distintos nessa representação.
+
+A matriz esparsa evita construir explicitamente uma similaridade caractere--caractere, cuja densidade explodiria quando radicais frequentes, como \textit{水} ou \textit{口},  conectam milhares de pares. O procedimento está resumido no Algoritmo~\ref{alg:features-estruturais}.
+
+\begin{algorithm}[H]
+\caption{Construção das features estruturais}
+\label{alg:features-estruturais}
+\begin{algorithmic}[1]
+\Require Lista de arestas $(r,c)$ em \texttt{radical\_character\_edges.csv}
+\Ensure Matriz esparca $\mathbf{X}_C$ (caracteres) e matriz densa $\mathbf{X}_R$ (radicais)
+\State construir $B \in \{0,1\}^{|R|\times|C|}$ a partir das arestas
+\State $\mathbf{X}_C \gets B^{\mathsf{T}}$ \Comment{formato esparso; $27.408 \times 214$}
+\State $\mathbf{X}_R \gets \textsc{TruncatedSVD}(B, d=50)$ \Comment{$214 \times 50$}
+\State \textbf{return} $\mathbf{X}_C$, $\mathbf{X}_R$
+\end{algorithmic}
+\end{algorithm}
+
+Os arquivos gerados são \texttt{struct\_features\_characters.npz} (esparsa), \texttt{struct\_features\_radicals.npy} (densa) e índices de alinhamento \texttt{struct\_index\_*.csv}.
+
+\subsection{Representação semântica}
+A representação semântica associa a cada radical e a cada caractere um vetor denso de dimensão 384, produzido pelo modelo \texttt{sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2}. Trata-se de um encoder multilíngue baseado em \textit{transformers}, adequado a medir similaridade entre textos curtos --- como definições lexicográficas em inglês.
+
+\subsubsection{Radicais}
+Para cada radical Kangxi, o texto de entrada combina símbolo e significado em inglês da tabela de referência:
+\begin{quote}
+\texttt{character: 水. meaning: water.}
+\end{quote}
+Quando o significado está ausente, utiliza-se apenas \texttt{character: \{símbolo\}}. Os vetores resultantes são armazenados em \texttt{radical\_embeddings.npy} (214 linhas $\times$ 384 colunas).
+
+\subsubsection{Caracteres}
+Para cada caractere, o texto de entrada utiliza a definição \texttt{kDefinition} da Unihan quando disponível:
+\begin{quote}
+\texttt{character: 网. definition: net, network.}
+\end{quote}
+Se não houver definição, o texto reduz-se a \texttt{character: \{símbolo\}.}. As strings são registradas na coluna \texttt{semantic\_text} de \texttt{characters.csv}; os embeddings correspondentes ficam em \texttt{semantic\_embeddings.npy}, alinhados por \texttt{semantic\_embeddings\_index.csv}.
+
+\subsubsection{Normalização e similaridade}
+Todos os embeddings são \textbf{L2-normalizados} após a codificação. Com $\|\mathbf{e}\|_2 = 1$, a similaridade de cosseno entre dois objetos $a$ e $b$ reduz-se ao produto interno:
+\[
+\cos(\mathbf{e}_a, \mathbf{e}_b) = \mathbf{e}_a^{\mathsf{T}} \mathbf{e}_b \in [-1, 1].
+\]
+Essa propriedade é explorada tanto no cálculo dos pesos semânticos das arestas (Seção~3) quanto na caracterização de protótipos de \emph{clusters} (Seção~7).
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{p{2.2cm} p{3.8cm} p{3.2cm} p{3.8cm}}
+\toprule
+\textbf{Objeto} & \textbf{Texto de entrada} & \textbf{Dimensão} & \textbf{Arquivo} \\
+\midrule
+Radical &
+\texttt{character: X. meaning: Y.} &
+384 &
+\texttt{radical\_embeddings.npy} \\
+Caractere &
+\texttt{character: X. definition: Y.} &
+384 &
+\texttt{semantic\_embeddings.npy} \\
+Radical (estr.) &
+SVD de $B$ ($d=50$) &
+50 &
+\texttt{struct\_features\_radicals.npy} \\
+Caractere (estr.) &
+coluna de $B$ &
+214 (esparso) &
+\texttt{struct\_features\_characters.npz} \\
+\bottomrule
+\end{tabular}
+\caption{Resumo das representações utilizadas no agrupamento.}
+\label{tab:representacoes}
+\end{table}
+
+\subsection{Modelos de embeddings e normalização}
+O modelo MiniLM-L12-v2 mapeia sequências de tokens para $\mathbb{R}^{384}$. Por ser multilíngue e treinado para tarefas de similaridade semântica, é adequado ao nosso corpus de definições curtas em inglês, embora não capture leituras fonéticas, contexto histórico ou polissemia plena dos caracteres.
+Dois detalhes metodológicos merecem registro:
+\begin{enumerate}
+    \item \textbf{Assimetria radical--caractere nos pesos das arestas.} No agrupamento semântico dos radicais, utilizamos símbolo \emph{e} significado em inglês. Já no cálculo dos pesos $w_{r,c}$ das arestas do grafo ponderado (Seção~3), o embedding do radical usa apenas \texttt{character: \{r\}.}, sem o campo \texttt{meaning}. Essa diferença é intencional: os pesos das arestas medem similaridade \emph{pura} entre o token gráfico do radical e a definição do caractere; os agrupamentos semânticos dos radicais incorporam informação lexical adicional disponível na tabela Kangxi.
+    \item \textbf{Caracteres sem definição.} Parte dos caracteres no recorte Unicode não possui \texttt{kDefinition}. Nesses casos, o embedding resume apenas o glifo, o que reduz a riqueza semântica disponível e pode contribuir para a formação de \emph{clusters} residuais na etapa de agrupamento.
+\end{enumerate}
+Com as quatro matrizes de \emph{features} definidas --- estrutural e semântica, para radicais e caracteres --- passamos à geração das partições comparadas na Seção~5.
+
+% --- 6. AGRUPAMENTOS ---
+\section{Agrupamento}
+Esta seção descreve como radicais e caracteres foram particionados em grupos nos espaços estrutural e semântico. O objetivo é produzir quatro partições comparáveis (radicais estrutural, radicais semântico, caracteres estrutural e caracteres semântico) com o mesmo número de clusters $K$ em ambos os espaços de cada classe, permitindo medir alinhamento na seção 5.
+
+\subsection{Metodologia}
+\subsubsection{Algoritmo e escolha de $K$}
+Utilizamos K-means como algoritmo principal, por eficiência em conjuntos de até 27.408 objetos e por compabilidade com as features descritas anteriormente. Para cada classe de objetos (radicais ou caracteres), o procedimento é:
+
+\begin{enumerate}
+    \item Varrer uma grade de valores candidatos de $K$;
+    \item Para cada $K$, aplicar K-means separadamente no espaço estrutural e no semântico;
+    \item Medir a qualidade dos agrupamentos, por meio do cálculo do coeficiente de silhueta, com métrica de cosseno em cada espaço;
+    \item Escolher como $K$ primário o valor que maximiza a média das silhuetas estrutural e semântica entre os $K$ comuns à grade.
+\end{enumerate}
+
+Esse critério garante que o $K$ adotado seja razoável nos dois espaços simultaneamente, e não apenas em um deles. O algoritmo ~\ref{alg:agrupamento} resume o fluxo.
+
+\begin{algorithm}[H]
+\caption{Agrupamento estrutural e semântico com $K$ pareado}
+\label{alg:agrupamento}
+\begin{algorithmic}[1]
+\Require Features estruturais $\mathbf{X}^{\mathrm{str}}$, features semânticas
+         $\mathbf{X}^{\mathrm{sem}}$, grade $\mathcal{G}$
+\Ensure Partições $\mathcal{P}_{\mathrm{str}}$, $\mathcal{P}_{\mathrm{sem}}$
+        com o mesmo $K^*$
+\State $S_{\mathrm{str}} \gets \textsc{VarreduraSilhueta}(\mathbf{X}^{\mathrm{str}}, \mathcal{G})$
+\State $S_{\mathrm{sem}} \gets \textsc{VarreduraSilhueta}(\mathbf{X}^{\mathrm{sem}}, \mathcal{G})$
+\State $K^* \gets \arg\max_{k \in \mathcal{G}}\,
+       \dfrac{s_k^{\mathrm{str}} + s_k^{\mathrm{sem}}}{2}$
+\State $\mathcal{P}_{\mathrm{str}} \gets \textsc{KMeans}(\mathbf{X}^{\mathrm{str}}, K^*)$
+\State $\mathcal{P}_{\mathrm{sem}} \gets \textsc{KMeans}(\mathbf{X}^{\mathrm{sem}}, K^*)$
+\State \textbf{return} $\mathcal{P}_{\mathrm{str}},\, \mathcal{P}_{\mathrm{sem}},\, K^*$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Parâmetros adotados.} O K-means foi executado com
+\texttt{random\_state = 42} e \texttt{n\_init = 10}. A silhueta foi calculada
+com métrica de \textbf{cosseno}, coerente com a interpretação geométrica dos
+embeddings L2-normalizados.
+
+\textbf{Grades de $K$.}
+\begin{itemize}
+    \item \textbf{Radicais} ($n = 214$): $K \in \{3, 4, \ldots, 15\}$.
+    \item \textbf{Caracteres} ($n = 27.408$): $K \in \{5, 10, 15, 20, 30, 40, 60\}$.
+\end{itemize}
+Para caracteres, a varredura de silhueta utiliza uma subamostra
+aleatória de 5.000 objetos (mesma semente), dado o custo computacional;
+o K-means final é ajustado sobre o conjunto completo.
+
+Como verificação complementar, aplicamos Agglomerative Clustering
+(ligação média, métrica de cosseno) aos radicais no $K$ primário. Para
+caracteres, o aglomerativo foi executado apenas na subamostra, servindo
+como \emph{cross-check} parcial.
+
+\subsubsection{Partições produzidas}
+O script \texttt{cluster\_partitions.py} gera quatro arquivos de rótulos em
+\texttt{data/processed/partitions/}:
+\begin{itemize}
+    \item \texttt{radicals\_structural.csv},\; \texttt{radicals\_semantic.csv};
+    \item \texttt{characters\_structural.csv},\; \texttt{characters\_semantic.csv}.
+\end{itemize}
+Cada linha associa um objeto ao rótulo \texttt{cluster\_kmeans} no espaço
+correspondente. A tabela \texttt{kmeans\_sweep.csv} registra a silhueta por
+$K$, e \texttt{clustering\_meta.json} consolida os hiperparâmetros e o
+$K$ primário escolhido.
+
+\subsection{Resultados}
+\subsubsection{Radicais}
+O $K$ primário escolhido para radicais foi \textbf{$K = 3$}.
+A Tabela~\ref{tab:silhueta-radicais} resume a varredura; embora as silhuetas
+estruturais sejam negativas em toda a grade, $K = 3$ apresenta a maior
+silhueta média entre os valores testados.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{crrrc}
+\toprule
+$K$ & Silh.\ estrutural & Silh.\ semântica & Silh.\ média & Primário \\
+\midrule
+3  & $-0{,}062$ & $0{,}026$ & $-0{,}018$ & \checkmark \\
+6  & $-0{,}132$ & $0{,}048$ & $-0{,}042$ & \\
+10 & $-0{,}173$ & $0{,}043$ & $-0{,}065$ & \\
+15 & $-0{,}212$ & $0{,}041$ & $-0{,}086$ & \\
+\bottomrule
+\end{tabular}
+\caption{Varredura de silhueta para radicais (valores selecionados; grade
+completa em \texttt{kmeans\_sweep.csv}).}
+\label{tab:silhueta-radicais}
+\end{table}
+
+A partição estrutural concentra \textbf{212 dos 214 radicais} no
+\emph{cluster}~0; os \emph{clusters}~1 e~2 são \emph{singletons}
+correspondentes a \textit{一} e \textit{口} --- radicais de altíssimo grau
+no grafo. Já a partição semântica divide os radicais de forma mais equilibrada
+(64, 84 e 66 objetos), agrupando-os por afinidade lexical das descrições em
+inglês: traços simples (\textit{丨}, \textit{乙}) no \emph{cluster}~1 e
+radicais com significados concretos (\textit{魚}, \textit{馬}) no
+\emph{cluster}~2.
+
+Esse desbalanceamento estrutural reflete uma propriedade linguística bem
+documentada dos radicais Kangxi. No sistema de escrita chinês, a maioria dos
+caracteres são \textbf{compostos semântico-fonéticos} (形声字,
+\emph{xíngshēngzì}): o radical indica apenas uma categoria semântica ampla,
+enquanto o componente fonético determina a pronúncia. Com essa função,
+radicais frequentes como \textit{一} e \textit{口} conectam-se a uma enorme
+variedade de caracteres semanticamente heterogêneos, sem constituir núcleos
+temáticos coesos. A concentração de 212 radicais num único cluster estrutural
+e a silhueta negativa nesse espaço são, portanto, \textbf{resultados
+esperados}: o espaço de conectividade não impõe fronteiras naturais entre
+grupos de radicais, e qualquer $K$ testado na grade produz separação
+estrutural fraca. O $K = 3$ adotado reflete um compromisso com o espaço
+semântico, não a existência de três grupos estruturais naturais.
+
+\subsubsection{Caracteres}
+Para caracteres, o $K$ primário foi \textbf{$K = 60$} --- o maior valor da
+grade testada, com silhueta média $0{,}181$
+(Tabela~\ref{tab:silhueta-caracteres}).
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{crrrc}
+\toprule
+$K$ & Silh.\ estrutural & Silh.\ semântica & Silh.\ média & Primário \\
+\midrule
+10 & $0{,}132$ & $0{,}128$ & $0{,}130$ & \\
+20 & $0{,}098$ & $0{,}171$ & $0{,}134$ & \\
+40 & $0{,}121$ & $0{,}217$ & $0{,}169$ & \\
+60 & $0{,}120$ & $0{,}242$ & $0{,}181$ & \checkmark \\
+\bottomrule
+\end{tabular}
+\caption{Varredura de silhueta para caracteres (subamostra de 5.000 objetos;
+valores selecionados).}
+\label{tab:silhueta-caracteres}
+\end{table}
+
+Com $K = 60$, a silhueta semântica cresce monotonicamente ao longo da grade,
+enquanto a estrutural se estabiliza em torno de $0{,}12$. Isso indica que
+o espaço semântico admite granularidade mais fina do que o estrutural, mas
+também que $K = 60$ pode estar no \textbf{teto artificial} da grade: valores
+maiores não foram testados, o que constitui uma limitação a considerar na
+interpretação dos resultados.
+
+A predominância de compostos semântico-fonéticos também explica o baixo
+alinhamento esperado entre partições estrutural e semântica de caracteres:
+se o radical marca apenas um campo semântico amplo, caracteres estruturalmente
+próximos (mesmo radical dominante) podem ter significados muito distintos,
+enquanto caracteres semanticamente próximos podem não compartilhar radicais.
+Esse padrão é investigado quantitativamente na Seção~6.
+
+Apesar do desbalanceamento --- com \emph{clusters} grandes e pouco coesos,
+como o estrutural~27 (3.485 caracteres) e o semântico~0 (6.914 caracteres)
+---, muitos grupos menores são interpretáveis: famílias dominadas por
+radicais como \textit{魚}, \textit{鳥}, \textit{水}, \textit{火}, \textit{木}
+e \textit{糸}, em que a coesão estrutural e semântica converge localmente.
+
+\subsection{Perfis e protótipos dos clusters}
+Para tornar as partições legíveis sem decodificar embeddings, caracterizamos
+cada \emph{cluster} por \textbf{centróide} e \textbf{protótipos} --- os
+membros de maior similaridade de cosseno ao centróide no espaço da partição.
+Para \emph{clusters} de caracteres, agregamos também os radicais mais
+frequentes entre os membros.
+
+O script \texttt{analyze\_cluster\_prototypes.py} produz
+\texttt{cluster\_profiles.csv} (uma linha por \emph{cluster}: tamanho,
+radicais frequentes, protótipos) e \texttt{cluster\_prototypes.csv}
+(detalhe por protótipo). Exemplos ilustrativos:
+
+\begin{itemize}
+    \item \textbf{struct\_22} (caracteres): radical dominante \textit{鳥}
+          (100\%); protótipos incluem 莺, 鶯, 鴇.
+    \item \textbf{sem\_44} (caracteres): radical \textit{鳥} em 71\%;
+          definições do tipo \emph{``a kind of bird''}.
+    \item \textbf{struct\_12} (caracteres): radical \textit{水} em 100\%;
+          protótipos ligados a água e fluxo.
+    \item \textbf{sem\_23} (caracteres): radical \textit{水} em 75\%;
+          definições como \emph{``flowing water''}, \emph{``a kind of water''}.
+\end{itemize}
+
+Esses perfis sustentam a análise interpretativa da Seção~7, especialmente
+na identificação de convergências temáticas entre pares de \emph{clusters}
+estrutural e semântico. Com as quatro partições definidas, a Seção~6
+compara diretamente os agrupamentos por métricas de similaridade entre
+partições e matrizes de contingência.
+
+\section{Comparação entre partições}
+Esta seção quantifica o grau de alinhamento entre as partições estrutural e semântica produzidas na seção anterior. Para cada classe de objetos (radicais e caracteres), compara-se a partição obtida no espaço de conectividade com aquela obtida no espaço de embeddings, utilizando métricas de similaridade entre partições e matrizes de contigência.
+
+\subsection{Métricas de alinhamento}
+Adotamos quatro métricas complementares, todas invariantes a parmutações de rótulos:
+
+\begin{itemize}
+    \item \textbf{ARI} (\textit{Adjusted Rand Index}): mede a fração de pares de objetos classificados de forma concordante nas duas partições, com correção para o acaso. $\text{ARI} = 0$ corresponde a partições independentes; $\text{ARI} = 1$ a partições idênticas; valores negativas indicam concordância abaixo do esperado ao acaso.
+    \item \textbf{NMI} (\textit{Normalized Mutual Information}): quantifica a informação mútua entre as duas partições, normalizada pela média de suas entropias. Varia entre 0 (indepêndencia) e 1 (concordância total).
+    \item \textbf{FMI} (\textit{Fowlkes--Mallows Index}): média geométrica de precisão e revocação sobre pares de objetos co-agrupado. Menos sensível a participações desbalanceadas do que o ARI.
+    \item \textbf{V-measure}: média harmônica de homogeneidade e completude, equivalente ao NMI quando calculada com logaritmo natural.
+\end{itemize}
+Todas as métricas foram calculadas no $K$ primário e ao longo da grade de $K$, permitindo avaliar a robustez do alinhamento.
+
+\subsection{Resultados globais no $K$ primário}
+A tabela~\ref{tab:metricas-kprimario} apresenta os valores no $K$ primário para radicais ($K = 3$) e caracteres ($K = 60$).
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Classe} & \textbf{ARI} & \textbf{NMI} & \textbf{FMI} &
+\textbf{V-measure} \\
+\midrule
+Radicais  ($K=3$)  & $-0{,}0007$ & $0{,}017$ & $0{,}573$ & $0{,}017$ \\
+Caracteres ($K=60$) & $\phantom{-}0{,}006$ & $0{,}113$ & $0{,}058$ & $0{,}113$ \\
+\bottomrule
+\end{tabular}
+\caption{Métricas de alinhamento entre partições estrutural e semântica no
+$K$ primário.}
+\label{tab:metricas-kprimario}
+\end{table}
+
+\subsubsection{Radicais}
+Para radicais, o ARI é praticamente nulo ($-0{,}0007$) e o NMI é muito
+baixo ($0{,}017$), indicando que as partições estrutural e semântica são
+essencialmente independentes. O FMI mais elevado ($0{,}573$)
+reflete o desbalanceamento extremo da partição estrutural
+(212\,+\,1\,+\,1): com um único cluster dominante, muitos pares de
+radicais co-aparecem na partição estrutural por omissão, inflando a
+métrica de forma não informativa.
+
+Esse resultado é esperado à luz da natureza dos radicais Kangxi: como
+discutido na Seção~5, a maioria funciona como marcador fonético ou
+categórico amplo nos compostos semântico-fonéticos, sem impor fronteiras
+semânticas entre grupos de caracteres.
+
+\subsubsection{Caracteres}
+Para caracteres, o ARI ($0{,}006$) continua próximo de zero, mas o NMI
+($0{,}113$) e a V-measure indicam um sinal semântico fraco porém
+mensurável: as partições não são completamente independentes. Com $K=60$,
+cerca de $11\%$ da informação de uma partição é explicada pela outra,
+o que supera o acaso mas está muito distante de um alinhamento global
+forte.
+
+\subsection{Robustez em função de $K$}
+A Figura~\ref{fig:metrics-vs-k} exibe as métricas de alinhamento ao longo
+da grade de $K$ para caracteres. O ARI permanece próximo de zero em todos
+os valores testados; o NMI cresce gradualmente com $K$, refletindo que
+partições mais granulares capturam mais informação compartilhada --- mas
+ainda em nível baixo. A linha tracejada marca o $K$ primário escolhido.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{metrics_vs_k_characters.png}
+    \caption{Alinhamento estrutural $\times$ semântico em função de $K$
+    (caracteres). ARI, NMI e FMI calculados entre as duas partições para
+    cada $K$ da grade. Linha tracejada: $K$ primário ($K=60$).}
+    \label{fig:metrics-vs-k}
+\end{figure}
+
+Para radicais, a grade é pequena ($K = 3$ a $15$) e o ARI oscila em torno
+de zero em todos os valores, sem tendência clara, confirmando a ausência de
+alinhamento estrutural--semântico independentemente do $K$ adotado.
+
+\subsection{Matrizes de contingência}
+A matriz de contingência $C$ entre duas partições registra, em cada célula
+$C_{ij}$, o número de objetos que pertencem simultaneamente ao
+\emph{cluster} estrutural $i$ e ao semântico $j$. Um alinhamento forte se
+manifesta como \textbf{blocos escuros na diagonal}; alinhamento fraco
+produz distribuição difusa fora da diagonal.
+
+\subsubsection{Heatmap dos radicais}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{contingency_radicals_heatmap.png}
+    \caption{Matriz de contingência entre partições estrutural e semântica
+    dos radicais ($K=3$). Linhas: clusters estruturais; colunas: clusters
+    semânticos.}
+    \label{fig:contingency-radicals}
+\end{figure}
+
+A Tabela~\ref{tab:contingencia-radicais} detalha os valores numéricos.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lrrr}
+\toprule
+ & \textbf{sem\_0} & \textbf{sem\_1} & \textbf{sem\_2} \\
+\midrule
+\textbf{struct\_0} & 64 & 83 & 65 \\
+\textbf{struct\_1} & 0  & 0  & 1  \\
+\textbf{struct\_2} & 0  & 1  & 0  \\
+\bottomrule
+\end{tabular}
+\caption{Matriz de contingência dos radicais ($K=3$).}
+\label{tab:contingencia-radicais}
+\end{table}
+
+O struct\_0 distribui seus 212 radicais quase uniformemente pelos três
+clusters semânticos (64, 83 e 65), sem correspondência 1-a-1. Os
+singletons \textit{一} (struct\_1) e \textit{口} (struct\_2) caem em
+clusters semânticos diferentes um do outro. A ausência de blocos
+diagonais confirma o ARI nulo.
+
+\subsubsection{Heatmap dos caracteres}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{contingency_characters_heatmap.png}
+    \caption{Matriz de contingência entre partições estrutural e semântica
+    dos caracteres ($K=60$). A escala de cor indica o número de objetos
+    em cada interseção. A diagonal é quase inexistente: apenas 312 dos
+    27.408 caracteres (1,1\%) caem em pares $(i,i)$.}
+    \label{fig:contingency-characters}
+\end{figure}
+
+O heatmap $60 \times 60$ é predominantemente claro, com dois padrões
+visuais destacados:
+
+\begin{enumerate}
+    \item \textbf{Faixa horizontal em struct\_27} e \textbf{faixa vertical
+    em sem\_0}: o maior cluster estrutural (3.485 caracteres) distribui-se
+    por dezenas de clusters semânticos; o maior cluster semântico (6.914
+    caracteres, 25\% do total) absorve caracteres de praticamente todas as
+    partições estruturais. A interseção struct\_27\,$\times$\,sem\_0
+    (764 caracteres) é a célula mais escura do heatmap, mas representa
+    apenas 22\% do struct\_27 e 11\% do sem\_0 --- um artefato de dois
+    \emph{clusters}-resíduo grandes, não uma convergência temática.
+    \item \textbf{Pontos escuros fora da diagonal principal}: correspondem
+    a pares de clusters em que radical dominante e tema semântico coincidem,
+    como struct\_55\,$\times$\,sem\_25 (\textit{魚}, 165 caracteres),
+    struct\_22\,$\times$\,sem\_44 (\textit{鳥}, 141 caracteres) e
+    struct\_12\,$\times$\,sem\_23 (\textit{水}, 150 caracteres). Esses
+    pares constituem as convergências locais analisadas na Seção~7.
+\end{enumerate}
+
+A diagonal formal do heatmap (pares $(i,i)$ com mesmo índice numérico)
+acumula apenas 312 caracteres (1,1\%), confirmando que a
+numeração dos clusters não é preservada entre os dois espaços --- resultado
+esperado, pois o K-means atribui rótulos de forma arbitrária --- e que o
+alinhamento global é de fato baixo.
+
+\subsection{Síntese}
+Os resultados desta seção confirmam quantitativamente o que a estrutura dos
+compostos semântico-fonéticos sugere: \textbf{a organização estrutural e a
+organização semântica dos ideogramas chineses são amplamente independentes}.
+O ARI próximo de zero em todas as escalas de $K$, a V-measure abaixo de
+$0{,}12$ e o heatmap difuso apontam para a mesma conclusão.
+O sinal semântico residual nos caracteres (NMI $\approx 0{,}11$) não é
+nulo, indicando que alguma informação é compartilhada. Essa sobreposição
+parcial concentra-se em famílias morfologicamente transparentes --- radicais
+imagéticos como \textit{魚}, \textit{鳥}, \textit{水} e \textit{火} ---,
+cujos clusters estrutural e semântico se alinham localmente. Essa análise
+é desenvolvida na seção a seguir.
+
+\section{Análise interpretativa}
+Esta seção examina casos concretos de convergência e divergência entre as partições estrutural e semântica, complementando a avaliação quantititativa da seção anterior com interpretação linguística. Os exemplos foram extraídos de \texttt{convergence.csv} e \texttt{divergence.csv}, gerados pelo script
+\texttt{interpret\_examples.py}.
+
+\subsection{Convergências observadas}
+Uma convergência ocorre quando um par de clusters (estrutural $i$,
+semântico $j$) apresenta forte sobreposição, medida pela fração
+\[
+    \text{pureza}(i,j) = \frac{|S_i \cap T_j|}{\min(|S_i|, |T_j|)}.
+\]
+A Tabela~\ref{tab:convergencias} lista os dez pares mais relevantes para
+caracteres, ordenados por pureza decrescente.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{llrrp{4.2cm}}
+\toprule
+\textbf{Par} & \textbf{Tema} & \textbf{Overlap} & \textbf{Pureza} &
+\textbf{Exemplos} \\
+\midrule
+struct\_33 $\times$ sem\_40 & Jade (\textit{玉})     & 98  & 0,63 &
+    㓘, 㺨, 㺩, 㺪, 㺫 \\
+struct\_50 $\times$ sem\_35 & Cavalos (\textit{馬})  & 108 & 0,53 &
+    䭴, 䭵, 䭷, 䭸, 䭹 \\
+struct\_23 $\times$ sem\_37 & Bambu (\textit{竹})    & 108 & 0,49 &
+    㰏, 䇘, 䇙, 䇛, 䇜 \\
+struct\_34 $\times$ sem\_41 & Madeira (\textit{木})  & 133 & 0,48 &
+    㩽, 㭁, 㭄, 㭇, 㭎 \\
+struct\_42 $\times$ sem\_39 & Fogo (\textit{火})     & 97  & 0,47 &
+    㶡, 㶣, 㶧, 㶨, 㶯 \\
+struct\_15 $\times$ sem\_11 & Seda/fios (\textit{糸})& 82  & 0,47 &
+    䊻, 䊼, 䊽, 䋃, 䋐 \\
+struct\_55 $\times$ sem\_25 & Peixes (\textit{魚})   & 165 & 0,46 &
+    䁩, 䐳, 䰲, 䰴, 䰵 \\
+struct\_22 $\times$ sem\_44 & Aves (\textit{鳥})     & 141 & 0,44 &
+    㶉, 䲥, 䲦, 䲧, 䲨 \\
+struct\_12 $\times$ sem\_23 & Água (\textit{水})     & 150 & 0,44 &
+    㟫, 㲸, 㲺, 㲾, 㳁 \\
+struct\_27 $\times$ sem\_30 & Radicais Kangxi        & 68  & 0,46 &
+    丨, 亅, 冂, 冖, 凵 \\
+\bottomrule
+\end{tabular}
+\caption{Pares de clusters com maior convergência entre partições estrutural
+e semântica (caracteres, $K=60$).}
+\label{tab:convergencias}
+\end{table}
+
+Os nove primeiros pares correspondem a famílias morfologicamente
+transparentes: radicais imagéticos concretos como \textit{魚}, \textit{鳥},
+\textit{水} e \textit{火} agrupam estruturalmente caracteres cujas definições
+também giram em torno do mesmo conceito. Essa convergência ocorre porque,
+nessas famílias, o radical preservou sua carga semântica original ao longo
+da evolução histórica da escrita.
+
+O décimo par (struct\_27 $\times$ sem\_30) é de natureza diferente: agrupa
+meta-caracteres do próprio sistema de escrita --- traços e
+componentes Kangxi usados como radicais de índice ---, cuja similaridade
+semântica decorre das definições do tipo \textit{``Kangxi radical N''}.
+Para radicais, as convergências refletem apenas as subdivisões internas do
+cluster~0 (212 objetos) nos três grupos semânticos, sem correspondência
+1-a-1 entre partições.
+
+\subsection{Divergências observadas}
+Uma divergência ocorre quando objetos estruturalmente próximos
+(mesmo cluster estrutural) pertencem a clusters semânticos distintos, ou
+vice-versa. Dois padrões dominam:
+
+\textbf{(a) Estrutura agrupa, semântica separa
+(\emph{struct\_together\_sem\_split}).}
+Caracteres com o mesmo radical dominante podem ter significados muito
+distintos. Por exemplo, o cluster estrutural~1 (radical \textit{口},
+1.306 caracteres) distribui seus membros por dezenas de clusters semânticos:
+entre eles, 㐖 (\textit{``old name for India''}), 㐭 (\textit{``a granary''})
+e 㐯 (\textit{``to employ; to use''}) --- significados sem relação entre si
+apesar do radical comum. Esse padrão é o mais frequente e reflete a função
+fonética ou categórica ampla da maioria dos radicais.
+
+\textbf{(b) Semântica agrupa, estrutura separa
+(\emph{sem\_together\_struct\_split}).}
+Caracteres semanticamente próximos podem ter radicais distintos. O cluster
+semântico~1 (\textit{又}, \textit{丨}, \textit{乙}...) reúne os singletons
+estruturais \textit{一} e \textit{口}, que nada têm em comum
+estruturalmente mas se aproximam no espaço semântico por compartilharem
+definições simples e genéricas. Esse padrão é menos frequente, mas ilustra
+que a proximidade semântica pode surgir independentemente da morfologia.
+
+\subsection{Síntese interpretativa}
+Os padrões observados convergem para uma interpretação coerente com a
+linguística chinesa: 
+
+\textbf{Radicais semanticamente transparentes} ---
+aqueles que designam entidades concretas e imagéticas (animais, elementos,
+materiais) --- produzem alinhamento local entre estrutura e semântica.
+
+\textbf{Radicais semanticamente opacos} --- usados como marcadores
+fonéticos ou categorias amplas --- geram divergência, pois agrupam
+estruturalmente caracteres com significados heterogêneos.
+Em termos quantitativos, as dez convergências identificadas cobrem
+aproximadamente 1.150 caracteres (4,2\% do total), enquanto a divergência
+domina os outros 95,8\% --- proporção compatível com o NMI global de
+$0{,}11$ e o ARI de $0{,}006$ reportados na Seção~6.
+
+\section{Centralidade na rede}
+Complementando a análise de agrupamentos, calculamos cinco medidas de centralidade no grafo bipartido estrutural: Grau (Degree), Intermediação (Betweenness), Proximidade (Closeness), Autovetor (Eigenvector) e PageRank. As métricas que exigem conectividade (betwenness, closeness e eigenvector) foram computadas na componente principal (27.618 vértices); nós fora dela recebem pontuação zero. O cálculo foi realizado com \texttt{networkx} (\texttt{compute\_centrality.py}); a intermediação usou amostragem aproximada (\texttt{betweenness-k = 1000}) por custo computacional.
+
+\subsection{Resultados para radicais}
+A Tabela~\ref{tab:centralidade-radicais} resume o top-5 em cada métrica.
+Há forte concentração nos mesmos radicais em todas as medidas:
+\textit{一}, \textit{口} e \textit{人} lideram consistentemente,
+seguidos por \textit{木}, \textit{八} e \textit{日}.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Rank} & \textbf{Degree} & \textbf{Between.} &
+\textbf{Closeness} & \textbf{Eigenvec.} & \textbf{PageRank} \\
+\midrule
+1 & 一 (4558)  & 一 & 一 & 一 & 一 \\
+2 & 口 (4029)  & 口 & 口 & 口 & 口 \\
+3 & 人 (2803)  & 人 & 人 & 人 & 人 \\
+4 & 木 (2318)  & 木 & 木 & 八 & 木 \\
+5 & 八 (2062)  & 日 & 八 & 丨 & 日 \\
+\bottomrule
+\end{tabular}
+\caption{Top-5 radicais por métrica de centralidade. Valores de grau
+absoluto entre parênteses na coluna Degree.}
+\label{tab:centralidade-radicais}
+\end{table}
+
+\textit{一} conecta-se a 4.558 caracteres (16,6\% do total), funcionando
+como \textbf{hub estrutural} da rede. Sua alta intermediação indica
+papel de ``ponte'' entre subconjuntos de caracteres; alto autovetor e
+PageRank confirmam influência topológica global.
+
+\subsection{Relação com alinhamento estrutura--semântica}
+A centralidade não implica alinhamento semântico. Os hubs
+\textit{一} e \textit{口} são singletons na partição estrutural (Seção~5)
+e não formam convergências temáticas na Seção~7: sua importância
+reflete função estrutural ampla (marcador fonético ou
+componente frequente), não carga semântica específica.
+
+Em contraste, radicais menos centrais porém imagéticos --- como
+\textit{魚} (grau 371, fora do top-10) e \textit{鳥} --- produzem
+convergências locais fortes (Seção~7). A centralidade descreve
+quem domina a topologia; a convergência descreve
+onde a semântica ainda é transparente. São visões complementares.
+Para caracteres, as métricas são menos interpretáveis: o grau máximo é
+8 (caracteres com o maior número de radicais distintos), e os tops de
+betweenness e PageRank concentram-se em caracteres raros e morfologicamente
+complexos, sem padrão semântico claro. A análise de centralidade
+concentra-se, portanto, nos radicais.
+
+\section{Discussão e Conclusão}
+\subsection{Discussão}
+Os resultados confirmam quantitativamente uma propriedade bem
+documentada da escrita chinesa: a maioria dos ideogramas são
+\textbf{compostos semântico-fonéticos} (形声字), nos quais o radical
+indica categoria ampla e o componente fonético determina pronúncia.
+Isso explica o baixo alinhamento global (ARI $\approx 0$, NMI
+$\approx 0{,}11$), a silhueta estrutural negativa nos radicais e a
+predominância de divergências sobre convergências.
+
+As \textbf{convergências locais} (魚, 鳥, 水, 火, 木, 糸, 玉, 馬, 竹)
+ocorrem precisamente em radicais \textbf{semanticamente transparentes}
+--- imagéticos e concretos ---, enquanto os hubs topológicos
+(\textit{一}, \textit{口}, \textit{人}) são semanticamente opacos.
+A centralidade e o alinhamento medem fenômenos distintos e
+complementares.
+
+\textbf{Limitações:} (i)~definições em inglês (\texttt{kDefinition})
+podem não capturar nuances semânticas do chinês; (ii)~$K=60$ está no
+teto da grade testada; (iii)~K-means com métricas distintas para
+agrupamento (euclidiana) e silhueta (cosseno); (iv)~recorte Unicode
+exclui extensões posteriores do CJK.
+
+\subsection{Conclusão}
+Este trabalho construiu um pipeline reprodutível para investigar a relação entre estrutura morfológica e semântica em 27.408 ideogramas e 214 radicais Kangxi, combinando grafos bipartidos e embeddings textuais. Os experimentos demonstram que a estrutura gráfica preserva informação semântica de forma parcial e temática, concentrada em famílias de radicais concretos, e não como correspondência global entre topologia e significado.
+
+O objetivo geral do projeto --- investigar o grau de alinhamento entre
+agrupamentos estruturais e semânticos --- foi atingido: os resultados
+são mensuráveis, interpretáveis e coerentes com a linguística chinesa.
+O repositório público documenta o pipeline completo, desde a extração
+Unihan até as métricas de comparação e centralidade.
+
+\end{document}
