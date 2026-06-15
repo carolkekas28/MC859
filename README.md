@@ -250,6 +250,16 @@ uv run python -u scripts/interpret_examples.py
 - **Saídas:** `entrega_final/exemplos/` (`convergence.csv`, `divergence.csv`, `digest.md`)
 - **Propósito:** exemplos de convergência e divergência entre agrupamentos estrutural e semântico.
 
+**13. Perfis e protótipos de clusters (complemento etapa 6)**
+
+```bash
+uv run python -u scripts/analyze_cluster_prototypes.py
+```
+
+- **Entradas:** partições, embeddings, features estruturais, `characters.csv`, opcionalmente `convergence.csv`
+- **Saídas:** `entrega_final/exemplos/` (`cluster_prototypes.csv`, `cluster_profiles.csv`, `cluster_centroids_meta.json`); centróides em `data/processed/partitions/centroids/cluster_centroids.npz`
+- **Propósito:** caracterizar cada cluster por centróide e protótipos (vizinhos mais próximos), sem decodificar embeddings.
+
 ## Cronograma e Planejamento
 
 
